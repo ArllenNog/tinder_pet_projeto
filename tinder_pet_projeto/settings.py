@@ -40,7 +40,7 @@ SECRET_KEY = 'django-insecure-7p%6mh-@&*l-w2a$9o^5^lr5y23-b)$c^jdh0jmb8a!!uycc+p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', 'tinder-pet-projeto.onrender.com']
 
 
 # Application definition
@@ -128,8 +128,12 @@ USE_I18N = True
 
 USE_TZ = True
 
-CSRF_COOKIE_DOMAIN = '.tinder-pet-projeto.onrender.com'  # Para compartilhar o cookie entre subdomínios
+CSRF_COOKIE_DOMAIN = '.onrender.com'  # Para compartilhar o cookie entre subdomínios
 CSRF_COOKIE_SECURE = True  # Garantir que o cookie seja enviado via HTTPS em produção
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://tinder-pet-projeto.onrender.com',  # Adicione seu domínio
+]
 
 
 # Static files (CSS, JavaScript, Images)
