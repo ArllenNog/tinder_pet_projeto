@@ -132,7 +132,7 @@ CSRF_COOKIE_DOMAIN = '.onrender.com'  # Para compartilhar o cookie entre subdom�
 CSRF_COOKIE_SECURE = True  # Garantir que o cookie seja enviado via HTTPS em produção
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://tinder-pet-projeto.onrender.com',  # Adicione seu domínio
+    'https://tinder-pet-projeto.onrender.com'  # Adicione seu domínio
 ]
 
 
