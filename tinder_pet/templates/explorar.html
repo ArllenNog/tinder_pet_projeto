@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block conteudo %}
+  <form method="GET" action="{% url 'explorar' %}" id="filtro-form">
+    <ul class="nav nav-pills justify-content-center m-2">
+      <li class="nav-item">
+        <div type="submit" class="tag-filtro {% if tipoFiltro == 2 %} tf-selecionado {% endif %}" id="filtro-todos">Todos</div>
+      </li>
+      <li class="nav-item">
+        <div type="submit" class="tag-filtro {% if tipoFiltro == 0 %} tf-selecionado {% endif %}" id="filtro-cachorros">Cachorros</div>
+      </li>
+      <li class="nav-item">
+        <div type="submit" class="tag-filtro {% if tipoFiltro == 1 %} tf-selecionado {% endif %}" id="filtro-gatos">Gatos</div>
+      </li>
+    </ul>
+  <input type="number" value="0" name="tipo" id="filtro-tipo" hidden>
+  </form>
+  <div class="mural">
+  {% if anuncios.count == 0 %}
+    <div class="text-center">
+      <br>
+      <p>Nenhum pet disponível ainda</p>
+      <a class="btn btn-primary" href="{% url 'anunciar' %}">Seja o primeiro a divulgar</a>
+    </div>
+  {% endif %}
+  {% for a in anuncios %}
+      {% if a.status == 0 %}
+      <div class="col mural-item">
+        <form method="GET" action="{% url 'anuncio' %}">
+          <input type="number" value="{{ a.id }}" name="id" hidden>
+          <div class="mural-content">
+            <img src="{% static a.pet__fotoDestaque %}" class="mural-photo">
+            <button type="submit">
+              <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="80" height="80" x="0" y="0" viewBox="0 0 61.589 61.589" xml:space="preserve" class="icon-ver">
+                <g>
+                  <path d="M41.287 7.067c-9.43-9.423-24.777-9.423-34.207.005-9.441 9.439-9.439 24.779 0 34.219 8.839 8.834 22.827 9.276 32.327 1.535l3.929 3.925-1.144 1.144L55.888 61.59l5.7-5.7-13.695-13.699-1.136 1.139-3.937-3.935c7.751-9.492 7.323-23.473-1.533-32.328zm-1.006 30.391-2.824 2.824c-8.228 6.772-20.404 6.414-28.091-1.272-8.178-8.173-8.18-21.483 0-29.652 8.171-8.173 21.474-8.173 29.642-.004 7.692 7.69 8.051 19.867 1.273 28.104z"
+                  fill="white" opacity="1"></path>
+                  <path d="M24.035 21.58c-3.574 0-9.973 5.21-9.973 11.64 0 6.431 4.462 1.673 9.973 1.673 5.509 0 9.971 4.758 9.971-1.673 0-6.43-6.394-11.638-9.971-11.64zM32.393 15.829c-.691 2.578-2.762 4.261-4.624 3.762-1.861-.497-2.811-2.993-2.122-5.568.689-2.58 2.76-4.261 4.624-3.764 1.86.499 2.811 2.992 2.122 5.57zm-9.968-1.802c.689 2.578-.258 5.071-2.121 5.568-1.861.498-3.931-1.186-4.622-3.764-.689-2.575.26-5.068 2.122-5.568 1.861-.497 3.93 1.186 4.621 3.764zm-12.217 4.27c1.478-.853 3.634.114 4.813 2.16 1.182 2.044.94 4.396-.536 5.249-1.478.854-3.636-.114-4.815-2.158-1.182-2.046-.941-4.396.538-5.251zm22.851 2.162c1.182-2.044 3.335-3.013 4.813-2.158 1.477.854 1.716 3.205.534 5.249-1.18 2.044-3.337 3.013-4.813 2.158-1.48-.855-1.72-3.205-.534-5.249z"
+                  fill="white" opacity="1"></path>
+                </g>
+              </svg>
+            </button>
+            
+            <div class="mural-desc">
+              <h3>{{ a.pet__nome }}</h3>
+              <p>{{ a.pet__raca__racas }}</p>
+            </div>
+            {% if a.pet__sexo == 0 %}
+                <div class="tag fixo masc">Macho</div>
+              {% else %}
+                <div class="tag fixo fem">Fêmea</div>
+              {% endif %}
+          </div>
+        </form>
+      </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  {% if first_time == 1 %}
+  <div class="d-flex align-items-center justify-content-center tela-primeira-vez" id="intro-screen">
+    <div class="container text-center">
+      <form method="POST" action="{% url 'explorar' %}" id="first-form">
+        <h1>Bem-vindo ao Tinder Pet</h1>
+        <p>O Tinder Pet é uma iniciativa do deputado Duarte Jr para evitar o abandono e garantir que os animais possam receber um novo lar com muito carinho e cuidado.
+          Aqui você irá conhecer o seu novo melhor amigo, ou encontrar um novo lar para o seu pet.</p>
+        <h4>Qual o seu objetivo inicial?</h4>
+        <input type="number" name="firstTime" value="0" hidden>
+        <input type="number" name="querAdotar" value="0" id="quer-adotar-ipt" hidden>
+        <button type="button" class="tinder-pet-button" id="intro-adotar-btn">Quero adotar</button>
+        <button type="button" class="tinder-pet-button" id="intro-doar-btn">Quero doar</button>
+      {% csrf_token %}
+      </form>
+    </div>
+  </div>
+  {% endif %}
+{% endblock %}

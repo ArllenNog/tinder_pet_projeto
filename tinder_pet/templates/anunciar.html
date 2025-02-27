@@ -1,0 +1,283 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block conteudo %}
+<dialog id="aviso">
+    <h3>Ops</h3>
+    <p>Você esqueceu de preencher corretamente alguns campos!</p>
+    <form>
+        <button formmethod="dialog">OK</button>
+    </form>
+</dialog>
+<div class="img-bg">
+    <h1 class="tinder-pet-titulo">Nova doação</h1>
+    <p>Procurando um novo lar para o seu pet?</p>
+    <img src="{% static 'images/duarte-pet.png' %}" width="80%">
+</div>
+<div class="container text-center">
+    <form method="POST" action="{% url 'anunciar' %}" enctype="multipart/form-data" id="novo-anuncio-form">
+        <!--<label class="cad-label">Qual o objetivo do anúncio?</label><br>
+        <div class="d-flex">
+            <label class="input-pet lbl-group1">
+                <input type="radio" name="anuncio_tipo" value="0" class="input-pet-radio ipt-group1" required>
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="80" height="80" x="0" y="0" viewBox="0 0 24 24" xml:space="preserve">
+                    <g>
+                        <path d="m21.665 11.253-9-8a1 1 0 0 0-1.33 0l-9 8a1 1 0 1 0 1.33 1.494l.335-.3V20a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-7.551l.335.3a1 1 0 1 0 1.33-1.494z" fill="#000000" opacity="1"></path>
+                    </g>
+                </svg>
+                <span>Colocar para adoção</span>
+            </label>
+            <label class="input-pet lbl-group1">
+                <input type="radio" name="anuncio_tipo" value="1" class="input-pet-radio ipt-group1" required>
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="80" height="80" x="0" y="0" viewBox="0 0 24 24" xml:space="preserve" fill-rule="evenodd">
+                    <g>
+                        <path d="M8.061 11.166c1.244-2.448 4.08-3.011 5.894-2.133 1.97.952 2.823 3.66 2.009 6.861-.55 2.163-2.616 4.787-4.47 6.637a.75.75 0 0 1-.723.194c-2.531-.675-5.632-1.915-7.19-3.513C1.276 16.846.66 14.076 1.89 12.266c1.132-1.668 3.87-2.598 6.171-1.1zM6.171 5.165a.75.75 0 1 1-1.342.67l-.5-1a.75.75 0 1 1 1.342-.67zM17.329 18.835a.75.75 0 1 1 1.342-.67l.5 1a.75.75 0 1 1-1.342.67zM3.835 9.671a.75.75 0 1 1-.67-1.342l1-.5a.75.75 0 1 1 .67 1.342zM19.665 14.329a.75.75 0 1 1 .67 1.342l-1 .5a.75.75 0 1 1-.67-1.342z" fill="#000000" opacity="1"></path>
+                        <path d="M8.26 9.223a7.025 7.025 0 0 1-.224-.719c-.813-3.201.039-5.907 2.009-6.86 1.814-.878 4.65-.315 5.894 2.134 2.301-1.499 5.039-.568 6.171 1.099 1.229 1.81.612 4.578-1.684 6.939-.769.79-1.901 1.502-3.166 2.093.094-2.733-1.031-4.887-2.869-5.777-1.787-.864-4.39-.605-6.131 1.091z" fill="#000000" opacity="1" ></path>
+                    </g>
+                </svg>
+                <span>Procurar parceiro(a)</span>
+            </label>
+        </div><br>-->
+        
+        <!--<label class="cad-label">Informe um título</label><br>
+        <input name="titulo" class="tinder-pet-input" type="text" required><br><br>-->
+        <div style="height: 60px;"></div>
+        <label class="cad-label">Qual é tipo de pet?</label><br>
+        <div class="d-flex justify-content-center">
+            <label class="input-pet lbl-group1" >
+                <input type="radio" name="pet_tipo" value="0" class="input-pet-radio ipt-group1" id="pet-tipo-radio-cachorro" required>
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="80" height="80" x="0" y="0" viewBox="0 0 448.024 448" xml:space="preserve" class="">
+                    <g fill="#002569">
+                        <path d="M31.16 85.77C-1.27 155.53-8.52 203.957 10.04 229.559a41.79 41.79 0 0 0 35.413 17.277 40.844 40.844 0 0 0 5.117-.426c1.067-5.972 2.137-12.375 3.63-18.773l3.624-16.64c11.52-53.759 28.16-129.708 66.348-180.052C96.227 32.863 51.21 42.68 31.16 85.77zm0 0" opacity="1"></path>
+                        <path d="M369.426 215.637C350.78 129.785 322.594.012 224.012.012S97.242 129.785 78.598 215.637l-3.668 16.726c-10.625 47.856-6.012 83.313 14.132 108.418 22.051 27.48 62.95 41.461 124.282 42.934v-65.219c-18.785-4.836-31.938-21.75-32-41.152.011-11.778 9.558-21.32 21.336-21.332h42.664c11.777.011 21.324 9.554 21.336 21.332-.063 19.402-13.211 36.316-32 41.152v65.219c61.332-1.473 102.23-15.453 124.28-42.934 20.145-25.101 24.759-60.558 14.134-108.414zm-177.414-44.961a10.65 10.65 0 0 1-7.543-3.121 10.655 10.655 0 0 1-3.125-7.543c0-5.89-4.774-10.668-10.664-10.668s-10.668 4.777-10.668 10.668-4.778 10.664-10.668 10.664-10.664-4.774-10.664-10.664c0-17.676 14.324-32 32-32 17.672 0 32 14.324 32 32 0 2.828-1.121 5.543-3.125 7.543-2 2-4.715 3.125-7.543 3.12zm106.668 0a10.66 10.66 0 0 1-10.668-10.664c0-5.89-4.778-10.668-10.668-10.668s-10.664 4.777-10.664 10.668-4.778 10.664-10.668 10.664-10.668-4.774-10.668-10.664c0-17.676 14.328-32 32-32 17.676 0 32 14.324 32 32 .004 2.828-1.121 5.543-3.121 7.543s-4.715 3.125-7.543 3.12zm0 0" opacity="1"></path>
+                        <path d="M245.344 277.344H202.68c0 11.781 9.55 21.332 21.332 21.332s21.332-9.551 21.332-21.332zM416.863 85.77c-20.05-43.094-65.066-52.907-93.011-54.825 38.187 50.344 54.828 126.504 66.347 180.266l3.84 16.64c1.492 6.399 2.559 12.587 3.414 18.56v.214c1.707 0 3.41.21 5.117.21a41.79 41.79 0 0 0 35.414-17.276c18.563-25.602 11.309-74.028-21.12-143.79zm0 0" opacity="1" ></path>
+                    </g>
+                </svg>
+                <span>Cachorro</span>
+            </label>
+            <label class="input-pet lbl-group1">
+                <input type="radio" name="pet_tipo" value="1" class="input-pet-radio ipt-group1" id="pet-tipo-radio-gato" required>
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="80" height="80" x="0" y="0" viewBox="0 0 64 64" xml:space="preserve" class="">
+                    <g fill="#002569">
+                        <path d="M59.98 37.08a20.827 20.827 0 0 0-.95-6.07 13.97 13.97 0 0 0-2.26.3 22.81 22.81 0 0 0-7.26 3.09 1.128 1.128 0 0 1-1.29-1.85 24.156 24.156 0 0 1 7.73-3.37 15.843 15.843 0 0 1 2.29-.37c-.24-.96-1.23-2-1.18-3.04 1.04-3.64 3.19-12.52.61-16.49-3.45-4.58-11.21 1.3-14.8 3.82a.889.889 0 0 1-.83.13c-.8-.31-1.9-.69-3.11-1.05v6.86a1.13 1.13 0 0 1-2.26 0V11.6a16.953 16.953 0 0 0-3.55-.43v12.11a1.125 1.125 0 0 1-2.25 0V11.17a17.033 17.033 0 0 0-3.55.43v7.44a1.125 1.125 0 0 1-2.25 0c.02-1.51-.02-5.39 0-6.86-1.22.36-2.31.74-3.11 1.05a.909.909 0 0 1-.84-.13c-3.04-2.3-8.67-6.07-12.29-5.44-6.44 1.5-2.87 14.32-1.89 18.11.04 1.03-.94 2.09-1.19 3.04a15.622 15.622 0 0 1 2.29.37 23.907 23.907 0 0 1 7.73 3.37 1.125 1.125 0 0 1-1.28 1.85 22.94 22.94 0 0 0-7.26-3.09 14.093 14.093 0 0 0-2.27-.3 20.439 20.439 0 0 0-.9 7.31 16.247 16.247 0 0 1 2.21-.72 20.432 20.432 0 0 1 6.75-.51 1.123 1.123 0 1 1-.27 2.23 18.89 18.89 0 0 0-6.24.56 12.632 12.632 0 0 0-2.13.76 11.42 11.42 0 0 0 .92 2.78c9.41 17.36 43.99 17.35 53.39.01a11.06 11.06 0 0 0 .93-2.79 12.632 12.632 0 0 0-2.13-.76 18.938 18.938 0 0 0-6.25-.56 1.123 1.123 0 0 1-.27-2.23 20.428 20.428 0 0 1 6.75.51c1.21.06 2.56 1.63 2.26-.52zM19.4 29.25a1.13 1.13 0 0 1-1.85-1.3 4.997 4.997 0 0 1 8.61 0 1.129 1.129 0 0 1-.92 1.77 1.184 1.184 0 0 1-.93-.47 2.785 2.785 0 0 0-4.91 0zM42.02 41.8c-1.27 2.55-3.28 4-5.52 4a5.7 5.7 0 0 1-4.5-2.4 5.733 5.733 0 0 1-4.51 2.4c-2.23 0-4.25-1.45-5.51-4a1.125 1.125 0 1 1 2.01-1.01c.87 1.76 2.15 2.76 3.5 2.76 1.3 0 2.51-.91 3.38-2.54v-2.32a2.223 2.223 0 0 1-.54-.43l-1.5-1.64a2.267 2.267 0 0 1 1.66-3.78h3.02a2.264 2.264 0 0 1 1.65 3.78l-1.49 1.64a2.095 2.095 0 0 1-.55.43v2.32c1.79 3.48 5.2 3.31 6.89-.22a1.125 1.125 0 0 1 2.01 1.01zm4.14-12.28a1.131 1.131 0 0 1-1.56-.27 2.793 2.793 0 0 0-4.92 0 1.13 1.13 0 0 1-1.85-1.3 4.997 4.997 0 0 1 8.61 0 1.117 1.117 0 0 1-.28 1.57z" opacity="1"></path>
+                    </g>
+                </svg>
+                <span>Gato</span>
+            </label>
+        </div><br>
+
+        <label class="cad-label">Qual o sexo?</label><br>
+        <div class="d-flex justify-content-center">
+            <label class="input-pet lbl-group2">
+                <input type="radio" name="pet_sexo" value="0" class="input-pet-radio ipt-group2" required>
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="80" height="80" x="0" y="0" viewBox="0 0 50 50" xml:space="preserve" class="">
+                    <g fill="#002569">
+                        <path d="M45.8 1.7H32c-1.4 0-2.5 1.1-2.5 2.5s1.1 2.5 2.5 2.5h7.7l-9.2 9.2c-7.1-5.3-17.2-4.8-23.6 1.6-7 7-7 18.5 0 25.5s18.5 7 25.5 0c6.4-6.4 7-16.6 1.6-23.6l9.2-9.2V18c0 1.4 1.1 2.5 2.5 2.5s2.5-1.1 2.5-2.5V4.2c.1-1.4-1-2.5-2.4-2.5zM29 39.5c-5.1 5.1-13.4 5.1-18.5 0s-5.1-13.4 0-18.5 13.4-5.1 18.5 0 5.1 13.4 0 18.5z" opacity="1"></path>
+                    </g>
+                </svg>
+                <span>Macho</span>
+            </label>
+            <label class="input-pet lbl-group2">
+                <input type="radio" name="pet_sexo" value="1" class="input-pet-radio ipt-group2" required>
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="80" height="80" x="0" y="0" viewBox="0 0 512 512" xml:space="preserve" class="">
+                    <g fill="#002569">
+                        <path d="M376.264 290.173c66.314-66.293 66.314-174.16 0-240.453-66.314-66.294-174.214-66.294-240.529 0-66.314 66.293-66.314 174.16 0 240.453 28.07 28.061 63.591 44.24 100.254 48.546v56.923h-40.018c-11.051 0-20.009 8.956-20.009 20.003s8.958 20.003 20.009 20.003h40.018v56.348c.001 11.047 8.959 20.003 20.011 20.003 11.051 0 20.009-8.956 20.009-20.003v-56.348h40.019c11.051 0 20.009-8.956 20.009-20.003s-8.958-20.003-20.009-20.003h-40.019V338.72c36.664-4.307 72.185-20.486 100.255-48.547zm-212.231-28.289c-50.711-50.695-50.711-133.181 0-183.876 50.71-50.693 133.221-50.696 183.934 0 50.711 50.695 50.711 133.181 0 183.876-50.711 50.694-133.223 50.694-183.934 0z" opacity="1"></path>
+                    </g>
+                </svg>
+                <span>Fêmea</span>
+            </label>
+        </div><br>
+        
+        <label class="cad-label">Nome do pet</label><br>
+        <input type="text" name="nome_pet" class="tinder-pet-input"><br><br>
+        <div class="d-flex justify-content-center">
+            <div class="ms-1 me-1">
+                <label class="cad-label">Peso(kg)</label><br>
+                <input type="number" name="peso_pet" class="tinder-pet-input" style="width: 120px;">
+            </div>
+            <div class="ms-1 me-1">
+                <label class="cad-label">Idade</label><br>
+                <input type="number" name="idade_pet" class="tinder-pet-input" style="width: 120px;">
+            </div>
+        </div>
+        <br>
+
+        <label class="cad-label">Qual a raça?</label><br>
+        <select name="raca_pet_id_cachorro" class="tinder-pet-input" id="racas-cachorros">
+            <option value="" selected></option>
+            {% for r in racas %}
+                {% if r.tipo == 0 %}
+                <option value="{{ r.id }}">{{ r.racas }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        <select name="raca_pet_id_gato" class="tinder-pet-input" id="racas-gatos" style="display: none;">
+            <option value="" selected></option>
+            {% for r in racas %}
+                {% if r.tipo == 1 %}
+                <option value="{{ r.id }}">{{ r.racas }}</option>
+                {% endif %}
+            {% endfor %}
+            <option value="54">SRD - Sem raça definida</option>
+        </select><br><br>
+
+        <label class="cad-label">Conte um pouco sobre o seu pet</label><br>
+        <textarea name="desc" class="tinder-pet-input" rows="5" required></textarea><br><br>
+        
+        <label class="cad-label">Foto de perfil</label><br>
+        <div class="d-flex justify-content-center">
+            <input type="file" name="foto_destaque" id="foto-destaque-pet" value="" hidden>
+            <div class="preview-foto-cad-pet" id="foto-destaque-pet-preview">
+                <img src="" id="foto-destaque-pet-target">
+                <div class="image-controls-btn">
+                    <label for="foto-destaque-pet" class="btn" id="btn-change-foto-destaque-pet">
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" x="0" y="0" viewBox="0 0 512 512" xml:space="preserve" class="">
+                            <g>
+                                <path fill-rule="evenodd" d="M366.823 146.207h-134.34V204.5a10.586 10.586 0 0 1-16.177 8.988l-77.035-47.93-78.765-49.01a10.585 10.585 0 0 1 0-17.975l78.766-49.007 77.034-47.929a10.342 10.342 0 0 1 10.732-.265 10.346 10.346 0 0 1 5.445 9.252v58.289H401.23a55.364 55.364 0 0 1 55.257 55.258v123.518a8.328 8.328 0 0 1-8.311 8.311h-60.671a8.328 8.328 0 0 1-8.312-8.311v-89.111a12.4 12.4 0 0 0-12.37-12.371zM145.178 365.793a12.4 12.4 0 0 1-12.371-12.371v-89.111A8.329 8.329 0 0 0 124.5 256H63.824a8.328 8.328 0 0 0-8.311 8.311v123.518a55.364 55.364 0 0 0 55.257 55.258h168.747v58.289a10.586 10.586 0 0 0 16.177 8.987l77.034-47.929 78.766-49.007a10.585 10.585 0 0 0 0-17.975l-78.765-49.006-77.035-47.93a10.586 10.586 0 0 0-16.177 8.988v58.289z" fill="white" opacity="1"></path>
+                            </g>
+                        </svg>
+                    </label>
+                    <!--<button type="button" id="btn-remove-foto-destaque-pet">
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" x="0" y="0" viewBox="0 0 512 512" xml:space="preserve" class="">
+                            <g>
+                                <path d="m62.205 150 26.569 320.735C90.678 493.865 110.38 512 133.598 512h244.805c23.218 0 42.92-18.135 44.824-41.265L449.795 150H62.205zm118.781 302c-7.852 0-14.458-6.108-14.956-14.063l-15-242c-.513-8.276 5.771-15.395 14.033-15.908 8.569-.601 15.381 5.757 15.908 14.033l15 242c.531 8.57-6.25 15.938-14.985 15.938zM271 437c0 8.291-6.709 15-15 15s-15-6.709-15-15V195c0-8.291 6.709-15 15-15s15 6.709 15 15v242zm89.97-241.062-15 242c-.493 7.874-7.056 14.436-15.908 14.033-8.262-.513-14.546-7.632-14.033-15.908l15-242c.513-8.276 7.764-14.297 15.908-14.033 8.262.513 14.546 7.632 14.033 15.908zM451 60h-90V45c0-24.814-20.186-45-45-45H196c-24.814 0-45 20.186-45 45v15H61c-16.569 0-30 13.431-30 30 0 16.567 13.431 30 30 30h390c16.569 0 30-13.433 30-30 0-16.569-13.431-30-30-30zm-120 0H181V45c0-8.276 6.724-15 15-15h120c8.276 0 15 6.724 15 15v15z" fill="white" opacity="1"></path>
+                            </g>
+                        </svg>
+                    </button>-->
+                </div>
+            </div>
+            <label for="foto-destaque-pet" id="foto-destaque-pet-label" class="tinder-pet-input-file m-1">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="80" height="80" x="0" y="0" viewBox="0 0 24 24" xml:space="preserve">
+                    <g>
+                        <rect x="0" y="0" width="512" height="512" fill="#39ade4" opacity="1"></rect>
+                        <path d="M12 6a1 1 0 0 0-1 1v4H7a1 1 0 0 0 0 2h4v4a1 1 0 0 0 2 0v-4h4a1 1 0 0 0 0-2h-4V7a1 1 0 0 0-1-1z" fill="white" opacity="1"></path>
+                    </g>
+                </svg>
+            </label>
+        </div>
+
+        <label class="cad-label">Fotos adicionais</label><br>
+        <input type="file" name="foto_1" id="foto-1-pet" value="" hidden>
+        <input type="file" name="foto_2" id="foto-2-pet" value="" hidden>
+        <input type="file" name="foto_3" id="foto-3-pet" value="" hidden>
+        <input type="file" name="foto_4" id="foto-4-pet" value="" hidden>
+        <div class="d-flex justify-content-center">
+            <div class="preview-foto-cad-pet" id="foto-1-pet-preview">
+                <img src="" id="foto-1-pet-target">
+                <div class="image-controls-btn">
+                    <label for="foto-1-pet" class="btn" id="btn-change-foto-1-pet">
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" x="0" y="0" viewBox="0 0 512 512" xml:space="preserve" class="">
+                            <g>
+                                <path fill-rule="evenodd" d="M366.823 146.207h-134.34V204.5a10.586 10.586 0 0 1-16.177 8.988l-77.035-47.93-78.765-49.01a10.585 10.585 0 0 1 0-17.975l78.766-49.007 77.034-47.929a10.342 10.342 0 0 1 10.732-.265 10.346 10.346 0 0 1 5.445 9.252v58.289H401.23a55.364 55.364 0 0 1 55.257 55.258v123.518a8.328 8.328 0 0 1-8.311 8.311h-60.671a8.328 8.328 0 0 1-8.312-8.311v-89.111a12.4 12.4 0 0 0-12.37-12.371zM145.178 365.793a12.4 12.4 0 0 1-12.371-12.371v-89.111A8.329 8.329 0 0 0 124.5 256H63.824a8.328 8.328 0 0 0-8.311 8.311v123.518a55.364 55.364 0 0 0 55.257 55.258h168.747v58.289a10.586 10.586 0 0 0 16.177 8.987l77.034-47.929 78.766-49.007a10.585 10.585 0 0 0 0-17.975l-78.765-49.006-77.035-47.93a10.586 10.586 0 0 0-16.177 8.988v58.289z" fill="white" opacity="1"></path>
+                            </g>
+                        </svg>
+                    </label>
+                    <button type="button" id="btn-remove-foto-1-pet">
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" x="0" y="0" viewBox="0 0 512 512" xml:space="preserve" class="">
+                            <g>
+                                <path d="m62.205 150 26.569 320.735C90.678 493.865 110.38 512 133.598 512h244.805c23.218 0 42.92-18.135 44.824-41.265L449.795 150H62.205zm118.781 302c-7.852 0-14.458-6.108-14.956-14.063l-15-242c-.513-8.276 5.771-15.395 14.033-15.908 8.569-.601 15.381 5.757 15.908 14.033l15 242c.531 8.57-6.25 15.938-14.985 15.938zM271 437c0 8.291-6.709 15-15 15s-15-6.709-15-15V195c0-8.291 6.709-15 15-15s15 6.709 15 15v242zm89.97-241.062-15 242c-.493 7.874-7.056 14.436-15.908 14.033-8.262-.513-14.546-7.632-14.033-15.908l15-242c.513-8.276 7.764-14.297 15.908-14.033 8.262.513 14.546 7.632 14.033 15.908zM451 60h-90V45c0-24.814-20.186-45-45-45H196c-24.814 0-45 20.186-45 45v15H61c-16.569 0-30 13.431-30 30 0 16.567 13.431 30 30 30h390c16.569 0 30-13.433 30-30 0-16.569-13.431-30-30-30zm-120 0H181V45c0-8.276 6.724-15 15-15h120c8.276 0 15 6.724 15 15v15z" fill="white" opacity="1"></path>
+                            </g>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="preview-foto-cad-pet" id="foto-2-pet-preview">
+                <img src="" id="foto-2-pet-target">
+                <div class="image-controls-btn">
+                    <label for="foto-2-pet" class="btn" id="btn-change-foto-2-pet">
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" x="0" y="0" viewBox="0 0 512 512" xml:space="preserve" class="">
+                            <g>
+                                <path fill-rule="evenodd" d="M366.823 146.207h-134.34V204.5a10.586 10.586 0 0 1-16.177 8.988l-77.035-47.93-78.765-49.01a10.585 10.585 0 0 1 0-17.975l78.766-49.007 77.034-47.929a10.342 10.342 0 0 1 10.732-.265 10.346 10.346 0 0 1 5.445 9.252v58.289H401.23a55.364 55.364 0 0 1 55.257 55.258v123.518a8.328 8.328 0 0 1-8.311 8.311h-60.671a8.328 8.328 0 0 1-8.312-8.311v-89.111a12.4 12.4 0 0 0-12.37-12.371zM145.178 365.793a12.4 12.4 0 0 1-12.371-12.371v-89.111A8.329 8.329 0 0 0 124.5 256H63.824a8.328 8.328 0 0 0-8.311 8.311v123.518a55.364 55.364 0 0 0 55.257 55.258h168.747v58.289a10.586 10.586 0 0 0 16.177 8.987l77.034-47.929 78.766-49.007a10.585 10.585 0 0 0 0-17.975l-78.765-49.006-77.035-47.93a10.586 10.586 0 0 0-16.177 8.988v58.289z" fill="white" opacity="1"></path>
+                            </g>
+                        </svg>
+                    </label>
+                    <button type="button" id="btn-remove-foto-2-pet">
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" x="0" y="0" viewBox="0 0 512 512" xml:space="preserve" class="">
+                            <g>
+                                <path d="m62.205 150 26.569 320.735C90.678 493.865 110.38 512 133.598 512h244.805c23.218 0 42.92-18.135 44.824-41.265L449.795 150H62.205zm118.781 302c-7.852 0-14.458-6.108-14.956-14.063l-15-242c-.513-8.276 5.771-15.395 14.033-15.908 8.569-.601 15.381 5.757 15.908 14.033l15 242c.531 8.57-6.25 15.938-14.985 15.938zM271 437c0 8.291-6.709 15-15 15s-15-6.709-15-15V195c0-8.291 6.709-15 15-15s15 6.709 15 15v242zm89.97-241.062-15 242c-.493 7.874-7.056 14.436-15.908 14.033-8.262-.513-14.546-7.632-14.033-15.908l15-242c.513-8.276 7.764-14.297 15.908-14.033 8.262.513 14.546 7.632 14.033 15.908zM451 60h-90V45c0-24.814-20.186-45-45-45H196c-24.814 0-45 20.186-45 45v15H61c-16.569 0-30 13.431-30 30 0 16.567 13.431 30 30 30h390c16.569 0 30-13.433 30-30 0-16.569-13.431-30-30-30zm-120 0H181V45c0-8.276 6.724-15 15-15h120c8.276 0 15 6.724 15 15v15z" fill="white" opacity="1"></path>
+                            </g>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="preview-foto-cad-pet" id="foto-3-pet-preview">
+                <img src="" id="foto-3-pet-target">
+                <div class="image-controls-btn">
+                    <label for="foto-3-pet" class="btn" id="btn-change-foto-3-pet">
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" x="0" y="0" viewBox="0 0 512 512" xml:space="preserve" class="">
+                            <g>
+                                <path fill-rule="evenodd" d="M366.823 146.207h-134.34V204.5a10.586 10.586 0 0 1-16.177 8.988l-77.035-47.93-78.765-49.01a10.585 10.585 0 0 1 0-17.975l78.766-49.007 77.034-47.929a10.342 10.342 0 0 1 10.732-.265 10.346 10.346 0 0 1 5.445 9.252v58.289H401.23a55.364 55.364 0 0 1 55.257 55.258v123.518a8.328 8.328 0 0 1-8.311 8.311h-60.671a8.328 8.328 0 0 1-8.312-8.311v-89.111a12.4 12.4 0 0 0-12.37-12.371zM145.178 365.793a12.4 12.4 0 0 1-12.371-12.371v-89.111A8.329 8.329 0 0 0 124.5 256H63.824a8.328 8.328 0 0 0-8.311 8.311v123.518a55.364 55.364 0 0 0 55.257 55.258h168.747v58.289a10.586 10.586 0 0 0 16.177 8.987l77.034-47.929 78.766-49.007a10.585 10.585 0 0 0 0-17.975l-78.765-49.006-77.035-47.93a10.586 10.586 0 0 0-16.177 8.988v58.289z" fill="white" opacity="1"></path>
+                            </g>
+                        </svg>
+                    </label>
+                    <button type="button" id="btn-remove-foto-3-pet">
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" x="0" y="0" viewBox="0 0 512 512" xml:space="preserve" class="">
+                            <g>
+                                <path d="m62.205 150 26.569 320.735C90.678 493.865 110.38 512 133.598 512h244.805c23.218 0 42.92-18.135 44.824-41.265L449.795 150H62.205zm118.781 302c-7.852 0-14.458-6.108-14.956-14.063l-15-242c-.513-8.276 5.771-15.395 14.033-15.908 8.569-.601 15.381 5.757 15.908 14.033l15 242c.531 8.57-6.25 15.938-14.985 15.938zM271 437c0 8.291-6.709 15-15 15s-15-6.709-15-15V195c0-8.291 6.709-15 15-15s15 6.709 15 15v242zm89.97-241.062-15 242c-.493 7.874-7.056 14.436-15.908 14.033-8.262-.513-14.546-7.632-14.033-15.908l15-242c.513-8.276 7.764-14.297 15.908-14.033 8.262.513 14.546 7.632 14.033 15.908zM451 60h-90V45c0-24.814-20.186-45-45-45H196c-24.814 0-45 20.186-45 45v15H61c-16.569 0-30 13.431-30 30 0 16.567 13.431 30 30 30h390c16.569 0 30-13.433 30-30 0-16.569-13.431-30-30-30zm-120 0H181V45c0-8.276 6.724-15 15-15h120c8.276 0 15 6.724 15 15v15z" fill="white" opacity="1"></path>
+                            </g>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="preview-foto-cad-pet" id="foto-4-pet-preview">
+                <img src="" id="foto-4-pet-target">
+                <div class="image-controls-btn">
+                    <label for="foto-4-pet" class="btn" id="btn-change-foto-4-pet">
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" x="0" y="0" viewBox="0 0 512 512" xml:space="preserve" class="">
+                            <g>
+                                <path fill-rule="evenodd" d="M366.823 146.207h-134.34V204.5a10.586 10.586 0 0 1-16.177 8.988l-77.035-47.93-78.765-49.01a10.585 10.585 0 0 1 0-17.975l78.766-49.007 77.034-47.929a10.342 10.342 0 0 1 10.732-.265 10.346 10.346 0 0 1 5.445 9.252v58.289H401.23a55.364 55.364 0 0 1 55.257 55.258v123.518a8.328 8.328 0 0 1-8.311 8.311h-60.671a8.328 8.328 0 0 1-8.312-8.311v-89.111a12.4 12.4 0 0 0-12.37-12.371zM145.178 365.793a12.4 12.4 0 0 1-12.371-12.371v-89.111A8.329 8.329 0 0 0 124.5 256H63.824a8.328 8.328 0 0 0-8.311 8.311v123.518a55.364 55.364 0 0 0 55.257 55.258h168.747v58.289a10.586 10.586 0 0 0 16.177 8.987l77.034-47.929 78.766-49.007a10.585 10.585 0 0 0 0-17.975l-78.765-49.006-77.035-47.93a10.586 10.586 0 0 0-16.177 8.988v58.289z" fill="white" opacity="1"></path>
+                            </g>
+                        </svg>
+                    </label>
+                    <button type="button" id="btn-remove-foto-4-pet">
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" x="0" y="0" viewBox="0 0 512 512" xml:space="preserve" class="">
+                            <g>
+                                <path d="m62.205 150 26.569 320.735C90.678 493.865 110.38 512 133.598 512h244.805c23.218 0 42.92-18.135 44.824-41.265L449.795 150H62.205zm118.781 302c-7.852 0-14.458-6.108-14.956-14.063l-15-242c-.513-8.276 5.771-15.395 14.033-15.908 8.569-.601 15.381 5.757 15.908 14.033l15 242c.531 8.57-6.25 15.938-14.985 15.938zM271 437c0 8.291-6.709 15-15 15s-15-6.709-15-15V195c0-8.291 6.709-15 15-15s15 6.709 15 15v242zm89.97-241.062-15 242c-.493 7.874-7.056 14.436-15.908 14.033-8.262-.513-14.546-7.632-14.033-15.908l15-242c.513-8.276 7.764-14.297 15.908-14.033 8.262.513 14.546 7.632 14.033 15.908zM451 60h-90V45c0-24.814-20.186-45-45-45H196c-24.814 0-45 20.186-45 45v15H61c-16.569 0-30 13.431-30 30 0 16.567 13.431 30 30 30h390c16.569 0 30-13.433 30-30 0-16.569-13.431-30-30-30zm-120 0H181V45c0-8.276 6.724-15 15-15h120c8.276 0 15 6.724 15 15v15z" fill="white" opacity="1"></path>
+                            </g>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <label for="foto-1-pet" id="foto-1-pet-label" class="tinder-pet-input-file m-1">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="80" height="80" x="0" y="0" viewBox="0 0 24 24" xml:space="preserve">
+                    <g>
+                        <rect x="0" y="0" width="512" height="512" fill="#39ade4" opacity="1"></rect>
+                        <path d="M12 6a1 1 0 0 0-1 1v4H7a1 1 0 0 0 0 2h4v4a1 1 0 0 0 2 0v-4h4a1 1 0 0 0 0-2h-4V7a1 1 0 0 0-1-1z" fill="white" opacity="1"></path>
+                    </g>
+                </svg>
+            </label>
+            <label for="foto-2-pet" id="foto-2-pet-label" class="tinder-pet-input-file m-1">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="80" height="80" x="0" y="0" viewBox="0 0 24 24" xml:space="preserve">
+                    <g>
+                        <rect x="0" y="0" width="512" height="512" fill="#39ade4" opacity="1"></rect>
+                        <path d="M12 6a1 1 0 0 0-1 1v4H7a1 1 0 0 0 0 2h4v4a1 1 0 0 0 2 0v-4h4a1 1 0 0 0 0-2h-4V7a1 1 0 0 0-1-1z" fill="white" opacity="1"></path>
+                    </g>
+                </svg>
+            </label>
+            <label for="foto-3-pet" id="foto-3-pet-label" class="tinder-pet-input-file m-1">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="80" height="80" x="0" y="0" viewBox="0 0 24 24" xml:space="preserve">
+                    <g>
+                        <rect x="0" y="0" width="512" height="512" fill="#39ade4" opacity="1"></rect>
+                        <path d="M12 6a1 1 0 0 0-1 1v4H7a1 1 0 0 0 0 2h4v4a1 1 0 0 0 2 0v-4h4a1 1 0 0 0 0-2h-4V7a1 1 0 0 0-1-1z" fill="white" opacity="1"></path>
+                    </g>
+                </svg>
+            </label>
+            <label for="foto-4-pet" id="foto-4-pet-label" class="tinder-pet-input-file m-1">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="80" height="80" x="0" y="0" viewBox="0 0 24 24" xml:space="preserve">
+                    <g>
+                        <rect x="0" y="0" width="512" height="512" fill="#39ade4" opacity="1"></rect>
+                        <path d="M12 6a1 1 0 0 0-1 1v4H7a1 1 0 0 0 0 2h4v4a1 1 0 0 0 2 0v-4h4a1 1 0 0 0 0-2h-4V7a1 1 0 0 0-1-1z" fill="white" opacity="1"></path>
+                    </g>
+                </svg>
+            </label>
+        </div><br>
+
+
+        <button type="button" class="tinder-pet-button" id="novo-anuncio-enviar-btn">Publicar</button><br><br>
+        {% csrf_token %}
+    </form>
+</div>
+{% endblock %}
