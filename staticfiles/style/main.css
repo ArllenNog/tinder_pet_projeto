@@ -1,0 +1,539 @@
+body{
+    background-color: #003eaf;
+    font-family: Rubik;
+    color: white;
+}
+.img-bg{
+    position: fixed;
+    bottom: 0;
+    left: 20px;
+    width: 30%;
+    text-align: center;
+    font-size: 14pt;
+}
+.tela-primeira-vez{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #003eaf;
+    color: white;
+    z-index: 1000;
+}
+
+.icon-ver{
+    display: none;
+    margin: auto;
+    fill: white;
+}
+.cabecalho
+{
+    position: fixed;
+    width: 100%;
+    background-color: #5ab031;
+    z-index: 999;
+}
+
+.cabecalho-link{
+    color: #003eaf!important;
+}
+
+.cabecalho-selecionado{
+    border: solid 2px #003eaf;
+    border-radius: 20px;
+}
+
+.tag-filtro{
+    color: white;
+    padding: 10px;
+    margin-left: 2px;
+    margin-right: 2px;
+    border-radius: 20px;
+}
+
+.tf-selecionado{
+    background-color: #39ade4;
+    color: #003eaf;
+}
+
+#account-button{
+    display: flex !important;
+    flex-wrap: wrap !important;
+    float: left;
+    width: fit-content;
+    height: 40px;
+    color: white;
+}
+
+#account-button > img{
+    height: 100%;
+}
+
+#meu-perfil{
+    position: fixed;
+    width: 100%;
+    height: calc(100% - 98px);
+}
+
+#meuperfil-mobile-btn{
+    display: none;
+}
+
+#barra-lateral{
+    margin: 0;
+    background-color: #003eaf;
+    color: white;
+    padding: 20px;
+    height: 100%;
+}
+#card-group{
+    height: 100%;
+    overflow: auto;
+}
+
+.mural{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.mural-item{
+    position: relative;
+    width: 100%;
+    height: 500px;
+    max-width: 500px;
+    min-width: 360px;
+    margin: 5px;
+}
+
+.mural-content{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.mural-photo, .raw-photo{
+    z-index: -1;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    width: 100%;
+}
+
+.mural-desc{
+    text-align: left;
+    max-width: 70%;
+    position: absolute;
+    left: 20px;
+    bottom: 10px;
+    color: white;
+    user-select: none;
+}
+
+.mural-content > button{
+    position: absolute;
+    border: none;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    background-image: linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0));
+}
+
+.mural-content > button:hover{
+    background-image: linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+    cursor: pointer;
+}
+
+.mural-content > button:hover svg{
+    display: block;
+}
+
+.fixo{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.tag, .tag2{
+    display: inline-block;
+    width: fit-content;
+    padding: 4px 15px;
+    border-radius: 20px;
+    background-color:#39ade4;
+    color: #003eaf;
+    color: white;
+    user-select: none;
+    font-size: 12pt;
+}
+
+.tag2{
+    background-color: #5ab031;
+    color: white;
+}
+
+.masc{
+    background-color: blue;
+}
+
+.masc::before{
+    background-image: url("../images/male-gender.png");
+    background-size: 16px 16px;
+    display: inline-block;
+    width: 16px; 
+    height: 16px;
+    margin-right: 5px;
+    content:"";
+}
+
+.fem::before{
+    background-image: url("../images/female-gender.png");
+    background-size: 20px 20px;
+    display: inline-block;
+    width: 20px; 
+    height: 20px;
+    margin-right: 5px;
+    content:"";
+}
+
+.fem{
+    background-color: rgb(233, 99, 211);
+}
+
+.viewer
+{
+    position: relative;
+    width: 640px;
+    overflow: hidden;
+}
+
+.photo{
+   display: flex;
+   margin-top: 10px;
+}
+
+.photo-list{
+    display: flow;
+    width: auto;
+    min-width: 150px;
+    margin: 0;
+}
+
+.photo-item, .photo-item-non-select
+{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    margin: 2px;
+}
+
+.photo-item-non-select{
+    width: 150px;
+    height: 150px;
+    margin: 0;
+}
+
+.selected
+{
+    border: solid 4px #5ab031;
+}
+
+.selected-fill{
+    background-color: #5ab031;
+    color: #003eaf!important;
+    border-radius: 20px;
+}
+
+.login-screen{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+    background: linear-gradient(90deg, #003eaf 52% , #5ab031 52.1%)
+}
+
+.titulo-login
+{
+    color: white;
+    font-size: 32pt;
+}
+
+.desc-login
+{
+    color: #5ab031;
+    font-weight: 300;
+    font-size: 16pt;
+}
+
+.tinder-pet-titulo{
+    font-size: 32pt;
+    font-weight: 700;
+    margin-top: 10px;
+    color: #5ab031;
+}
+
+.tinder-pet-titulo2{
+    font-size: 26pt;
+    font-weight: 700;
+    color: #5ab031;
+}
+
+.tinder-pet-link{
+    color: #39ade4;
+}
+
+.tinder-pet-input{
+    max-width: 300px;
+    width: 100%;
+    text-decoration: none;
+    padding: 6px 20px;
+    border: none;
+    border-radius: 20px;
+    margin-top: 10px;
+    outline: 0;
+    font-weight: 300;
+    font-size: 16pt;
+    color: #003eaf !important;
+}
+
+.tinder-pet-input-file{
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.tinder-pet-list-item{
+    border: solid 1px rgba(113, 113, 113, 0.703);
+    color: white;
+    padding: 15px;
+    margin: 5px 0px;
+    text-decoration: none;
+    border-radius: 20px;
+}
+.tinder-pet-list-item:hover{
+    background-color: #39ade4;
+}
+
+.tinder-pet-button{
+    max-width: 300px;
+    /*width: 100%;*/
+    appearance: none;
+    all: unset;
+    padding: 6px 20px;
+    border: none;
+    border-radius: 20px;
+    margin-top: 10px;
+    outline: 0;
+    background-color: #5ab031;
+    font-weight: 800;
+    text-decoration: none;
+    font-size: 16pt;
+    color: white;
+}
+.tinder-pet-danger{
+    background-color: rgb(214, 7, 7);
+    color: white;
+}
+.tinder-pet-neutro{
+    background-color: gray;
+    color: white;
+}
+.tinder-pet-save{
+    background-color: #39ade4;
+    color: white;
+}
+.tinder-pet-danger:hover, .tinder-pet-button:hover, .tinder-pet-neutro:hover{
+    background-color: #39ade4;
+}
+.tinder-pet-frame, .tinder-pet-window{
+    font-size: 14pt;
+}
+.tinder-pet-frame h3{
+    /*background-color: #5ab031;*/
+    color: #5ab031;
+}
+.tinder-pet-window{
+    background-color: #002569;
+    color: rgb(204, 204, 204);
+    margin: 15px;
+    border-radius: 20px;
+    padding: 15px;
+}
+
+.btn-login
+{
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background-color: white;
+    font-size: 16px;
+    letter-spacing: 0.25px;
+    text-align: center;
+    color: #3c4043;
+    width: 230px;
+    margin-top: 10px;
+}
+.btn-login::before{
+    background-image: url("../images/mail.png");
+    background-size: 20px 20px;
+    display: inline-block;
+    width: 20px; 
+    height: 20px;
+    position: relative;
+    top: 4px;
+    margin-right: 5px;
+    content:"";
+}
+
+.cad-label
+{
+    font-size: 14pt;
+    font-weight: 300;
+    color: #5ab031;
+}
+
+.preview-foto-cad-pet
+{
+    display: none;
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 2px;
+}
+
+.preview-foto-cad-pet img{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+.image-controls-btn{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.511);
+}
+
+.image-controls-btn > button{
+    width: 50%;
+    height: 40px;
+    background-color: transparent;
+    color: white;
+    border: none;
+}
+
+.input-pet{
+    max-width: 115px;
+    position: relative;
+    user-select: none;
+    cursor: pointer;
+    margin: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-pet > span{
+    font-size: 14pt;
+    font-weight: 300;
+    text-align: center;
+}
+
+.input-pet > input{
+    position: absolute;
+    opacity: 0;
+}
+
+.input-pet-radio:checked ~ p{
+    background-color: #003eaf;
+    color: white;
+}
+
+.input-pet-radio:checked ~ .input-pet-img{
+    border: solid 4px #003eaf;
+}
+
+.input-pet-radio:checked ~ svg path{
+    fill: #5ab031;
+}
+
+.input-pet-radio:checked ~ label{
+    color: #5ab031;
+    font-weight: bold;
+}
+
+.input-pet-radio:checked ~ span{
+    color: #5ab031;
+    font-weight: bold;
+}
+
+.input-pet > span{
+    text-align: center;
+}
+
+.info-edit-input,.info-edit-input2{
+    display: none;
+}
+
+.mw-sidebar{
+    max-width: 250px;
+}
+
+#meu-dados-btn a, #meus-anuncios-btn a, #notificacoes-btn a, #dropdownUser1 strong{
+    font-size: 14pt;
+}
+
+@media only screen and (max-width: 600px) {
+    .photo {
+        flex-wrap: wrap;
+    }
+    .photo-list{
+        display: flex;
+    }
+    #meu-dados-btn a, #meus-anuncios-btn a, #notificacoes-btn a, #dropdownUser1 strong{
+        display: none;
+    }
+}
+
+@media only screen and (orientation: portrait){
+    .img-bg{
+        position: relative;
+        width: 100%;
+        left: 0;
+        margin: 0;
+    }
+
+    .img-bg img{
+        width: 50%;
+    }
+
+    .login-screen{
+        background: #003eaf;
+    }
+
+    #tela1, #tela2{
+        margin-top: 40px;
+        text-align: center!important;
+        align-items: center!important;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    #account-button{
+        display: none !important;
+    }
+    #meuperfil-mobile-btn{
+        display: inline;
+    }
+}

@@ -39,8 +39,10 @@ SECRET_KEY = 'django-insecure-7p%6mh-@&*l-w2a$9o^5^lr5y23-b)$c^jdh0jmb8a!!uycc+p
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', 'tinder-pet-projeto.onrender.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -132,6 +134,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
