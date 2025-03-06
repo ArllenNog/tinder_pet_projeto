@@ -40,7 +40,7 @@ SECRET_KEY = 'django-insecure-7p%6mh-@&*l-w2a$9o^5^lr5y23-b)$c^jdh0jmb8a!!uycc+p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['tinder-pet-projeto.onrender.com', '18.188.128.109','*']
+ALLOWED_HOSTS = ['tinder-pet-projeto.onrender.com', 'tinderpetbrasil.com','18.188.128.109','*']
 
 
 # Application definition
