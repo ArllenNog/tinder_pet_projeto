@@ -463,11 +463,8 @@ def sign_in(request):
 
 @csrf_exempt
 def auth_receiver(request):
-    """
-    Google calls this URL after the user has signed in with their Google account.
-    """
-    print('Inside')
-    token = request.POST['credential']
+    #print('Inside')
+    token = request.POST.get('credential')
 
     try:
         user_data = id_token.verify_oauth2_token(
