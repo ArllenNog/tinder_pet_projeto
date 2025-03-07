@@ -468,10 +468,12 @@ def auth_receiver(request):
 
     try:
         user_data = id_token.verify_oauth2_token(
-            token, requests.Request(), os.environ['GOOGLE_OAUTH_CLIENT_ID']
+            token, requests.Request(), os.environ['GOOGLE_OAUTH_CLIENT_ID'] #requests.Request()
         )
     except ValueError:
         return HttpResponse(status=403)
+    except Exception as e:
+        return HttpResponse(f"Erro inesperado: {e}", status = 500)
 
     # In a real app, I'd also save any new user here to the database.
     # You could also authenticate the user here using the details from Google (https://docs.djangoproject.com/en/4.2/topics/auth/default/#how-to-log-a-user-in)
