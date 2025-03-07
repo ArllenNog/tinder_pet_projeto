@@ -480,8 +480,8 @@ def auth_receiver(request):
     # You could also authenticate the user here using the details from Google (https://docs.djangoproject.com/en/4.2/topics/auth/default/#how-to-log-a-user-in)
     request.session['user_data'] = user_data
     email = user_data.get('email')
-    usuarioExiste = Anunciante.objects.filter(email=email).first()
-    if(usuarioExiste):
+
+    if Anunciante.objects.filter(email=email).first():
         return redirect('explorar')
     else:
         return redirect('cadastrar')
