@@ -131,7 +131,7 @@ CSRF_COOKIE_DOMAIN = '.tinderpetbrasil.com'  # Para compartilhar o cookie entre 
 CSRF_COOKIE_SECURE = True  # Garantir que o cookie seja enviado via HTTPS em produção
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://tinder-pet-projeto.onrender.com', 'http://18.188.128.109', 'http://tinderpetbrasil.com', 'https://tinderpetbrasil.com'  # Adicione seu domínio
+    'http://18.188.128.109', 'http://tinderpetbrasil.com', 'https://tinderpetbrasil.com'  # Adicione seu domínio
 ]
 
 
