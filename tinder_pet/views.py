@@ -20,6 +20,7 @@ from google.auth.transport import requests
 import secrets
 import string
 import datetime
+from django.core.mail import send_mail
 
 def politica_privacidade(request):
     return render(request, 'privacy.html')
@@ -623,6 +624,13 @@ def meuperfil(request):
                 if(_confirmar_email):
                     #gerar token de usuario e enviar email
                     _usuario.token = gerar_token()
+                    send_mail(
+                        "Tinder Pet - Confirme seu email",
+                        "Clique no link abaixo para confirmar o seu email. \n <a href='https://google.com'>Confirmar email</a>",
+                        "comunicado@tinderpetbrasil.com.br",
+                        ['arllen.nog@gmail.com'],#trocar
+                        fail_silently=False,
+                    )
                     _email_enviado = True
                 _usuario.save()
             else:
