@@ -5,31 +5,51 @@
     <div class="d-flex flex-column col-3 mw-sidebar text-center" id="barra-lateral">
         <!--<h2 class="tinder-pet-titulo2">Meu perfil</h2>-->
         <ul class="nav nav-pills flex-column mb-auto">
-        <li class="d-flex justify-content-center {% if opcao == '0' %} selected-fill {% endif %} p-2 w-100" id="meu-dados-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" x="0" y="0" viewBox="0 0 512 512" xml:space="preserve" class="float-start m-1">
-                <g id="meu-dados-btn-icon" {% if opcao == '0' %} style="fill: white" {% else %} style="fill: #5ab031" {% endif %}>
-                    <path d="M446.605 124.392 326.608 4.395A15.02 15.02 0 0 0 316 0H106C81.187 0 61 20.187 61 45v422c0 24.813 20.187 45 45 45h300c24.813 0 45-20.187 45-45V135c0-4.09-1.717-7.931-4.395-10.608zM331 51.213 399.787 120H346c-8.271 0-15-6.729-15-15zM406 482H106c-8.271 0-15-6.729-15-15V45c0-8.271 6.729-15 15-15h195v75c0 24.813 20.187 45 45 45h75v317c0 8.271-6.729 15-15 15z" opacity="1"></path>
-                    <path d="M346 212H166c-8.284 0-15 6.716-15 15s6.716 15 15 15h180c8.284 0 15-6.716 15-15s-6.716-15-15-15zM346 272H166c-8.284 0-15 6.716-15 15s6.716 15 15 15h180c8.284 0 15-6.716 15-15s-6.716-15-15-15zM346 332H166c-8.284 0-15 6.716-15 15s6.716 15 15 15h180c8.284 0 15-6.716 15-15s-6.716-15-15-15zM286 392H166c-8.284 0-15 6.716-15 15s6.716 15 15 15h120c8.284 0 15-6.716 15-15s-6.716-15-15-15z" opacity="1"></path>
-                </g>
-            </svg>
-            <a href="#" class="nav-link text-white p-0">Dados</a>
-        </li>
-        <li class="d-flex justify-content-center {% if opcao == '1' %} selected-fill {% endif %} p-2 w-100" id="meus-anuncios-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" x="0" y="0" viewBox="0 0 512 512" xml:space="preserve" class="float-start m-1">
-                <g id="meus-anuncios-btn-icon" {% if opcao == '1' %} style="fill: white" {% else %} style="fill: #5ab031" {% endif %}>
-                    <path d="M376 30c-27.783 0-53.255 8.804-75.707 26.168-21.525 16.647-35.856 37.85-44.293 53.268-8.437-15.419-22.768-36.621-44.293-53.268C189.255 38.804 163.783 30 136 30 58.468 30 0 93.417 0 177.514c0 90.854 72.943 153.015 183.369 247.118 18.752 15.981 40.007 34.095 62.099 53.414C248.38 480.596 252.12 482 256 482s7.62-1.404 10.532-3.953c22.094-19.322 43.348-37.435 62.111-53.425C439.057 330.529 512 268.368 512 177.514 512 93.417 453.532 30 376 30z" opacity="1"></path>
-                </g>
-            </svg>
-            <a href="#" class="nav-link text-white p-0">Doações</a>
-        </li>
-        <!--<li class="d-flex justify-content-center {% if opcao == '2' %} selected-fill {% endif %} p-2 w-100" id="notificacoes-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" x="0" y="0" viewBox="0 0 100 100" xml:space="preserve" class="float-start m-1">
-                <g id="notificacoes-btn-icon" {% if opcao == '2' %} style="fill: white" {% else %} style="fill: #5ab031" {% endif %}>
-                    <path d="M49.96 2.5a3.165 3.165 0 0 0-3.128 3.22v9.693c-14.177 1.586-25.3 13.72-25.3 28.298v12.634c0 5.04-.934 9.18-3.74 12.499-2.554 3.021-3.053 7.005-1.749 10.236 1.304 3.231 4.61 5.742 8.642 5.742h50.624c4.045 0 7.35-2.528 8.666-5.767s.832-7.258-1.798-10.255c-2.233-2.544-3.715-8.623-3.715-12.455V43.711c0-14.572-11.132-26.695-25.3-28.292V5.721A3.165 3.165 0 0 0 49.96 2.5zM37.424 91.158C40.32 94.982 44.86 97.5 49.997 97.5s9.677-2.518 12.573-6.342zM21.928 15.184a3.165 3.165 0 0 0-2.436 1.076c-6.57 7.292-10.631 16.939-10.631 27.45a3.165 3.165 0 1 0 6.33 0c0-8.885 3.415-17.014 9-23.21a3.165 3.165 0 0 0-2.263-5.316zm56.033 0a3.165 3.165 0 0 0-2.164 5.316c5.59 6.195 9.013 14.32 9.013 23.211a3.165 3.165 0 1 0 6.33 0c0-10.519-4.068-20.162-10.645-27.451a3.164 3.164 0 0 0-2.534-1.075z" opacity="1"></path>
-                </g>
-            </svg>
-            <a href="#" class="nav-link text-white p-0">Favoritos</a>
-        </li>-->
+            <li class="d-flex justify-content-center {% if opcao == '4' %} selected-fill {% endif %} p-2 w-100" id="notificacoes-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" x="0" y="0" viewBox="0 0 100 100" xml:space="preserve" class="float-start m-1">
+                    <g id="notificacoes-btn-icon" {% if opcao == '4' %} style="fill: white" {% else %} style="fill: #5ab031" {% endif %}>
+                        <path d="M49.96 2.5a3.165 3.165 0 0 0-3.128 3.22v9.693c-14.177 1.586-25.3 13.72-25.3 28.298v12.634c0 5.04-.934 9.18-3.74 12.499-2.554 3.021-3.053 7.005-1.749 10.236 1.304 3.231 4.61 5.742 8.642 5.742h50.624c4.045 0 7.35-2.528 8.666-5.767s.832-7.258-1.798-10.255c-2.233-2.544-3.715-8.623-3.715-12.455V43.711c0-14.572-11.132-26.695-25.3-28.292V5.721A3.165 3.165 0 0 0 49.96 2.5zM37.424 91.158C40.32 94.982 44.86 97.5 49.997 97.5s9.677-2.518 12.573-6.342zM21.928 15.184a3.165 3.165 0 0 0-2.436 1.076c-6.57 7.292-10.631 16.939-10.631 27.45a3.165 3.165 0 1 0 6.33 0c0-8.885 3.415-17.014 9-23.21a3.165 3.165 0 0 0-2.263-5.316zm56.033 0a3.165 3.165 0 0 0-2.164 5.316c5.59 6.195 9.013 14.32 9.013 23.211a3.165 3.165 0 1 0 6.33 0c0-10.519-4.068-20.162-10.645-27.451a3.164 3.164 0 0 0-2.534-1.075z" opacity="1"></path>
+                    </g>
+                </svg>
+                <a href="#" class="nav-link text-white p-0">Notificações</a>
+            </li>
+
+            <li class="d-flex justify-content-center {% if opcao == '0' %} selected-fill {% endif %} p-2 w-100" id="meu-dados-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" x="0" y="0" viewBox="0 0 512 512" xml:space="preserve" class="float-start m-1">
+                    <g id="meu-dados-btn-icon" {% if opcao == '0' %} style="fill: white" {% else %} style="fill: #5ab031" {% endif %}>
+                        <path d="M446.605 124.392 326.608 4.395A15.02 15.02 0 0 0 316 0H106C81.187 0 61 20.187 61 45v422c0 24.813 20.187 45 45 45h300c24.813 0 45-20.187 45-45V135c0-4.09-1.717-7.931-4.395-10.608zM331 51.213 399.787 120H346c-8.271 0-15-6.729-15-15zM406 482H106c-8.271 0-15-6.729-15-15V45c0-8.271 6.729-15 15-15h195v75c0 24.813 20.187 45 45 45h75v317c0 8.271-6.729 15-15 15z" opacity="1"></path>
+                        <path d="M346 212H166c-8.284 0-15 6.716-15 15s6.716 15 15 15h180c8.284 0 15-6.716 15-15s-6.716-15-15-15zM346 272H166c-8.284 0-15 6.716-15 15s6.716 15 15 15h180c8.284 0 15-6.716 15-15s-6.716-15-15-15zM346 332H166c-8.284 0-15 6.716-15 15s6.716 15 15 15h180c8.284 0 15-6.716 15-15s-6.716-15-15-15zM286 392H166c-8.284 0-15 6.716-15 15s6.716 15 15 15h120c8.284 0 15-6.716 15-15s-6.716-15-15-15z" opacity="1"></path>
+                    </g>
+                </svg>
+                <a href="#" class="nav-link text-white p-0">Meus Dados</a>
+            </li>
+
+            <li class="d-flex justify-content-center {% if opcao == '1' %} selected-fill {% endif %} p-2 w-100" id="meus-anuncios-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" x="0" y="0" viewBox="0 0 512 512" xml:space="preserve" class="float-start m-1">
+                    <g id="meus-anuncios-btn-icon" {% if opcao == '1' %} style="fill: white" {% else %} style="fill: #5ab031" {% endif %}>
+                        <path d="M376 30c-27.783 0-53.255 8.804-75.707 26.168-21.525 16.647-35.856 37.85-44.293 53.268-8.437-15.419-22.768-36.621-44.293-53.268C189.255 38.804 163.783 30 136 30 58.468 30 0 93.417 0 177.514c0 90.854 72.943 153.015 183.369 247.118 18.752 15.981 40.007 34.095 62.099 53.414C248.38 480.596 252.12 482 256 482s7.62-1.404 10.532-3.953c22.094-19.322 43.348-37.435 62.111-53.425C439.057 330.529 512 268.368 512 177.514 512 93.417 453.532 30 376 30z" opacity="1"></path>
+                    </g>
+                </svg>
+                <a href="#" class="nav-link text-white p-0">Doações</a>
+            </li>
+            
+            <li class="d-flex justify-content-center {% if opcao == '2' %} selected-fill {% endif %} p-2 w-100" id="adocoes-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" x="0" y="0" viewBox="0 0 512 512" xml:space="preserve" class="float-start m-1">
+                    <g id="adocoes-btn-icon" {% if opcao == '2' %} style="fill: white" {% else %} style="fill: #5ab031" {% endif %}>
+                        <path d="m498.195 222.695-.035-.035L289.305 13.813C280.402 4.905 268.566 0 255.977 0c-12.59 0-24.426 4.902-33.332 13.809L13.898 222.55c-.07.07-.14.144-.21.215-18.282 18.386-18.25 48.218.09 66.558 8.378 8.383 19.445 13.238 31.277 13.746.48.047.965.07 1.453.07h8.324v153.7C54.832 487.254 79.578 512 110 512h81.71c8.282 0 15-6.715 15-15V376.5c0-13.879 11.29-25.168 25.169-25.168h48.195c13.88 0 25.168 11.29 25.168 25.168V497c0 8.285 6.715 15 15 15h81.711c30.422 0 55.168-24.746 55.168-55.16v-153.7h7.719c12.586 0 24.422-4.902 33.332-13.808 18.36-18.371 18.367-48.254.023-66.637zm0 0" opacity="1"></path>
+                    </g>
+                </svg>
+                <a href="#" class="nav-link text-white p-0">Adoções</a>
+            </li>
+
+            <li class="d-flex justify-content-center {% if opcao == '3' %} selected-fill {% endif %} p-2 w-100" id="favoritos-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" x="0" y="0" viewBox="0 0 511.987 511" style="enable-background:new 0 0 512 512" xml:space="preserve" class="float-start m-1">
+                    <g id="favoritos-btn-icon" {% if opcao == '3' %} style="fill: white" {% else %} style="fill: #5ab031" {% endif %}>
+                        <path d="M510.652 185.902a27.158 27.158 0 0 0-23.425-18.71l-147.774-13.419-58.433-136.77C276.71 6.98 266.898.494 255.996.494s-20.715 6.487-25.023 16.534l-58.434 136.746-147.797 13.418A27.208 27.208 0 0 0 1.34 185.902c-3.371 10.368-.258 21.739 7.957 28.907l111.7 97.96-32.938 145.09c-2.41 10.668 1.73 21.696 10.582 28.094 4.757 3.438 10.324 5.188 15.937 5.188 4.84 0 9.64-1.305 13.95-3.883l127.468-76.184 127.422 76.184c9.324 5.61 21.078 5.097 29.91-1.305a27.223 27.223 0 0 0 10.582-28.094l-32.937-145.09 111.699-97.94a27.224 27.224 0 0 0 7.98-28.927zm0 0" opacity="1"></path>
+                    </g>
+                </svg>
+                <a href="#" class="nav-link text-white p-0">Favoritos</a>
+            </li>
         </ul>
         <hr>
         <div class="dropdown">
@@ -52,23 +72,47 @@
     </div>
     <div class="col" id="card-group">
         <form method="POST" action="{% url 'meuperfil' %}" id="info-form-1">
+        {% if not user_data.emailConfirmado %}
+        <div class="tinder-pet-window window-alert" id="card-confirmar-email">
+            <p><b style="color: red;">Atenção! </b>Seu email precisa ser confirmado antes de adotar ou doar algum pet</p>
+            <button type="button" class="tinder-pet-button" id="btn-confirmar-email">Enviar link de confirmação</button>
+            {% if email_enviado %}
+            <br>
+            <label style="color: #39ade4; display: flex; align-items: center; margin-top: 10px;">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" x="0" y="0" viewBox="0 0 24 24" xml:space="preserve">
+                    <g fill="#39ade4">
+                        <path fill-rule="evenodd" d="M5 2h14a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3zm5.25 14.63 7.46-7.94a1 1 0 0 0-.04-1.35 1 1 0 0 0-1.42 0L9.52 14.5l-1.76-1.87A1 1 0 1 0 6.31 14l2.48 2.63a1 1 0 0 0 .73.31 1 1 0 0 0 .73-.31z" clip-rule="evenodd" opacity="1" data-original="#000000" class=""></path>
+                    </g>
+                </svg>
+                <span>Email enviado! Verifique sua caixa de entrada ou spam</span>
+            </label>
+            {% endif %}
+            <input type="number" name="confirmar_email" id="ipt-confirmar-email" value="0" hidden>
+        </div>
+        {% endif %}
+        {% if ong %}
+        <div class="tinder-pet-window" id="card-minha-pagina" {% if opcao != '0' %} style="display: none;" {% endif %}>
+            <h2 class="tinder-pet-titulo2">Página da ONG</h2>
+            <hr>
+            <p><b>{{ user_data.nomeONG }}</b></p>
+            <a href="ong?id={{user_data.id}}" class="tinder-pet-button">Editar página</a>
+        </div>
+        {% endif %}
         <div class="tinder-pet-window" id="card-informacoes" {% if opcao != '0' %} style="display: none;" {% endif %}>
             <h2 class="tinder-pet-titulo2">Informações básicas</h2>
             <hr>
-            <div>
-                <p><b>Nome: </b>
-                    <span class="info-view" id="info-view-nome">{{ user_data.nome }}</span>
-                    <input id="info-nome-ipt" class="tinder-pet-input info-edit-input" type="text" name="nome" required>
-                </p>
-                <p><b>Email: </b>{{ user_data.email }}</p>
-                <p><b>Senha: </b>
-                    <span class="info-view" id="info-view-senha">••••••</span>
-                    <input id="info-senha-ipt" class="tinder-pet-input info-edit-input" type="password" size="8" name="senha" required>
-                </p>
-                <button type="submit" class="tinder-pet-button tinder-pet-save" id="info-save-btn" style="display: none;">Salvar</button>
-                <button type="button" class="tinder-pet-button tinder-pet-danger" id="info-cancel-btn" style="display: none;">Cancelar</button>
-                <button type="button" class="tinder-pet-button" id="info-edit-btn">Alterar</button>
-            </div>
+            <p><b>Nome: </b>
+                <span class="info-view" id="info-view-nome">{{ user_data.nome }}</span>
+                <input id="info-nome-ipt" class="tinder-pet-input info-edit-input" type="text" name="nome" required>
+            </p>
+            <p><b>Email: </b>{{ user_data.email }}</p>
+            <p><b>Senha: </b>
+                <span class="info-view" id="info-view-senha">••••••</span>
+                <input id="info-senha-ipt" class="tinder-pet-input info-edit-input" type="password" size="8" name="senha" required>
+            </p>
+            <button type="submit" class="tinder-pet-button tinder-pet-save" id="info-save-btn" style="display: none;">Salvar</button>
+            <button type="button" class="tinder-pet-button tinder-pet-danger" id="info-cancel-btn" style="display: none;">Cancelar</button>
+            <button type="button" class="tinder-pet-button" id="info-edit-btn">Alterar</button>
         </div>
         {% csrf_token %}
         </form>
@@ -77,31 +121,29 @@
         <div class="tinder-pet-window" id="card-contato" {% if opcao != '0' %} style="display: none;" {% endif %}>
             <h2 class="tinder-pet-titulo2">Contato</h2>
             <hr>
-            <div>
-                <p><b>Bairro: </b>
-                    <span class="info-view2" id="info-view-bairro">{{user_data.bairro}}</span>
-                    <input id="info-bairro-ipt" class="tinder-pet-input info-edit-input2" type="text" name="bairro" required>
-                </p>
-                <p><b>Cidade: </b>
-                    <span class="info-view2" id="info-view-cidade">{{user_data.cidade.cidades}}</span>
-                    <select id="info-cidade-ipt" class="tinder-pet-input info-edit-input2" name="cidade" required>
-                        {% for c in cidades %}
-                        <option>{{c.cidades}}</option>
-                        {% endfor %}
-                    </select>
-                </p>
-                <p><b>Telefone: </b>
-                    <span class="info-view2" id="info-view-telefone">{{user_data.telefone}}</span>
-                    <input id="info-telefone-ipt" class="tinder-pet-input info-edit-input2" type="text" name="telefone" required>
-                </p>
-                <p><b>Whatsapp: </b>
-                    <span class="info-view2" id="info-view-whatsapp">{{user_data.whatsapp}}</span>
-                    <input id="info-whatsapp-ipt" class="tinder-pet-input info-edit-input2" type="text" name="whatsapp" required>
-                </p>
-                <button type="submit" class="tinder-pet-button tinder-pet-save" id="info-save-btn2" style="display: none;">Salvar</button>
-                <button type="button" class="tinder-pet-button tinder-pet-danger" id="info-cancel-btn2" style="display: none;">Cancelar</button>
-                <button type="button" class="tinder-pet-button" id="info-edit-btn2">Alterar</button>
-            </div>
+            <p><b>Bairro: </b>
+                <span class="info-view2" id="info-view-bairro">{{user_data.bairro}}</span>
+                <input id="info-bairro-ipt" class="tinder-pet-input info-edit-input2" type="text" name="bairro" required>
+            </p>
+            <p><b>Cidade: </b>
+                <span class="info-view2" id="info-view-cidade">{{user_data.cidade.cidades}}</span>
+                <select id="info-cidade-ipt" class="tinder-pet-input info-edit-input2" name="cidade" required>
+                    {% for c in cidades %}
+                    <option>{{c.cidades}}</option>
+                    {% endfor %}
+                </select>
+            </p>
+            <p><b>Telefone: </b>
+                <span class="info-view2" id="info-view-telefone">{{user_data.telefone}}</span>
+                <input id="info-telefone-ipt" class="tinder-pet-input info-edit-input2" type="text" name="telefone" required>
+            </p>
+            <p><b>Whatsapp: </b>
+                <span class="info-view2" id="info-view-whatsapp">{{user_data.whatsapp}}</span>
+                <input id="info-whatsapp-ipt" class="tinder-pet-input info-edit-input2" type="text" name="whatsapp" required>
+            </p>
+            <button type="submit" class="tinder-pet-button tinder-pet-save" id="info-save-btn2" style="display: none;">Salvar</button>
+            <button type="button" class="tinder-pet-button tinder-pet-danger" id="info-cancel-btn2" style="display: none;">Cancelar</button>
+            <button type="button" class="tinder-pet-button" id="info-edit-btn2">Alterar</button>
         </div>
         {% csrf_token %}
         </form>
@@ -109,37 +151,44 @@
         <div class="tinder-pet-window" id="card-meus-anuncios" {% if opcao != '1' %} style="display: none;" {% endif %}>
             <h2 class="tinder-pet-titulo2">Minhas doações</h2>
             <div>
-                <div>
-                    {% if user_anuncios.count == 0 %}
-                    <label class="tinder-pet-list-item d-flex align-items-center justify-content-between">Você não divulgou nenhum pet para adoção ainda</label>
+                {% if user_anuncios.count == 0 %}
+                <label class="tinder-pet-list-item2 d-flex align-items-center justify-content-between">Você não divulgou nenhum pet para adoção ainda</label>
+                {% endif %}
+                {% for a in user_anuncios %}
+                <a href="{% url 'anuncio' %}?id={{ a.id }}" class="tinder-pet-list-item d-flex align-items-center justify-content-between">
+                    <label class="me-3">{{ a.pet__nome }}</label>
+                    {% if a.status == 0 %}
+                    <label class="tag">
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="12" x="0" y="0" viewBox="0 0 23.625 23.625" xml:space="preserve">
+                            <g>
+                                <path d="M11.812 0C5.289 0 0 5.289 0 11.812s5.289 11.813 11.812 11.813 11.813-5.29 11.813-11.813S18.335 0 11.812 0zm2.459 18.307c-.608.24-1.092.422-1.455.548a3.838 3.838 0 0 1-1.262.189c-.736 0-1.309-.18-1.717-.539s-.611-.814-.611-1.367c0-.215.015-.435.045-.659a8.23 8.23 0 0 1 .147-.759l.761-2.688c.067-.258.125-.503.171-.731.046-.23.068-.441.068-.633 0-.342-.071-.582-.212-.717-.143-.135-.412-.201-.813-.201-.196 0-.398.029-.605.09-.205.063-.383.12-.529.176l.201-.828c.498-.203.975-.377 1.43-.521a4.225 4.225 0 0 1 1.29-.218c.731 0 1.295.178 1.692.53.395.353.594.812.594 1.376 0 .117-.014.323-.041.617a4.129 4.129 0 0 1-.152.811l-.757 2.68a7.582 7.582 0 0 0-.167.736 3.892 3.892 0 0 0-.073.626c0 .356.079.599.239.728.158.129.435.194.827.194.185 0 .392-.033.626-.097.232-.064.4-.121.506-.17l-.203.827zm-.134-10.878a1.807 1.807 0 0 1-1.275.492c-.496 0-.924-.164-1.28-.492a1.57 1.57 0 0 1-.533-1.193c0-.465.18-.865.533-1.196a1.812 1.812 0 0 1 1.28-.497c.497 0 .923.165 1.275.497.353.331.53.731.53 1.196 0 .467-.177.865-.53 1.193z" fill="white"></path>
+                            </g>
+                        </svg>
+                        Publicado
+                    </label>
+                    {% elif a.status == 1 %}
+                    <label class="tag tinder-pet-neutro">
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="12" x="0" y="0" viewBox="0 0 23.625 23.625" xml:space="preserve">
+                            <g>
+                                <path d="M11.812 0C5.289 0 0 5.289 0 11.812s5.289 11.813 11.812 11.813 11.813-5.29 11.813-11.813S18.335 0 11.812 0zm2.459 18.307c-.608.24-1.092.422-1.455.548a3.838 3.838 0 0 1-1.262.189c-.736 0-1.309-.18-1.717-.539s-.611-.814-.611-1.367c0-.215.015-.435.045-.659a8.23 8.23 0 0 1 .147-.759l.761-2.688c.067-.258.125-.503.171-.731.046-.23.068-.441.068-.633 0-.342-.071-.582-.212-.717-.143-.135-.412-.201-.813-.201-.196 0-.398.029-.605.09-.205.063-.383.12-.529.176l.201-.828c.498-.203.975-.377 1.43-.521a4.225 4.225 0 0 1 1.29-.218c.731 0 1.295.178 1.692.53.395.353.594.812.594 1.376 0 .117-.014.323-.041.617a4.129 4.129 0 0 1-.152.811l-.757 2.68a7.582 7.582 0 0 0-.167.736 3.892 3.892 0 0 0-.073.626c0 .356.079.599.239.728.158.129.435.194.827.194.185 0 .392-.033.626-.097.232-.064.4-.121.506-.17l-.203.827zm-.134-10.878a1.807 1.807 0 0 1-1.275.492c-.496 0-.924-.164-1.28-.492a1.57 1.57 0 0 1-.533-1.193c0-.465.18-.865.533-1.196a1.812 1.812 0 0 1 1.28-.497c.497 0 .923.165 1.275.497.353.331.53.731.53 1.196 0 .467-.177.865-.53 1.193z" fill="white"></path>
+                            </g>
+                        </svg>
+                        Inativo
+                    </label>
+                    {% else %}
+                    <label class="tag tinder-pet-success">
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="12" x="0" y="0" viewBox="0 0 174.239 174.239" xml:space="preserve" class="">
+                            <g>
+                                <path d="M74.439 157.519a4.199 4.199 0 0 1-6.111.313L1.38 94.468a4.447 4.447 0 0 1-.173-6.267l21.33-22.539a4.447 4.447 0 0 1 6.267-.173L65.375 100.1a4.199 4.199 0 0 0 6.111-.313l71.447-83.015a4.445 4.445 0 0 1 6.251-.468l23.518 20.242a4.446 4.446 0 0 1 .468 6.252L74.439 157.519z" fill="white" opacity="1"></path>
+                            </g>
+                        </svg>
+                        Doado
+                    </label>
                     {% endif %}
-                    {% for a in user_anuncios %}
-                    <a href="{% url 'anuncio' %}?id={{ a.id }}" class="tinder-pet-list-item d-flex align-items-center justify-content-between">
-                        <label class="me-3">{{ a.pet__nome }}</label>
-                        {% if a.status == 0 %}
-                        <label class="tag">
-                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="12" x="0" y="0" viewBox="0 0 23.625 23.625" xml:space="preserve">
-                                <g>
-                                    <path d="M11.812 0C5.289 0 0 5.289 0 11.812s5.289 11.813 11.812 11.813 11.813-5.29 11.813-11.813S18.335 0 11.812 0zm2.459 18.307c-.608.24-1.092.422-1.455.548a3.838 3.838 0 0 1-1.262.189c-.736 0-1.309-.18-1.717-.539s-.611-.814-.611-1.367c0-.215.015-.435.045-.659a8.23 8.23 0 0 1 .147-.759l.761-2.688c.067-.258.125-.503.171-.731.046-.23.068-.441.068-.633 0-.342-.071-.582-.212-.717-.143-.135-.412-.201-.813-.201-.196 0-.398.029-.605.09-.205.063-.383.12-.529.176l.201-.828c.498-.203.975-.377 1.43-.521a4.225 4.225 0 0 1 1.29-.218c.731 0 1.295.178 1.692.53.395.353.594.812.594 1.376 0 .117-.014.323-.041.617a4.129 4.129 0 0 1-.152.811l-.757 2.68a7.582 7.582 0 0 0-.167.736 3.892 3.892 0 0 0-.073.626c0 .356.079.599.239.728.158.129.435.194.827.194.185 0 .392-.033.626-.097.232-.064.4-.121.506-.17l-.203.827zm-.134-10.878a1.807 1.807 0 0 1-1.275.492c-.496 0-.924-.164-1.28-.492a1.57 1.57 0 0 1-.533-1.193c0-.465.18-.865.533-1.196a1.812 1.812 0 0 1 1.28-.497c.497 0 .923.165 1.275.497.353.331.53.731.53 1.196 0 .467-.177.865-.53 1.193z" fill="white"></path>
-                                </g>
-                            </svg>
-                            Publicado
-                        </label>
-                        {% else %}
-                        <label class="tag2">
-                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="12" x="0" y="0" viewBox="0 0 174.239 174.239" xml:space="preserve" class="">
-                                <g>
-                                    <path d="M74.439 157.519a4.199 4.199 0 0 1-6.111.313L1.38 94.468a4.447 4.447 0 0 1-.173-6.267l21.33-22.539a4.447 4.447 0 0 1 6.267-.173L65.375 100.1a4.199 4.199 0 0 0 6.111-.313l71.447-83.015a4.445 4.445 0 0 1 6.251-.468l23.518 20.242a4.446 4.446 0 0 1 .468 6.252L74.439 157.519z" fill="white" opacity="1"></path>
-                                </g>
-                            </svg>
-                            Doado
-                        </label>
-                        {% endif %}
-                    </a>
-                    {% endfor %}
-                </div><br>
-                <a href="{% url 'anunciar' %}" class="tinder-pet-button">Nova doação</a>
-            </div>
+                </a>
+                {% endfor %}
+            </div><br>
+            <a href="{% url 'anunciar' %}" class="tinder-pet-button">Nova doação</a>
         </div>
 
         <!--<div class="card m-3" id="card-meus-pets" style="display: none;">
@@ -176,22 +225,148 @@
             </div>
         </div>-->
 
-        <div class="card m-3" id="card-notificacoes" {% if opcao != '2' %} style="display: none;" {% endif %}>
-            <div class="card-header">
-            Favoritos
+        <div class="tinder-pet-window" id="card-adocoes" {% if opcao != '2' %} style="display: none;" {% endif %}>
+            <h2 class="tinder-pet-titulo2">Minhas adoções</h2>
+            <div>
+                {% if user_adocoes.count == 0 %}
+                    <label class="tinder-pet-list-item2 d-flex align-items-center">Você não adotou nenhum pet ainda</label>
+                {% else %}
+                    {% for a in user_adocoes %}
+                    <a href="{% url 'anuncio' %}?id={{ a.anuncio.id }}" class="tinder-pet-list-item d-flex align-items-center justify-content-between">
+                        <label class="me-3">{{ a.anuncio.pet.nome }}</label>
+                        {% if a.status == 0 %}
+                        <label class="tag">
+                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="12" x="0" y="0" viewBox="0 0 23.625 23.625" xml:space="preserve">
+                                <g>
+                                    <path d="M11.812 0C5.289 0 0 5.289 0 11.812s5.289 11.813 11.812 11.813 11.813-5.29 11.813-11.813S18.335 0 11.812 0zm2.459 18.307c-.608.24-1.092.422-1.455.548a3.838 3.838 0 0 1-1.262.189c-.736 0-1.309-.18-1.717-.539s-.611-.814-.611-1.367c0-.215.015-.435.045-.659a8.23 8.23 0 0 1 .147-.759l.761-2.688c.067-.258.125-.503.171-.731.046-.23.068-.441.068-.633 0-.342-.071-.582-.212-.717-.143-.135-.412-.201-.813-.201-.196 0-.398.029-.605.09-.205.063-.383.12-.529.176l.201-.828c.498-.203.975-.377 1.43-.521a4.225 4.225 0 0 1 1.29-.218c.731 0 1.295.178 1.692.53.395.353.594.812.594 1.376 0 .117-.014.323-.041.617a4.129 4.129 0 0 1-.152.811l-.757 2.68a7.582 7.582 0 0 0-.167.736 3.892 3.892 0 0 0-.073.626c0 .356.079.599.239.728.158.129.435.194.827.194.185 0 .392-.033.626-.097.232-.064.4-.121.506-.17l-.203.827zm-.134-10.878a1.807 1.807 0 0 1-1.275.492c-.496 0-.924-.164-1.28-.492a1.57 1.57 0 0 1-.533-1.193c0-.465.18-.865.533-1.196a1.812 1.812 0 0 1 1.28-.497c.497 0 .923.165 1.275.497.353.331.53.731.53 1.196 0 .467-.177.865-.53 1.193z" fill="white"></path>
+                                </g>
+                            </svg>
+                            Em contato
+                        </label>
+                        {% elif a.status == 1 %}
+                        <label class="tag tinder-pet-success">
+                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="12" x="0" y="0" viewBox="0 0 174.239 174.239" xml:space="preserve" class="">
+                                <g>
+                                    <path d="M74.439 157.519a4.199 4.199 0 0 1-6.111.313L1.38 94.468a4.447 4.447 0 0 1-.173-6.267l21.33-22.539a4.447 4.447 0 0 1 6.267-.173L65.375 100.1a4.199 4.199 0 0 0 6.111-.313l71.447-83.015a4.445 4.445 0 0 1 6.251-.468l23.518 20.242a4.446 4.446 0 0 1 .468 6.252L74.439 157.519z" fill="white" opacity="1"></path>
+                                </g>
+                            </svg>
+                            Adotado
+                        </label>
+                        {% else %}
+                        <label class="tag tinder-pet-danger">
+                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="12" x="0" y="0" viewBox="0 0 23.625 23.625" xml:space="preserve">
+                                <g>
+                                    <path d="M11.812 0C5.289 0 0 5.289 0 11.812s5.289 11.813 11.812 11.813 11.813-5.29 11.813-11.813S18.335 0 11.812 0zm2.459 18.307c-.608.24-1.092.422-1.455.548a3.838 3.838 0 0 1-1.262.189c-.736 0-1.309-.18-1.717-.539s-.611-.814-.611-1.367c0-.215.015-.435.045-.659a8.23 8.23 0 0 1 .147-.759l.761-2.688c.067-.258.125-.503.171-.731.046-.23.068-.441.068-.633 0-.342-.071-.582-.212-.717-.143-.135-.412-.201-.813-.201-.196 0-.398.029-.605.09-.205.063-.383.12-.529.176l.201-.828c.498-.203.975-.377 1.43-.521a4.225 4.225 0 0 1 1.29-.218c.731 0 1.295.178 1.692.53.395.353.594.812.594 1.376 0 .117-.014.323-.041.617a4.129 4.129 0 0 1-.152.811l-.757 2.68a7.582 7.582 0 0 0-.167.736 3.892 3.892 0 0 0-.073.626c0 .356.079.599.239.728.158.129.435.194.827.194.185 0 .392-.033.626-.097.232-.064.4-.121.506-.17l-.203.827zm-.134-10.878a1.807 1.807 0 0 1-1.275.492c-.496 0-.924-.164-1.28-.492a1.57 1.57 0 0 1-.533-1.193c0-.465.18-.865.533-1.196a1.812 1.812 0 0 1 1.28-.497c.497 0 .923.165 1.275.497.353.331.53.731.53 1.196 0 .467-.177.865-.53 1.193z" fill="white"></path>
+                                </g>
+                            </svg>
+                            Falhou
+                        </label>
+                        {% endif %}
+                    </a>
+                    {% endfor %}
+                {% endif %}
             </div>
-            <div class="card-body">
-                <ul class="list-group">
-                    <li class="list-group-item d-flex justify-content-between">
-                        <a href="#">Niko</a>
-                        <label>20/02/2020</label>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between">
-                        <a href="#">Zezim </a>
-                        <label>20/02/2020</label>
-                    </li>
-                </ul>
-            </div>
+        </div>
+
+        <div class="tinder-pet-window" id="card-favoritos" {% if opcao != '3' %} style="display: none;" {% endif %}>
+            <h2 class="tinder-pet-titulo2">Favoritos</h2>
+            {% if user_favoritos.count == 0 %}
+                <label class="tinder-pet-list-item2 d-flex align-items-center">Você não favoritou nenhum pet ainda</label>
+            {% else %}
+                {% for f in user_favoritos %}
+                    <a href="{% url 'anuncio' %}?id={{ f.anuncio.id }}" class="tinder-pet-list-item d-flex align-items-center justify-content-between">
+                        <label class="me-3">{{ f.anuncio.pet.nome }}</label>
+                        {% if f.anuncio.pet.tipo == 0 %}
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" x="0" y="0" viewBox="0 0 448.024 448" xml:space="preserve" class="">
+                            <g fill="#5ab031">
+                                <path d="M31.16 85.77C-1.27 155.53-8.52 203.957 10.04 229.559a41.79 41.79 0 0 0 35.413 17.277 40.844 40.844 0 0 0 5.117-.426c1.067-5.972 2.137-12.375 3.63-18.773l3.624-16.64c11.52-53.759 28.16-129.708 66.348-180.052C96.227 32.863 51.21 42.68 31.16 85.77zm0 0" opacity="1"></path>
+                                <path d="M369.426 215.637C350.78 129.785 322.594.012 224.012.012S97.242 129.785 78.598 215.637l-3.668 16.726c-10.625 47.856-6.012 83.313 14.132 108.418 22.051 27.48 62.95 41.461 124.282 42.934v-65.219c-18.785-4.836-31.938-21.75-32-41.152.011-11.778 9.558-21.32 21.336-21.332h42.664c11.777.011 21.324 9.554 21.336 21.332-.063 19.402-13.211 36.316-32 41.152v65.219c61.332-1.473 102.23-15.453 124.28-42.934 20.145-25.101 24.759-60.558 14.134-108.414zm-177.414-44.961a10.65 10.65 0 0 1-7.543-3.121 10.655 10.655 0 0 1-3.125-7.543c0-5.89-4.774-10.668-10.664-10.668s-10.668 4.777-10.668 10.668-4.778 10.664-10.668 10.664-10.664-4.774-10.664-10.664c0-17.676 14.324-32 32-32 17.672 0 32 14.324 32 32 0 2.828-1.121 5.543-3.125 7.543-2 2-4.715 3.125-7.543 3.12zm106.668 0a10.66 10.66 0 0 1-10.668-10.664c0-5.89-4.778-10.668-10.668-10.668s-10.664 4.777-10.664 10.668-4.778 10.664-10.668 10.664-10.668-4.774-10.668-10.664c0-17.676 14.328-32 32-32 17.676 0 32 14.324 32 32 .004 2.828-1.121 5.543-3.121 7.543s-4.715 3.125-7.543 3.12zm0 0" opacity="1"></path>
+                                <path d="M245.344 277.344H202.68c0 11.781 9.55 21.332 21.332 21.332s21.332-9.551 21.332-21.332zM416.863 85.77c-20.05-43.094-65.066-52.907-93.011-54.825 38.187 50.344 54.828 126.504 66.347 180.266l3.84 16.64c1.492 6.399 2.559 12.587 3.414 18.56v.214c1.707 0 3.41.21 5.117.21a41.79 41.79 0 0 0 35.414-17.276c18.563-25.602 11.309-74.028-21.12-143.79zm0 0" opacity="1"></path>
+                            </g>
+                        </svg>
+                        {% else %}
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" x="0" y="0" viewBox="0 0 64 64" xml:space="preserve" class="">
+                            <g fill="#39ade4">
+                                <path d="M59.98 37.08a20.827 20.827 0 0 0-.95-6.07 13.97 13.97 0 0 0-2.26.3 22.81 22.81 0 0 0-7.26 3.09 1.128 1.128 0 0 1-1.29-1.85 24.156 24.156 0 0 1 7.73-3.37 15.843 15.843 0 0 1 2.29-.37c-.24-.96-1.23-2-1.18-3.04 1.04-3.64 3.19-12.52.61-16.49-3.45-4.58-11.21 1.3-14.8 3.82a.889.889 0 0 1-.83.13c-.8-.31-1.9-.69-3.11-1.05v6.86a1.13 1.13 0 0 1-2.26 0V11.6a16.953 16.953 0 0 0-3.55-.43v12.11a1.125 1.125 0 0 1-2.25 0V11.17a17.033 17.033 0 0 0-3.55.43v7.44a1.125 1.125 0 0 1-2.25 0c.02-1.51-.02-5.39 0-6.86-1.22.36-2.31.74-3.11 1.05a.909.909 0 0 1-.84-.13c-3.04-2.3-8.67-6.07-12.29-5.44-6.44 1.5-2.87 14.32-1.89 18.11.04 1.03-.94 2.09-1.19 3.04a15.622 15.622 0 0 1 2.29.37 23.907 23.907 0 0 1 7.73 3.37 1.125 1.125 0 0 1-1.28 1.85 22.94 22.94 0 0 0-7.26-3.09 14.093 14.093 0 0 0-2.27-.3 20.439 20.439 0 0 0-.9 7.31 16.247 16.247 0 0 1 2.21-.72 20.432 20.432 0 0 1 6.75-.51 1.123 1.123 0 1 1-.27 2.23 18.89 18.89 0 0 0-6.24.56 12.632 12.632 0 0 0-2.13.76 11.42 11.42 0 0 0 .92 2.78c9.41 17.36 43.99 17.35 53.39.01a11.06 11.06 0 0 0 .93-2.79 12.632 12.632 0 0 0-2.13-.76 18.938 18.938 0 0 0-6.25-.56 1.123 1.123 0 0 1-.27-2.23 20.428 20.428 0 0 1 6.75.51c1.21.06 2.56 1.63 2.26-.52zM19.4 29.25a1.13 1.13 0 0 1-1.85-1.3 4.997 4.997 0 0 1 8.61 0 1.129 1.129 0 0 1-.92 1.77 1.184 1.184 0 0 1-.93-.47 2.785 2.785 0 0 0-4.91 0zM42.02 41.8c-1.27 2.55-3.28 4-5.52 4a5.7 5.7 0 0 1-4.5-2.4 5.733 5.733 0 0 1-4.51 2.4c-2.23 0-4.25-1.45-5.51-4a1.125 1.125 0 1 1 2.01-1.01c.87 1.76 2.15 2.76 3.5 2.76 1.3 0 2.51-.91 3.38-2.54v-2.32a2.223 2.223 0 0 1-.54-.43l-1.5-1.64a2.267 2.267 0 0 1 1.66-3.78h3.02a2.264 2.264 0 0 1 1.65 3.78l-1.49 1.64a2.095 2.095 0 0 1-.55.43v2.32c1.79 3.48 5.2 3.31 6.89-.22a1.125 1.125 0 0 1 2.01 1.01zm4.14-12.28a1.131 1.131 0 0 1-1.56-.27 2.793 2.793 0 0 0-4.92 0 1.13 1.13 0 0 1-1.85-1.3 4.997 4.997 0 0 1 8.61 0 1.117 1.117 0 0 1-.28 1.57z" opacity="1"></path>
+                            </g>
+                        </svg>
+                        {% endif %}
+                    </a>
+                {% endfor %}
+            {% endif %}
+        </div>
+
+        <div class="tinder-pet-window" id="card-notificacoes" {% if opcao != '4' %} style="display: none;" {% endif %}>
+            <h2 class="tinder-pet-titulo2">Notificações</h2>
+            {% if user_notificacoes.count == 0 %}
+                <label class="tinder-pet-list-item2 d-flex align-items-center">Você ainda não possui nenhuma notificação</label>
+            {% else %}
+                {% for n in user_notificacoes %}
+                    {% if n.tipo == 0%}
+                        <a href="{% url 'anuncio' %}?id={{ n.anuncio.id }}&notificacao_id={{ n.id }}" class="tinder-pet-list-item d-flex align-items-center justify-content-between" {% if not n.aberta %} style="background-color: #59b03148;"{% endif %}>
+                            <div class="d-flex">
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" x="0" y="0" viewBox="0 0 60 60" xml:space="preserve">
+                                    <g fill="white">
+                                        <path d="M30 1.5c-16.542 0-30 12.112-30 27 0 5.204 1.646 10.245 4.768 14.604-.591 6.537-2.175 11.39-4.475 13.689a1 1 0 0 0 .846 1.697c.405-.057 9.813-1.411 16.618-5.339C21.621 54.71 25.737 55.5 30 55.5c16.542 0 30-12.112 30-27s-13.458-27-30-27zm-14 31c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4zm14 0c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4zm14 0c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4z" opacity="1"></path>
+                                    </g>
+                                </svg> &nbsp;
+                                <span class="me-3">Seu anúncio recebeu um novo comentário</span>
+                                {% if not n.aberta %}
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" x="0" y="0" viewBox="0 0 500 500" xml:space="preserve">
+                                    <g fill="#5ab031">
+                                        <circle cx="250" cy="250" r="249.2" opacity="1"></circle>
+                                        <path fill="#ffffff" d="M241.3 150.6c4.5-5 9.5-7.6 14.8-7.6s9.5.5 12.4 1.5c3 1 5.2 2.1 6.8 3.3 1.6 1.3 2.8 3.3 3.7 6.2.9 3.3 1.3 8.4 1.3 15.4v161.8c0 4.5-.1 7.8-.4 10s-1.1 4.8-2.5 7.7c-2.4 5.2-9.3 7.8-20.4 7.8-10.8 0-17.6-2.5-20.2-7.6-1.4-2.9-2.2-5.6-2.5-8s-.4-6-.4-10.6V227l-3.4 3.5c-7.2 6-13.3 9-18.3 9-5.1 0-10.3-3.4-15.8-10.2s-8.3-12.8-8.3-18 3.1-10.9 9.4-17.1l43-43z" opacity="1"></path>
+                                    </g>
+                                </svg>
+                                {% endif %}
+                            </div>
+                            <span style="color: rgba(255, 255, 255, 0.466);">{{n.dataNotificacao}}</span>
+                        </a>
+                    {% elif n.tipo == 1 %}
+                    <a href="{% url 'anuncio' %}?id={{ n.doacao.anuncio.id }}&notificacao_id={{ n.id }}" class="tinder-pet-list-item d-flex align-items-center justify-content-between" {% if not n.aberta %} style="background-color: #59b03148;"{% endif %}>
+                        <div class="d-flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" x="0" y="0" viewBox="0 0 512 512.002" xml:space="preserve">
+                                <g fill="white">
+                                    <path d="M210.352 246.633c33.882 0 63.222-12.153 87.195-36.13 23.973-23.972 36.125-53.304 36.125-87.19 0-33.876-12.152-63.211-36.129-87.192C273.566 12.152 244.23 0 210.352 0c-33.887 0-63.22 12.152-87.192 36.125s-36.129 53.309-36.129 87.188c0 33.886 12.156 63.222 36.133 87.195 23.977 23.969 53.313 36.125 87.188 36.125zM426.129 393.703c-.692-9.976-2.09-20.86-4.149-32.351-2.078-11.579-4.753-22.524-7.957-32.528-3.308-10.34-7.808-20.55-13.37-30.336-5.774-10.156-12.555-19-20.165-26.277-7.957-7.613-17.699-13.734-28.965-18.2-11.226-4.44-23.668-6.69-36.976-6.69-5.227 0-10.281 2.144-20.043 8.5a2711.03 2711.03 0 0 1-20.879 13.46c-6.707 4.274-15.793 8.278-27.016 11.903-10.949 3.543-22.066 5.34-33.039 5.34-10.972 0-22.086-1.797-33.047-5.34-11.21-3.622-20.296-7.625-26.996-11.899-7.77-4.965-14.8-9.496-20.898-13.469-9.75-6.355-14.809-8.5-20.035-8.5-13.313 0-25.75 2.254-36.973 6.7-11.258 4.457-21.004 10.578-28.969 18.199-7.605 7.281-14.39 16.12-20.156 26.273-5.558 9.785-10.058 19.992-13.371 30.34-3.2 10.004-5.875 20.945-7.953 32.524-2.059 11.476-3.457 22.363-4.149 32.363A438.821 438.821 0 0 0 0 423.949c0 26.727 8.496 48.363 25.25 64.32 16.547 15.747 38.441 23.735 65.066 23.735h246.532c26.625 0 48.511-7.984 65.062-23.734 16.758-15.946 25.254-37.586 25.254-64.325-.004-10.316-.351-20.492-1.035-30.242zm0 0" opacity="1"></path>
+                                </g>
+                            </svg>
+                            &nbsp;
+                            <span class="me-3">Nova pessoa interessada no <i style="color: #5ab031">{{ n.doacao.anuncio.pet.nome }}</i></span>
+                            {% if not n.aberta %}
+                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" x="0" y="0" viewBox="0 0 500 500" xml:space="preserve">
+                                <g fill="#5ab031">
+                                    <circle cx="250" cy="250" r="249.2" opacity="1"></circle>
+                                    <path fill="#ffffff" d="M241.3 150.6c4.5-5 9.5-7.6 14.8-7.6s9.5.5 12.4 1.5c3 1 5.2 2.1 6.8 3.3 1.6 1.3 2.8 3.3 3.7 6.2.9 3.3 1.3 8.4 1.3 15.4v161.8c0 4.5-.1 7.8-.4 10s-1.1 4.8-2.5 7.7c-2.4 5.2-9.3 7.8-20.4 7.8-10.8 0-17.6-2.5-20.2-7.6-1.4-2.9-2.2-5.6-2.5-8s-.4-6-.4-10.6V227l-3.4 3.5c-7.2 6-13.3 9-18.3 9-5.1 0-10.3-3.4-15.8-10.2s-8.3-12.8-8.3-18 3.1-10.9 9.4-17.1l43-43z" opacity="1"></path>
+                                </g>
+                            </svg>
+                            {% endif %}
+                        </div>
+                        <span style="color: rgba(255, 255, 255, 0.466);">{{n.dataNotificacao}}</span>
+                    </a>
+                    {% else %}
+                    <a href="{% url 'anuncio' %}?id={{ n.anuncio.id }}&notificacao_id={{ n.id }}" class="tinder-pet-list-item d-flex align-items-center justify-content-between" {% if not n.aberta %} style="background-color: #59b03148;"{% endif %}>
+                        <div class="d-flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" x="0" y="0" viewBox="0 0 408.576 408.576" xml:space="preserve">
+                                <g fill="white">
+                                    <path d="M204.288 0C91.648 0 0 91.648 0 204.288s91.648 204.288 204.288 204.288 204.288-91.648 204.288-204.288S316.928 0 204.288 0zm114.176 150.528-130.56 129.536c-7.68 7.68-19.968 8.192-28.16.512L90.624 217.6c-8.192-7.68-8.704-20.48-1.536-28.672 7.68-8.192 20.48-8.704 28.672-1.024l54.784 50.176L289.28 121.344c8.192-8.192 20.992-8.192 29.184 0s8.192 20.992 0 29.184z" opacity="1"></path>
+                                </g>
+                            </svg>
+                            &nbsp;
+                            <span class="me-3">Doação confirmada! 😍 O <i style="color: #5ab031">{{ n.anuncio.pet.nome }}</i> agora pertence a você.</span>
+                            {% if not n.aberta %}
+                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" x="0" y="0" viewBox="0 0 500 500" xml:space="preserve">
+                                <g fill="#5ab031">
+                                    <circle cx="250" cy="250" r="249.2" opacity="1"></circle>
+                                    <path fill="#ffffff" d="M241.3 150.6c4.5-5 9.5-7.6 14.8-7.6s9.5.5 12.4 1.5c3 1 5.2 2.1 6.8 3.3 1.6 1.3 2.8 3.3 3.7 6.2.9 3.3 1.3 8.4 1.3 15.4v161.8c0 4.5-.1 7.8-.4 10s-1.1 4.8-2.5 7.7c-2.4 5.2-9.3 7.8-20.4 7.8-10.8 0-17.6-2.5-20.2-7.6-1.4-2.9-2.2-5.6-2.5-8s-.4-6-.4-10.6V227l-3.4 3.5c-7.2 6-13.3 9-18.3 9-5.1 0-10.3-3.4-15.8-10.2s-8.3-12.8-8.3-18 3.1-10.9 9.4-17.1l43-43z" opacity="1"></path>
+                                </g>
+                            </svg>
+                            {% endif %}
+                        </div>
+                        <span style="color: rgba(255, 255, 255, 0.466);">{{n.dataNotificacao}}</span>
+                    </a>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
         </div>
         <!--<img src="{{ request.session.user_data.picture }}" alt="User picture">-->
     </div>

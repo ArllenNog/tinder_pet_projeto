@@ -12,7 +12,7 @@ body{
     font-size: 14pt;
 }
 .tela-primeira-vez{
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -44,12 +44,55 @@ body{
     border-radius: 20px;
 }
 
+.input-tip
+{
+    position: relative;
+    background-color: #5ab031;
+    color: white;
+    padding: 1px 7px;
+    border-radius: 10px;
+}
+
+.input-tip:hover{
+    background-color: #39ade4;
+    cursor: pointer;
+}
+
+.input-tip:hover #tip-text{
+    display: block !important;
+}
+
+#tip-text
+{
+    position: absolute;
+    left: 25px;
+    top: 0;
+    width: 250px;
+    background-color: #39ade4;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 5px;
+    display: none;
+}
+
 .tag-filtro{
     color: white;
     padding: 10px;
     margin-left: 2px;
     margin-right: 2px;
     border-radius: 20px;
+}
+
+#filtro-personalizado{
+    display: none;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+}
+
+.tag-favorito{
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 
 .tf-selecionado{
@@ -105,6 +148,7 @@ body{
     max-width: 500px;
     min-width: 360px;
     margin: 5px;
+    background-color: #303030;
 }
 
 .mural-content{
@@ -114,13 +158,21 @@ body{
     overflow: hidden;
 }
 
-.mural-photo, .raw-photo{
-    z-index: -1;
+.mural-photo{
+    /*z-index: -1;*/
     position: absolute;
     transform: translate(-50%, -50%);
-    left: 50%;
     top: 50%;
-    width: 100%;
+    left: 50%;
+    /*width: 100%;*/
+    height: 100%;
+}
+
+.raw-photo{
+    position: absolute;
+    transform: translate(-50%);
+    top: 0;
+    left: 50%;
 }
 
 .mural-desc{
@@ -151,6 +203,52 @@ body{
     display: block;
 }
 
+.comentario-frame{
+    display: flex;
+    max-width: 640px;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.comentario-item
+{
+    width: fit-content;
+    padding: 10px;
+}
+
+.comentario-balao
+{
+    position: relative;
+    background-color: #cbcbcb;
+    color: #002569;
+    padding: 5px 20px 25px 20px;
+    margin: 5px 0px;
+    text-decoration: none;
+    border-radius: 20px;
+    max-width: 480px;
+    box-shadow: #0000003e 5px 5px 10px;
+
+}
+
+.comentario-balao > span{
+    position: absolute;
+    right: 25px;
+    bottom: 5px;
+    font-size: 9pt;
+    font-style: italic;
+}
+
+#comentario-ipt{
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.comentario-frame > button{
+    font-size: 14pt;
+}
+
 .fixo{
     position: absolute;
     bottom: 10px;
@@ -167,11 +265,6 @@ body{
     color: white;
     user-select: none;
     font-size: 12pt;
-}
-
-.tag2{
-    background-color: #5ab031;
-    color: white;
 }
 
 .masc{
@@ -205,19 +298,26 @@ body{
 .viewer
 {
     position: relative;
+    min-width: 300px;
     width: 640px;
+    height: 640px;
     overflow: hidden;
+    border-radius: 15px;
 }
 
 .photo{
    display: flex;
-   margin-top: 10px;
+   flex-wrap: wrap;
+   /*justify-content: center;*/
+   /*margin-top: 10px;*/
+   margin: 15px 15px 15px 0px;
 }
 
 .photo-list{
-    display: flow;
+    position: relative;
+    display: flex;
     width: auto;
-    min-width: 150px;
+    /*min-width: 150px;*/
     margin: 0;
 }
 
@@ -228,12 +328,17 @@ body{
     height: 100px;
     overflow: hidden;
     margin: 2px;
+    border-radius: 5px;
 }
 
 .photo-item-non-select{
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
+    overflow: hidden;
+    border-radius: 15px;
     margin: 0;
+    margin-right: 6px;
+    background-color: #39ade4;
 }
 
 .selected
@@ -301,12 +406,16 @@ body{
     color: #003eaf !important;
 }
 
-.tinder-pet-input-file{
-    border-radius: 20px;
-    overflow: hidden;
+.tinder-pet-input-check{
+    width: 20px;
+    height: 20px;
 }
 
-.tinder-pet-list-item{
+/*.tinder-pet-input-file{
+    background-color: #39ade4;
+}*/
+
+.tinder-pet-list-item, .tinder-pet-list-item2{
     border: solid 1px rgba(113, 113, 113, 0.703);
     color: white;
     padding: 15px;
@@ -314,6 +423,9 @@ body{
     text-decoration: none;
     border-radius: 20px;
 }
+
+.tinder
+
 .tinder-pet-list-item:hover{
     background-color: #39ade4;
 }
@@ -333,6 +445,15 @@ body{
     text-decoration: none;
     font-size: 16pt;
     color: white;
+    cursor: pointer;
+}
+.tinder-pet-success{
+    background-color: #5ab031;
+    color: white;
+}
+.tinder-pet-alternative{
+    background-color: rgb(204, 0, 255);
+    color: white;
 }
 .tinder-pet-danger{
     background-color: rgb(214, 7, 7);
@@ -351,11 +472,30 @@ body{
 }
 .tinder-pet-frame, .tinder-pet-window{
     font-size: 14pt;
+    margin-top: 20px;
+}
+.window-alert
+{
+    border: solid 2px red;
 }
 .tinder-pet-frame h3{
     /*background-color: #5ab031;*/
     color: #5ab031;
 }
+.tinder-pet-detalhe{
+    color: white;
+    border: solid 2px white;
+    border-radius: 10px;
+    width: fit-content;
+    height: fit-content;
+    padding: 10px 25px;
+    /*min-width: 300px;*/
+}
+/*.tinder-pet-detalhe p:after{
+    margin-left: 20px;
+    margin-right: 20px;
+    content: "|";
+}*/
 .tinder-pet-window{
     background-color: #002569;
     color: rgb(204, 204, 204);
@@ -391,19 +531,25 @@ body{
 
 .cad-label
 {
+    margin-top: 10px;
     font-size: 14pt;
     font-weight: 300;
     color: #5ab031;
 }
 
+.content{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
 .preview-foto-cad-pet
 {
     display: none;
-    position: relative;
+    /*position: relative;*/
     width: 150px;
     height: 150px;
-    border-radius: 20px;
-    overflow: hidden;
     margin: 2px;
 }
 
@@ -412,7 +558,7 @@ body{
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 100%;
+    width: 150%;
 }
 
 .image-controls-btn{
@@ -490,8 +636,122 @@ body{
     max-width: 250px;
 }
 
-#meu-dados-btn a, #meus-anuncios-btn a, #notificacoes-btn a, #dropdownUser1 strong{
+#meu-dados-btn a, #meus-anuncios-btn a, #adocoes-btn a, #notificacoes-btn a, #favoritos-btn a,  #dropdownUser1 strong{
     font-size: 14pt;
+}
+
+.ong-cover-group{
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background-color: gray;
+    overflow: hidden;
+}
+
+.ong-profile-group{
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+}
+
+.ong-profile-photo{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.ong-profile-photo > img, .ong-cover-group > img{
+    position: absolute;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+} 
+
+.ong-cover-group > img{
+    min-width: 820px;
+}
+
+.black-fade{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 40%);
+}
+.ong-cover-edit-btn{
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height: 40px;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.511);
+}
+
+.ong-cover-edit-btn:hover{
+    cursor: pointer;
+}
+
+.pix-image{
+    position: relative;
+    width: 220px;
+    height: 220px;
+    background-color: white;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.pix-image > button{
+    position: absolute;
+    z-index: 1;
+}
+
+.pix-image > img{
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+    width: calc(100% - 30px );
+    height: calc(100% - 30px );
+    opacity: 0.3;
+}
+
+.ong-pet-link{
+    display: block;
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.ong-pet-link > img{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    width: 150%;
+    
+}
+
+.ong-pet-link > span{
+    font-size: 14pt;
+    position: absolute;
+    transform: translate(-50%, 0);
+    bottom: 10px;
+    left: 50%;
+    background-color: #003eaf;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -501,7 +761,7 @@ body{
     .photo-list{
         display: flex;
     }
-    #meu-dados-btn a, #meus-anuncios-btn a, #notificacoes-btn a, #dropdownUser1 strong{
+    #meu-dados-btn a, #meus-anuncios-btn a, #adocoes-btn a, #notificacoes-btn a, #dropdownUser1 strong{
         display: none;
     }
 }
@@ -526,6 +786,22 @@ body{
         margin-top: 40px;
         text-align: center!important;
         align-items: center!important;
+    }
+
+    .tinder-pet-detalhe{
+        width: 100%;
+        padding: 10px 10px;
+    }
+    
+    .viewer{
+        width: 100%;
+    }
+
+    .photo{
+        margin: 0;
+    }
+    .photo-item-non-select{
+        width: 24%;
     }
 }
 

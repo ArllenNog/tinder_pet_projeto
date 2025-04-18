@@ -1,0 +1,318 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block conteudo %}
+<form method="POST" action="{% url 'ong' %}" enctype="multipart/form-data">
+{% csrf_token %}
+<div class="ong-cover-group">
+    {% if dados.fotoCapa %}
+    <img src="{% static dados.fotoCapa %}" id="ong-foto-capa-target">
+    {% else %}
+    <img src="{% static 'images/capa.png' %}" id="ong-foto-capa-target">
+    {% endif %}
+    <div class="black-fade">
+        {% if pagina_propria %}
+        <input type="file" name="ong-foto-capa" id="ong-foto-capa" hidden>
+        <label class="ong-cover-edit-btn" for="ong-foto-capa">
+            <span>Trocar capa</span>&nbsp;
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" x="0" y="0" viewBox="0 0 512 512" xml:space="preserve" class="">
+                <g>
+                    <path fill-rule="evenodd" d="M366.823 146.207h-134.34V204.5a10.586 10.586 0 0 1-16.177 8.988l-77.035-47.93-78.765-49.01a10.585 10.585 0 0 1 0-17.975l78.766-49.007 77.034-47.929a10.342 10.342 0 0 1 10.732-.265 10.346 10.346 0 0 1 5.445 9.252v58.289H401.23a55.364 55.364 0 0 1 55.257 55.258v123.518a8.328 8.328 0 0 1-8.311 8.311h-60.671a8.328 8.328 0 0 1-8.312-8.311v-89.111a12.4 12.4 0 0 0-12.37-12.371zM145.178 365.793a12.4 12.4 0 0 1-12.371-12.371v-89.111A8.329 8.329 0 0 0 124.5 256H63.824a8.328 8.328 0 0 0-8.311 8.311v123.518a55.364 55.364 0 0 0 55.257 55.258h168.747v58.289a10.586 10.586 0 0 0 16.177 8.987l77.034-47.929 78.766-49.007a10.585 10.585 0 0 0 0-17.975l-78.765-49.006-77.035-47.93a10.586 10.586 0 0 0-16.177 8.988v58.289z" fill="white" opacity="1"></path>
+                </g>
+            </svg>
+        </label>
+        {% endif %}
+    </div>
+    <div class="container h-100 position-relative">
+        <div class="ong-profile-group">
+            <input type="file" name="ong-foto-perfil" id="ong-foto-perfil" hidden>
+            {% if dados.fotoPerfil %}
+            <div class="ong-profile-photo">
+                <img src="{% static dados.fotoPerfil %}" id="ong-foto-perfil-target">
+                {% if pagina_propria %}
+                <div class="image-controls-btn">
+                    <label for="ong-foto-perfil" class="btn" id="btn-change-foto-perfil-ong">
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" x="0" y="0" viewBox="0 0 512 512" xml:space="preserve" class="">
+                            <g>
+                                <path fill-rule="evenodd" d="M366.823 146.207h-134.34V204.5a10.586 10.586 0 0 1-16.177 8.988l-77.035-47.93-78.765-49.01a10.585 10.585 0 0 1 0-17.975l78.766-49.007 77.034-47.929a10.342 10.342 0 0 1 10.732-.265 10.346 10.346 0 0 1 5.445 9.252v58.289H401.23a55.364 55.364 0 0 1 55.257 55.258v123.518a8.328 8.328 0 0 1-8.311 8.311h-60.671a8.328 8.328 0 0 1-8.312-8.311v-89.111a12.4 12.4 0 0 0-12.37-12.371zM145.178 365.793a12.4 12.4 0 0 1-12.371-12.371v-89.111A8.329 8.329 0 0 0 124.5 256H63.824a8.328 8.328 0 0 0-8.311 8.311v123.518a55.364 55.364 0 0 0 55.257 55.258h168.747v58.289a10.586 10.586 0 0 0 16.177 8.987l77.034-47.929 78.766-49.007a10.585 10.585 0 0 0 0-17.975l-78.765-49.006-77.035-47.93a10.586 10.586 0 0 0-16.177 8.988v58.289z" fill="white" opacity="1"></path>
+                            </g>
+                        </svg>
+                    </label>
+                </div>
+                {% endif %}
+            </div>
+            {% else %}
+            <div class="ong-profile-photo">
+                <img src="{% static 'images/ong.png' %}" id="ong-foto-perfil-target">
+                {% if pagina_propria %}
+                <div class="image-controls-btn">
+                    <label for="ong-foto-perfil" class="btn" id="btn-change-foto-perfil-ong">
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" x="0" y="0" viewBox="0 0 512 512" xml:space="preserve" class="">
+                            <g>
+                                <path fill-rule="evenodd" d="M366.823 146.207h-134.34V204.5a10.586 10.586 0 0 1-16.177 8.988l-77.035-47.93-78.765-49.01a10.585 10.585 0 0 1 0-17.975l78.766-49.007 77.034-47.929a10.342 10.342 0 0 1 10.732-.265 10.346 10.346 0 0 1 5.445 9.252v58.289H401.23a55.364 55.364 0 0 1 55.257 55.258v123.518a8.328 8.328 0 0 1-8.311 8.311h-60.671a8.328 8.328 0 0 1-8.312-8.311v-89.111a12.4 12.4 0 0 0-12.37-12.371zM145.178 365.793a12.4 12.4 0 0 1-12.371-12.371v-89.111A8.329 8.329 0 0 0 124.5 256H63.824a8.328 8.328 0 0 0-8.311 8.311v123.518a55.364 55.364 0 0 0 55.257 55.258h168.747v58.289a10.586 10.586 0 0 0 16.177 8.987l77.034-47.929 78.766-49.007a10.585 10.585 0 0 0 0-17.975l-78.765-49.006-77.035-47.93a10.586 10.586 0 0 0-16.177 8.988v58.289z" fill="white" opacity="1"></path>
+                            </g>
+                        </svg>
+                    </label>
+                </div>
+                {% endif %}
+            </div>
+            {% endif %}
+            <h1 class="d-flex align-items-center tinder-pet-titulo">
+                <span id="ong-view-nome">{% if dados.nomeONG %} {{ dados.nomeONG }} {% else %} Sem nome {% endif %} </span>
+                <input type="text" id="ong-ipt-nome" class="tinder-pet-input" style="font-size: 26pt;" name="ong-nome" hidden>
+                {% if pagina_propria %}
+                <button type="button" class="btn" id="ong-edit-btn-nome">
+                    <svg id="ong-edit-icon-nome" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="15" height="15" x="0" y="0" viewBox="0 0 512 511" xml:space="preserve" class="">
+                        <g>
+                            <path d="M405.332 256.484c-11.797 0-21.332 9.559-21.332 21.332v170.668c0 11.754-9.559 21.332-21.332 21.332H64c-11.777 0-21.332-9.578-21.332-21.332V149.816c0-11.754 9.555-21.332 21.332-21.332h170.668c11.797 0 21.332-9.558 21.332-21.332 0-11.777-9.535-21.336-21.332-21.336H64c-35.285 0-64 28.715-64 64v298.668c0 35.286 28.715 64 64 64h298.668c35.285 0 64-28.714 64-64V277.816c0-11.796-9.54-21.332-21.336-21.332zm0 0" fill="#000000" opacity="1"></path>
+                            <path d="M200.02 237.05a10.793 10.793 0 0 0-2.922 5.438l-15.082 75.438c-.703 3.496.406 7.101 2.922 9.64a10.673 10.673 0 0 0 7.554 3.114c.68 0 1.387-.063 2.09-.211l75.414-15.082c2.09-.43 3.988-1.43 5.461-2.926l168.79-168.79-75.415-75.41zM496.383 16.102c-20.797-20.801-54.633-20.801-75.414 0l-29.524 29.523 75.414 75.414 29.524-29.527C506.453 81.465 512 68.066 512 53.816s-5.547-27.648-15.617-37.714zm0 0" fill="#000000" opacity="1"></path>
+                        </g>
+                    </svg>
+                    <svg id="ong-save-icon-nome" style="display: none;" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="15" height="15" x="0" y="0" viewBox="0 0 174.239 174.239" xml:space="preserve" class="">
+                        <g>
+                            <path d="M74.439 157.519a4.199 4.199 0 0 1-6.111.313L1.38 94.468a4.447 4.447 0 0 1-.173-6.267l21.33-22.539a4.447 4.447 0 0 1 6.267-.173L65.375 100.1a4.199 4.199 0 0 0 6.111-.313l71.447-83.015a4.445 4.445 0 0 1 6.251-.468l23.518 20.242a4.446 4.446 0 0 1 .468 6.252L74.439 157.519z" fill="#000000" opacity="1" ></path>
+                        </g>
+                    </svg>
+                </button>
+                {% endif %}
+            </h1>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+        <div class="tinder-pet-frame">
+            <h3>Sobre</h3>
+            <div>
+                <p id="ong-view-sobre">{% if dados.sobre %} {{ dados.sobre }} {% else %} Nenhuma descrição sobre essa ONG foi escrita ainda {% endif %}</p>
+                <textarea class="tinder-pet-input" style="max-width: 100%;  width: 100%; height: 180px;" id="ong-ipt-sobre" name="ong-desc" hidden></textarea>
+                {% if pagina_propria %}
+                <button type="button"  class="btn" id="ong-edit-btn-sobre">
+                    <svg id="ong-edit-icon-sobre" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" x="0" y="0" viewBox="0 0 512 511" xml:space="preserve" class="">
+                        <g>
+                            <path d="M405.332 256.484c-11.797 0-21.332 9.559-21.332 21.332v170.668c0 11.754-9.559 21.332-21.332 21.332H64c-11.777 0-21.332-9.578-21.332-21.332V149.816c0-11.754 9.555-21.332 21.332-21.332h170.668c11.797 0 21.332-9.558 21.332-21.332 0-11.777-9.535-21.336-21.332-21.336H64c-35.285 0-64 28.715-64 64v298.668c0 35.286 28.715 64 64 64h298.668c35.285 0 64-28.714 64-64V277.816c0-11.796-9.54-21.332-21.336-21.332zm0 0" fill="#000000" opacity="1"></path>
+                            <path d="M200.02 237.05a10.793 10.793 0 0 0-2.922 5.438l-15.082 75.438c-.703 3.496.406 7.101 2.922 9.64a10.673 10.673 0 0 0 7.554 3.114c.68 0 1.387-.063 2.09-.211l75.414-15.082c2.09-.43 3.988-1.43 5.461-2.926l168.79-168.79-75.415-75.41zM496.383 16.102c-20.797-20.801-54.633-20.801-75.414 0l-29.524 29.523 75.414 75.414 29.524-29.527C506.453 81.465 512 68.066 512 53.816s-5.547-27.648-15.617-37.714zm0 0" fill="#000000" opacity="1"></path>
+                        </g>
+                    </svg>
+                    <svg id="ong-save-icon-sobre" style="display: none;" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" x="0" y="0" viewBox="0 0 174.239 174.239" xml:space="preserve" class="">
+                        <g>
+                            <path d="M74.439 157.519a4.199 4.199 0 0 1-6.111.313L1.38 94.468a4.447 4.447 0 0 1-.173-6.267l21.33-22.539a4.447 4.447 0 0 1 6.267-.173L65.375 100.1a4.199 4.199 0 0 0 6.111-.313l71.447-83.015a4.445 4.445 0 0 1 6.251-.468l23.518 20.242a4.446 4.446 0 0 1 .468 6.252L74.439 157.519z" fill="#000000" opacity="1" ></path>
+                        </g>
+                    </svg>
+                </button>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="tinder-pet-frame">
+            <h3>Conheça os pets</h3>
+            {% for a in anuncios %}
+            <a class="ong-pet-link" href="/anuncio?id={{a.id}}">
+                <img src="{% static a.pet.fotoDestaque %}">
+                <span>{{a.pet.nome}}</span>
+            </a>
+            {% endfor %}
+        </div>
+
+        <div class="tinder-pet-frame">
+            <h3>Apoie esta organização</h3>
+            <p>As ONG's precisam de apoio financeiro para se manter e continuar cuidando dos animais. Se você não puder adotar um animal neste momento, você pode contribuir com recursos que irão ajudar a estes animais</p>
+            <p><strong>Como ajudar</strong></p>
+            <ul>
+                <li>Pacotes de rações</li>
+                <li>Remédios e materiais de limpeza</li>
+                <li>Doação via PIX</li>
+                <button type="button" class="tinder-pet-button " id="btn-copiar-pix">Copiar Chave Pix</button>
+            <input type="text" class="tinder-pet-input" name="ong-pix" id="ong-pix" value="{{ dados.chavePIX }}" hidden>
+            {% if pagina_propria %}
+            <button type="button" class="btn" id="ong-edit-btn-pix">
+                <svg id="ong-edit-icon-pix" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="15" height="15" x="0" y="0" viewBox="0 0 512 511" xml:space="preserve">
+                    <g>
+                        <path d="M405.332 256.484c-11.797 0-21.332 9.559-21.332 21.332v170.668c0 11.754-9.559 21.332-21.332 21.332H64c-11.777 0-21.332-9.578-21.332-21.332V149.816c0-11.754 9.555-21.332 21.332-21.332h170.668c11.797 0 21.332-9.558 21.332-21.332 0-11.777-9.535-21.336-21.332-21.336H64c-35.285 0-64 28.715-64 64v298.668c0 35.286 28.715 64 64 64h298.668c35.285 0 64-28.714 64-64V277.816c0-11.796-9.54-21.332-21.336-21.332zm0 0" fill="#000000" opacity="1"></path>
+                        <path d="M200.02 237.05a10.793 10.793 0 0 0-2.922 5.438l-15.082 75.438c-.703 3.496.406 7.101 2.922 9.64a10.673 10.673 0 0 0 7.554 3.114c.68 0 1.387-.063 2.09-.211l75.414-15.082c2.09-.43 3.988-1.43 5.461-2.926l168.79-168.79-75.415-75.41zM496.383 16.102c-20.797-20.801-54.633-20.801-75.414 0l-29.524 29.523 75.414 75.414 29.524-29.527C506.453 81.465 512 68.066 512 53.816s-5.547-27.648-15.617-37.714zm0 0" fill="#000000" opacity="1"></path>
+                    </g>
+                </svg>
+                <svg id="ong-save-icon-pix" style="display: none;" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="15" height="15" x="0" y="0" viewBox="0 0 174.239 174.239" xml:space="preserve">
+                    <g>
+                        <path d="M74.439 157.519a4.199 4.199 0 0 1-6.111.313L1.38 94.468a4.447 4.447 0 0 1-.173-6.267l21.33-22.539a4.447 4.447 0 0 1 6.267-.173L65.375 100.1a4.199 4.199 0 0 0 6.111-.313l71.447-83.015a4.445 4.445 0 0 1 6.251-.468l23.518 20.242a4.446 4.446 0 0 1 .468 6.252L74.439 157.519z" fill="#000000" opacity="1" ></path>
+                    </g>
+                </svg>
+            </button>
+            {% endif %}
+            <p id="aviso-copia" style="color: green; display: none;">Pix Copiado!</p>
+            </ul> 
+        </div>
+
+        <div class="tinder-pet-frame">
+            <h3>Informações adicionais</h3>
+            <p class="d-flex align-items-center m-1">
+                <b class="me-2">Contato: </b>
+                <span id="ong-view-contato">{% if dados.telefone %}{{ dados.telefone }}{% else %}Não informado{% endif %}</span> 
+                <input type="text" max="99" min="1" id="ong-ipt-contato" class="tinder-pet-input" style="max-width: 220px;" name="ong-contato" hidden>
+                {% if pagina_propria %}
+                <button type="button" class="btn" id="ong-edit-btn-contato">
+                    <svg id="ong-edit-icon-contato" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="15" height="15" x="0" y="0" viewBox="0 0 512 511" xml:space="preserve" class="">
+                        <g>
+                            <path d="M405.332 256.484c-11.797 0-21.332 9.559-21.332 21.332v170.668c0 11.754-9.559 21.332-21.332 21.332H64c-11.777 0-21.332-9.578-21.332-21.332V149.816c0-11.754 9.555-21.332 21.332-21.332h170.668c11.797 0 21.332-9.558 21.332-21.332 0-11.777-9.535-21.336-21.332-21.336H64c-35.285 0-64 28.715-64 64v298.668c0 35.286 28.715 64 64 64h298.668c35.285 0 64-28.714 64-64V277.816c0-11.796-9.54-21.332-21.336-21.332zm0 0" fill="#000000" opacity="1"></path>
+                            <path d="M200.02 237.05a10.793 10.793 0 0 0-2.922 5.438l-15.082 75.438c-.703 3.496.406 7.101 2.922 9.64a10.673 10.673 0 0 0 7.554 3.114c.68 0 1.387-.063 2.09-.211l75.414-15.082c2.09-.43 3.988-1.43 5.461-2.926l168.79-168.79-75.415-75.41zM496.383 16.102c-20.797-20.801-54.633-20.801-75.414 0l-29.524 29.523 75.414 75.414 29.524-29.527C506.453 81.465 512 68.066 512 53.816s-5.547-27.648-15.617-37.714zm0 0" fill="#000000" opacity="1"></path>
+                        </g>
+                    </svg>
+                    <svg id="ong-save-icon-contato" style="display: none;" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="15" height="15" x="0" y="0" viewBox="0 0 174.239 174.239" xml:space="preserve" class="">
+                        <g>
+                            <path d="M74.439 157.519a4.199 4.199 0 0 1-6.111.313L1.38 94.468a4.447 4.447 0 0 1-.173-6.267l21.33-22.539a4.447 4.447 0 0 1 6.267-.173L65.375 100.1a4.199 4.199 0 0 0 6.111-.313l71.447-83.015a4.445 4.445 0 0 1 6.251-.468l23.518 20.242a4.446 4.446 0 0 1 .468 6.252L74.439 157.519z" fill="#000000" opacity="1" ></path>
+                        </g>
+                    </svg>
+                </button>
+                {% endif %}
+            </p>
+
+            <p class="d-flex align-items-center m-1">
+                <b class="me-2">CNPJ: </b>
+                <span id="ong-view-cnpj">{% if dados.cnpj %}{{ dados.cnpj }}{% else %}Não informado{% endif %}</span> 
+                <input type="text" max="99" min="1" id="ong-ipt-cnpj" class="tinder-pet-input" style="max-width: 220px;" name="ong-cnpj" hidden>
+                {% if pagina_propria %}
+                <button type="button" class="btn" id="ong-edit-btn-cnpj">
+                    <svg id="ong-edit-icon-cnpj" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="15" height="15" x="0" y="0" viewBox="0 0 512 511" xml:space="preserve" class="">
+                        <g>
+                            <path d="M405.332 256.484c-11.797 0-21.332 9.559-21.332 21.332v170.668c0 11.754-9.559 21.332-21.332 21.332H64c-11.777 0-21.332-9.578-21.332-21.332V149.816c0-11.754 9.555-21.332 21.332-21.332h170.668c11.797 0 21.332-9.558 21.332-21.332 0-11.777-9.535-21.336-21.332-21.336H64c-35.285 0-64 28.715-64 64v298.668c0 35.286 28.715 64 64 64h298.668c35.285 0 64-28.714 64-64V277.816c0-11.796-9.54-21.332-21.336-21.332zm0 0" fill="#000000" opacity="1"></path>
+                            <path d="M200.02 237.05a10.793 10.793 0 0 0-2.922 5.438l-15.082 75.438c-.703 3.496.406 7.101 2.922 9.64a10.673 10.673 0 0 0 7.554 3.114c.68 0 1.387-.063 2.09-.211l75.414-15.082c2.09-.43 3.988-1.43 5.461-2.926l168.79-168.79-75.415-75.41zM496.383 16.102c-20.797-20.801-54.633-20.801-75.414 0l-29.524 29.523 75.414 75.414 29.524-29.527C506.453 81.465 512 68.066 512 53.816s-5.547-27.648-15.617-37.714zm0 0" fill="#000000" opacity="1"></path>
+                        </g>
+                    </svg>
+                    <svg id="ong-save-icon-cnpj" style="display: none;" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="15" height="15" x="0" y="0" viewBox="0 0 174.239 174.239" xml:space="preserve" class="">
+                        <g>
+                            <path d="M74.439 157.519a4.199 4.199 0 0 1-6.111.313L1.38 94.468a4.447 4.447 0 0 1-.173-6.267l21.33-22.539a4.447 4.447 0 0 1 6.267-.173L65.375 100.1a4.199 4.199 0 0 0 6.111-.313l71.447-83.015a4.445 4.445 0 0 1 6.251-.468l23.518 20.242a4.446 4.446 0 0 1 .468 6.252L74.439 157.519z" fill="#000000" opacity="1" ></path>
+                        </g>
+                    </svg>
+                </button>
+                {% endif %}
+            </p>
+
+            <p class="d-flex align-items-center m-1">
+                <b class="me-2">Endereço: </b>
+                <span id="ong-view-endereco">{% if dados.endereço %}{{ dados.endereço }}{% else %}Não informado{% endif %}</span> 
+                <input type="text" max="99" min="1" id="ong-ipt-endereco" class="tinder-pet-input" style="max-width: 220px;" name="ong-endereco" hidden>
+                {% if pagina_propria %}
+                <button type="button" class="btn" id="ong-edit-btn-endereco">
+                    <svg id="ong-edit-icon-endereco" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="15" height="15" x="0" y="0" viewBox="0 0 512 511" xml:space="preserve" class="">
+                        <g>
+                            <path d="M405.332 256.484c-11.797 0-21.332 9.559-21.332 21.332v170.668c0 11.754-9.559 21.332-21.332 21.332H64c-11.777 0-21.332-9.578-21.332-21.332V149.816c0-11.754 9.555-21.332 21.332-21.332h170.668c11.797 0 21.332-9.558 21.332-21.332 0-11.777-9.535-21.336-21.332-21.336H64c-35.285 0-64 28.715-64 64v298.668c0 35.286 28.715 64 64 64h298.668c35.285 0 64-28.714 64-64V277.816c0-11.796-9.54-21.332-21.336-21.332zm0 0" fill="#000000" opacity="1"></path>
+                            <path d="M200.02 237.05a10.793 10.793 0 0 0-2.922 5.438l-15.082 75.438c-.703 3.496.406 7.101 2.922 9.64a10.673 10.673 0 0 0 7.554 3.114c.68 0 1.387-.063 2.09-.211l75.414-15.082c2.09-.43 3.988-1.43 5.461-2.926l168.79-168.79-75.415-75.41zM496.383 16.102c-20.797-20.801-54.633-20.801-75.414 0l-29.524 29.523 75.414 75.414 29.524-29.527C506.453 81.465 512 68.066 512 53.816s-5.547-27.648-15.617-37.714zm0 0" fill="#000000" opacity="1"></path>
+                        </g>
+                    </svg>
+                    <svg id="ong-save-icon-endereco" style="display: none;" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="15" height="15" x="0" y="0" viewBox="0 0 174.239 174.239" xml:space="preserve" class="">
+                        <g>
+                            <path d="M74.439 157.519a4.199 4.199 0 0 1-6.111.313L1.38 94.468a4.447 4.447 0 0 1-.173-6.267l21.33-22.539a4.447 4.447 0 0 1 6.267-.173L65.375 100.1a4.199 4.199 0 0 0 6.111-.313l71.447-83.015a4.445 4.445 0 0 1 6.251-.468l23.518 20.242a4.446 4.446 0 0 1 .468 6.252L74.439 157.519z" fill="#000000" opacity="1" ></path>
+                        </g>
+                    </svg>
+                </button>
+                {% endif %}
+            </p>
+        </div>
+
+        <div class="tinder-pet-frame">
+            <h3>Siga nas redes</h3>
+            <a href="{% if dados.instagram %}{{dados.instagram}}{% else %}#{% endif %}" target="_blank" class="flex m-1" id="target-link-instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" x="0" y="0" viewBox="0 0 512 512" xml:space="preserve">
+                    <g>
+                        <circle cx="256" cy="256" r="52.5" fill="white" opacity="1"></circle>
+                        <path d="M256 6C117.929 6 6 117.929 6 256s111.929 250 250 250 250-111.929 250-250S394.071 6 256 6zm154.458 313.54c-1.2 23.768-7.879 47.206-25.2 64.343-17.489 17.3-41.038 23.746-65.035 24.934H191.778c-24-1.188-47.546-7.63-65.035-24.934-17.322-17.137-24-40.575-25.2-64.343V192.46c1.2-23.768 7.879-47.206 25.2-64.344 17.489-17.3 41.038-23.746 65.035-24.933h128.444c24 1.187 47.546 7.63 65.035 24.933 17.322 17.138 24 40.576 25.2 64.344z" fill="white" opacity="1"></path>
+                        <path d="M318.6 132.138c-31.286-.858-93.906-.858-125.192 0-16.281.447-34.738 4.5-46.338 16.89-12.054 12.879-16.609 28.439-17.071 45.846-.812 30.552 0 122.252 0 122.252.529 17.405 5.017 32.967 17.071 45.846 11.6 12.394 30.057 16.443 46.338 16.89 31.286.858 93.906.858 125.192 0 16.281-.447 34.738-4.5 46.338-16.89 12.054-12.879 16.609-28.439 17.071-45.846V194.874c-.462-17.407-5.017-32.967-17.071-45.846-11.604-12.394-30.061-16.443-46.338-16.89zM256 337.375A81.375 81.375 0 1 1 337.375 256 81.375 81.375 0 0 1 256 337.375zm81.721-145.953A16.275 16.275 0 1 1 354 175.147a16.275 16.275 0 0 1-16.279 16.275z" fill="white" opacity="1"></path>
+                    </g>
+                </svg>
+            </a>
+            {% if pagina_propria %}
+            <input type="text" id="redes-ipt-instagram" class="tinder-pet-input" name="ong-instagram" placeholder="Escreva ou copie a URL" value="{% if dados.instagram %}{{dados.instagram}}{% endif %}" hidden>
+            <button type="button" class="btn" id="redes-edit-btn-instagram">
+                <svg id="redes-edit-icon-instagram" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="15" height="15" x="0" y="0" viewBox="0 0 512 511" xml:space="preserve">
+                    <g>
+                        <path d="M405.332 256.484c-11.797 0-21.332 9.559-21.332 21.332v170.668c0 11.754-9.559 21.332-21.332 21.332H64c-11.777 0-21.332-9.578-21.332-21.332V149.816c0-11.754 9.555-21.332 21.332-21.332h170.668c11.797 0 21.332-9.558 21.332-21.332 0-11.777-9.535-21.336-21.332-21.336H64c-35.285 0-64 28.715-64 64v298.668c0 35.286 28.715 64 64 64h298.668c35.285 0 64-28.714 64-64V277.816c0-11.796-9.54-21.332-21.336-21.332zm0 0" fill="#000000" opacity="1"></path>
+                        <path d="M200.02 237.05a10.793 10.793 0 0 0-2.922 5.438l-15.082 75.438c-.703 3.496.406 7.101 2.922 9.64a10.673 10.673 0 0 0 7.554 3.114c.68 0 1.387-.063 2.09-.211l75.414-15.082c2.09-.43 3.988-1.43 5.461-2.926l168.79-168.79-75.415-75.41zM496.383 16.102c-20.797-20.801-54.633-20.801-75.414 0l-29.524 29.523 75.414 75.414 29.524-29.527C506.453 81.465 512 68.066 512 53.816s-5.547-27.648-15.617-37.714zm0 0" fill="#000000" opacity="1"></path>
+                    </g>
+                </svg>
+                <svg id="redes-save-icon-instagram" style="display: none;" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="15" height="15" x="0" y="0" viewBox="0 0 174.239 174.239" xml:space="preserve">
+                    <g>
+                        <path d="M74.439 157.519a4.199 4.199 0 0 1-6.111.313L1.38 94.468a4.447 4.447 0 0 1-.173-6.267l21.33-22.539a4.447 4.447 0 0 1 6.267-.173L65.375 100.1a4.199 4.199 0 0 0 6.111-.313l71.447-83.015a4.445 4.445 0 0 1 6.251-.468l23.518 20.242a4.446 4.446 0 0 1 .468 6.252L74.439 157.519z" fill="#000000" opacity="1" ></path>
+                    </g>
+                </svg>
+            </button><br>
+            {% endif %}
+
+            <a href="{% if dados.facebook %}{{dados.facebook}}{% else %}#{% endif %}" target="_blank" class="m-1" id="target-link-facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" x="0" y="0" viewBox="0 0 49.652 49.652" xml:space="preserve">
+                    <g>
+                        <path d="M24.826 0C11.137 0 0 11.137 0 24.826c0 13.688 11.137 24.826 24.826 24.826 13.688 0 24.826-11.138 24.826-24.826C49.652 11.137 38.516 0 24.826 0zM31 25.7h-4.039v14.396h-5.985V25.7h-2.845v-5.088h2.845v-3.291c0-2.357 1.12-6.04 6.04-6.04l4.435.017v4.939h-3.219c-.524 0-1.269.262-1.269 1.386v2.99h4.56z" fill="white" opacity="1" ></path>
+                    </g>
+                </svg>
+            </a>
+            {% if pagina_propria %}
+            <input type="text" id="redes-ipt-facebook" class="tinder-pet-input" name="ong-facebook" placeholder="Escreva ou copie a URL" value="{% if dados.facebook %}{{dados.facebook}}{% endif %}" hidden>
+            <button type="button" class="btn" id="redes-edit-btn-facebook">
+                <svg id="redes-edit-icon-facebook" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="15" height="15" x="0" y="0" viewBox="0 0 512 511" xml:space="preserve">
+                    <g>
+                        <path d="M405.332 256.484c-11.797 0-21.332 9.559-21.332 21.332v170.668c0 11.754-9.559 21.332-21.332 21.332H64c-11.777 0-21.332-9.578-21.332-21.332V149.816c0-11.754 9.555-21.332 21.332-21.332h170.668c11.797 0 21.332-9.558 21.332-21.332 0-11.777-9.535-21.336-21.332-21.336H64c-35.285 0-64 28.715-64 64v298.668c0 35.286 28.715 64 64 64h298.668c35.285 0 64-28.714 64-64V277.816c0-11.796-9.54-21.332-21.336-21.332zm0 0" fill="#000000" opacity="1"></path>
+                        <path d="M200.02 237.05a10.793 10.793 0 0 0-2.922 5.438l-15.082 75.438c-.703 3.496.406 7.101 2.922 9.64a10.673 10.673 0 0 0 7.554 3.114c.68 0 1.387-.063 2.09-.211l75.414-15.082c2.09-.43 3.988-1.43 5.461-2.926l168.79-168.79-75.415-75.41zM496.383 16.102c-20.797-20.801-54.633-20.801-75.414 0l-29.524 29.523 75.414 75.414 29.524-29.527C506.453 81.465 512 68.066 512 53.816s-5.547-27.648-15.617-37.714zm0 0" fill="#000000" opacity="1"></path>
+                    </g>
+                </svg>
+                <svg id="redes-save-icon-facebook" style="display: none;" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="15" height="15" x="0" y="0" viewBox="0 0 174.239 174.239" xml:space="preserve">
+                    <g>
+                        <path d="M74.439 157.519a4.199 4.199 0 0 1-6.111.313L1.38 94.468a4.447 4.447 0 0 1-.173-6.267l21.33-22.539a4.447 4.447 0 0 1 6.267-.173L65.375 100.1a4.199 4.199 0 0 0 6.111-.313l71.447-83.015a4.445 4.445 0 0 1 6.251-.468l23.518 20.242a4.446 4.446 0 0 1 .468 6.252L74.439 157.519z" fill="#000000" opacity="1" ></path>
+                    </g>
+                </svg>
+            </button><br>
+            {% endif %}
+
+            <a href="{% if dados.twitter %}{{dados.twitter}}{% else %}#{% endif %}" target="_blank" class="m-1" id="target-link-twitter">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" x="0" y="0" viewBox="0 0 1227 1227" xml:space="preserve" id="target-link-twitter">
+                    <g>
+                        <path d="M613.5 0C274.685 0 0 274.685 0 613.5S274.685 1227 613.5 1227 1227 952.315 1227 613.5 952.315 0 613.5 0z" fill="white" opacity="1"></path>
+                        <path fill="#003eaf" d="m680.617 557.98 262.632-305.288h-62.235L652.97 517.77 470.833 252.692H260.759l275.427 400.844-275.427 320.142h62.239l240.82-279.931 192.35 279.931h210.074L680.601 557.98zM345.423 299.545h95.595l440.024 629.411h-95.595z" opacity="1"></path>
+                    </g>
+                </svg>
+            </a>
+            {% if pagina_propria %}
+            <input type="text" id="redes-ipt-twitter" class="tinder-pet-input" name="ong-twitter" placeholder="Escreva ou copie a URL" value="{% if dados.twitter %}{{dados.twitter}}{% endif %}" hidden>
+            <button type="button" class="btn" id="redes-edit-btn-twitter">
+                <svg id="redes-edit-icon-twitter" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="15" height="15" x="0" y="0" viewBox="0 0 512 511" xml:space="preserve">
+                    <g>
+                        <path d="M405.332 256.484c-11.797 0-21.332 9.559-21.332 21.332v170.668c0 11.754-9.559 21.332-21.332 21.332H64c-11.777 0-21.332-9.578-21.332-21.332V149.816c0-11.754 9.555-21.332 21.332-21.332h170.668c11.797 0 21.332-9.558 21.332-21.332 0-11.777-9.535-21.336-21.332-21.336H64c-35.285 0-64 28.715-64 64v298.668c0 35.286 28.715 64 64 64h298.668c35.285 0 64-28.714 64-64V277.816c0-11.796-9.54-21.332-21.336-21.332zm0 0" fill="#000000" opacity="1"></path>
+                        <path d="M200.02 237.05a10.793 10.793 0 0 0-2.922 5.438l-15.082 75.438c-.703 3.496.406 7.101 2.922 9.64a10.673 10.673 0 0 0 7.554 3.114c.68 0 1.387-.063 2.09-.211l75.414-15.082c2.09-.43 3.988-1.43 5.461-2.926l168.79-168.79-75.415-75.41zM496.383 16.102c-20.797-20.801-54.633-20.801-75.414 0l-29.524 29.523 75.414 75.414 29.524-29.527C506.453 81.465 512 68.066 512 53.816s-5.547-27.648-15.617-37.714zm0 0" fill="#000000" opacity="1"></path>
+                    </g>
+                </svg>
+                <svg id="redes-save-icon-twitter" style="display: none;" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="15" height="15" x="0" y="0" viewBox="0 0 174.239 174.239" xml:space="preserve">
+                    <g>
+                        <path d="M74.439 157.519a4.199 4.199 0 0 1-6.111.313L1.38 94.468a4.447 4.447 0 0 1-.173-6.267l21.33-22.539a4.447 4.447 0 0 1 6.267-.173L65.375 100.1a4.199 4.199 0 0 0 6.111-.313l71.447-83.015a4.445 4.445 0 0 1 6.251-.468l23.518 20.242a4.446 4.446 0 0 1 .468 6.252L74.439 157.519z" fill="#000000" opacity="1" ></path>
+                    </g>
+                </svg>
+            </button><br>
+            {% endif %}
+
+            <a href="{% if dados.site%}{{dados.site}}{% else %}#{% endif %}" target="_blank" class="m-1" id="target-link-site">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" x="0" y="0" viewBox="0 0 512 512" xml:space="preserve">
+                    <g>
+                        <path fill-rule="evenodd" d="M256 512C114.841 512 0 397.159 0 256S114.841 0 256 0s256 114.841 256 256-114.841 256-256 256zm47.063-119.906c36.385-12.618 66.194-39.433 82.751-73.794H327.18c-3.288 19.767-8.155 37.995-14.443 53.716-2.964 7.409-6.202 14.107-9.674 20.078zm-176.876-73.793c16.557 34.359 46.365 61.175 82.75 73.794-3.471-5.972-6.71-12.67-9.674-20.078-6.289-15.721-11.155-33.949-14.443-53.716zm82.75-198.395c-36.385 12.618-66.193 39.434-82.75 73.794h58.633c3.288-19.767 8.154-37.995 14.443-53.716 2.964-7.409 6.202-14.107 9.674-20.078zM256 112c-10.498 0-22.817 14.493-32.148 37.82-5.148 12.871-9.229 27.726-12.16 43.88h88.617c-2.931-16.153-7.011-31.009-12.16-43.88C278.817 126.493 266.498 112 256 112zM112 256c0 12.361 1.567 24.362 4.51 35.818h64.957c-1.052-11.65-1.61-23.636-1.61-35.818s.558-24.168 1.61-35.818H116.51A143.783 143.783 0 0 0 112 256zm96.042 35.818h95.917c1.118-11.576 1.702-23.577 1.702-35.818s-.583-24.242-1.702-35.818h-95.917c-1.118 11.576-1.702 23.577-1.702 35.818s.583 24.242 1.702 35.818zM256 400c10.498 0 22.817-14.493 32.148-37.82 5.149-12.871 9.229-27.726 12.16-43.88h-88.617c2.931 16.153 7.012 31.009 12.16 43.88C233.183 385.507 245.502 400 256 400zm144-144c0-12.361-1.567-24.362-4.51-35.818h-64.958c1.052 11.65 1.61 23.636 1.61 35.818s-.558 24.168-1.61 35.818h64.958A143.783 143.783 0 0 0 400 256zm-14.187-62.301c-16.556-34.36-46.365-61.176-82.751-73.794 3.471 5.972 6.71 12.67 9.674 20.079 6.289 15.721 11.155 33.948 14.443 53.716h58.634zM426.483 256c0 94.004-76.479 170.483-170.483 170.483-94.005 0-170.483-76.479-170.483-170.483S161.995 85.517 256 85.517c94.005 0 170.483 76.479 170.483 170.483z" clip-rule="evenodd" fill="white" opacity="1"></path>
+                    </g>
+                </svg>
+            </a>
+            {% if pagina_propria %}
+            <input type="text" id="redes-ipt-site" class="tinder-pet-input" name="ong-site" placeholder="Escreva ou copie a URL" value="{% if dados.site %}{{dados.site}}{% endif %}" hidden>
+            <button type="button" class="btn" id="redes-edit-btn-site">
+                <svg id="redes-edit-icon-site" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="15" height="15" x="0" y="0" viewBox="0 0 512 511" xml:space="preserve" class="">
+                    <g>
+                        <path d="M405.332 256.484c-11.797 0-21.332 9.559-21.332 21.332v170.668c0 11.754-9.559 21.332-21.332 21.332H64c-11.777 0-21.332-9.578-21.332-21.332V149.816c0-11.754 9.555-21.332 21.332-21.332h170.668c11.797 0 21.332-9.558 21.332-21.332 0-11.777-9.535-21.336-21.332-21.336H64c-35.285 0-64 28.715-64 64v298.668c0 35.286 28.715 64 64 64h298.668c35.285 0 64-28.714 64-64V277.816c0-11.796-9.54-21.332-21.336-21.332zm0 0" fill="#000000" opacity="1"></path>
+                        <path d="M200.02 237.05a10.793 10.793 0 0 0-2.922 5.438l-15.082 75.438c-.703 3.496.406 7.101 2.922 9.64a10.673 10.673 0 0 0 7.554 3.114c.68 0 1.387-.063 2.09-.211l75.414-15.082c2.09-.43 3.988-1.43 5.461-2.926l168.79-168.79-75.415-75.41zM496.383 16.102c-20.797-20.801-54.633-20.801-75.414 0l-29.524 29.523 75.414 75.414 29.524-29.527C506.453 81.465 512 68.066 512 53.816s-5.547-27.648-15.617-37.714zm0 0" fill="#000000" opacity="1"></path>
+                    </g>
+                </svg>
+                <svg id="redes-save-icon-site" style="display: none;" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="15" height="15" x="0" y="0" viewBox="0 0 174.239 174.239" xml:space="preserve" class="">
+                    <g>
+                        <path d="M74.439 157.519a4.199 4.199 0 0 1-6.111.313L1.38 94.468a4.447 4.447 0 0 1-.173-6.267l21.33-22.539a4.447 4.447 0 0 1 6.267-.173L65.375 100.1a4.199 4.199 0 0 0 6.111-.313l71.447-83.015a4.445 4.445 0 0 1 6.251-.468l23.518 20.242a4.446 4.446 0 0 1 .468 6.252L74.439 157.519z" fill="#000000" opacity="1" ></path>
+                    </g>
+                </svg>
+            </button>
+            {% endif %}
+        </div><br>
+            
+        <button type="submit" id="ong-btn-salvar" class="tinder-pet-button tinder-pet-save" style="display: none;">Salvar Alterações</button>
+</div>
+<input type="number" name="id" value="{{id}}" hidden>
+</form>
+{% endblock %}

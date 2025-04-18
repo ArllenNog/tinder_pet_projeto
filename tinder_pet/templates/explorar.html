@@ -4,16 +4,66 @@
   <form method="GET" action="{% url 'explorar' %}" id="filtro-form">
     <ul class="nav nav-pills justify-content-center m-2">
       <li class="nav-item">
-        <div type="submit" class="tag-filtro {% if tipoFiltro == 2 %} tf-selecionado {% endif %}" id="filtro-todos">Todos</div>
+        <div class="tag-filtro"><i style="color: #39ade4">Filtro</i></div>
       </li>
       <li class="nav-item">
-        <div type="submit" class="tag-filtro {% if tipoFiltro == 0 %} tf-selecionado {% endif %}" id="filtro-cachorros">Cachorros</div>
+        <div type="submit" class="tag-filtro {% if tipoFiltro == 2 and personalizado == 0 %} tf-selecionado {% endif %}" id="filtro-todos">Todos</div>
       </li>
       <li class="nav-item">
-        <div type="submit" class="tag-filtro {% if tipoFiltro == 1 %} tf-selecionado {% endif %}" id="filtro-gatos">Gatos</div>
+        <div type="submit" class="tag-filtro {% if tipoFiltro == 0 and personalizado == 0 %} tf-selecionado {% endif %}" id="filtro-cachorros">Cachorros</div>
+      </li>
+      <li class="nav-item">
+        <div type="submit" class="tag-filtro {% if tipoFiltro == 1 and personalizado == 0 %} tf-selecionado {% endif %}" id="filtro-gatos">Gatos</div>
+      </li>
+      <li class="nav-item">
+        <div type="submit" class="tag-filtro {% if personalizado == 1 %} tf-selecionado {% endif %}" id="btn-filtro-personalizado">Personalizado</div>
       </li>
     </ul>
-  <input type="number" value="0" name="tipo" id="filtro-tipo" hidden>
+
+    <div class="text-center" id="filtro-personalizado">
+      <label for="filtro-tipo">Tipo de pet</label><br>
+      <select name="tipo" id="filtro-tipo" class="tinder-pet-input">
+        <option value="2" {% if tipoFiltro == 2 %} selected {% endif %}>Todos</option>
+        <option value="0" {% if tipoFiltro == 0 %} selected {% endif %}>Cachorros</option>
+        <option value="1" {% if tipoFiltro == 1 %} selected {% endif %}>Gatos</option>
+      </select>
+      <br>
+      <label for="filtro-cidade">Raça</label><br>
+      <select name="raca" id="filtro-raca" class="tinder-pet-input">
+        <option value="-1">Qualquer</option>
+        {% for r in racas %}
+          <option value="{{r.id}}" {% if r.id == raca_id %} selected {% endif %}>{% if r.tipo == 0 %} {% if r.id != 1 %} Cachorro - {% endif %} {{r.racas}} {% else %} Gato - {{r.racas}}{% endif %}</option>
+        {% endfor %}
+      </select>
+      <br>
+      <label for="filtro-cidade">Sexo</label><br>
+      <select name="sexo" id="filtro-sexo" class="tinder-pet-input">
+        <option value="2" {% if sexo == 2 %} selected {% endif %}>Qualquer</option>
+        <option value="0" {% if sexo == 0 %} selected {% endif %}>Macho</option>
+        <option value="1" {% if sexo == 1 %} selected {% endif %}>Fêmea</option>
+      </select>
+      <br>
+      <div class="d-inline-block">
+        <label for="filtro-idade">Idade máxima</label><br>
+        <input type="number" min="1" max="25" value="{{idadeMax}}" name="idade" id="filtro-idade" class="tinder-pet-input" style="width: 120px;">
+      </div>&nbsp;
+      <div class="d-inline-block">
+        <label for="filtro-ipeso">Peso máximo</label><br>
+        <input type="number" min="5" max="100" value="{{pesoMax}}" name="peso" id="filtro-peso" class="tinder-pet-input" style="width: 120px;">
+      </div>
+      <br>
+      <label for="filtro-cidade">Cidade</label><br>
+      <select name="cidade" id="filtro-cidade" class="tinder-pet-input">
+        <option value="-1">Qualquer</option>
+        {% for c in cidades %}
+          <option value="{{c.id}}" {% if c.id == cidade_id %} selected {% endif %}>{{c.cidades}}</option>
+        {% endfor %}
+      </select>
+      <br>
+      <input type="number" name="personalizado" id="ipt-filtro-personalizado" value="0" hidden>
+      <button type="submit" class="tinder-pet-input tinder-pet-success">Enviar</button>
+    </div>
+
   </form>
   <div class="mural">
   {% if anuncios.count == 0 %}
@@ -61,14 +111,14 @@
   <div class="d-flex align-items-center justify-content-center tela-primeira-vez" id="intro-screen">
     <div class="container text-center">
       <form method="POST" action="{% url 'explorar' %}" id="first-form">
+        <img width="300px" src="{% static 'images/intro-tinder-pet.png' %}"><br><br>
         <h1>Bem-vindo ao Tinder Pet</h1>
-        <p>O Tinder Pet é uma iniciativa do deputado Duarte Jr para evitar o abandono e garantir que os animais possam receber um novo lar com muito carinho e cuidado.
-          Aqui você irá conhecer o seu novo melhor amigo, ou encontrar um novo lar para o seu pet.</p>
-        <h4>Qual o seu objetivo inicial?</h4>
+        <p>O Tinder Pet é uma iniciativa do deputado Duarte Jr para evitar o abandono e garantir que animais recebam um novo lar com muito carinho e cuidado.
+          Aqui você irá conhecer o seu novo melhor amigo, ou encontrar um novo lar para o seu pet. Você também poderá apoiar financeiramente ONG's que necessitam de 
+        recursos para manter os seus animais diariamente.</p>
+        <!--<h4>Qual o seu objetivo inicial?</h4>-->
         <input type="number" name="firstTime" value="0" hidden>
-        <input type="number" name="querAdotar" value="0" id="quer-adotar-ipt" hidden>
-        <button type="button" class="tinder-pet-button" id="intro-adotar-btn">Quero adotar</button>
-        <button type="button" class="tinder-pet-button" id="intro-doar-btn">Quero doar</button>
+        <button type="submit" class="tinder-pet-button">Vamos começar</button>
       {% csrf_token %}
       </form>
     </div>

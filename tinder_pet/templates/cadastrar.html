@@ -20,43 +20,51 @@
     <div class="container h-100">
         <div class="row h-100">
             <div class="col d-flex flex-column justify-content-center" id="tela1">
-                <h1 class="titulo-login">
-                    {% if titulo != 'Finalizar cadastro' %}
-                        <a href="{% url 'sign_in' %}" id="btn-voltar-login"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" x="0" y="0" viewBox="0 0 492 492" xml:space="preserve" class=""><g><path d="M198.608 246.104 382.664 62.04c5.068-5.056 7.856-11.816 7.856-19.024 0-7.212-2.788-13.968-7.856-19.032l-16.128-16.12C361.476 2.792 354.712 0 347.504 0s-13.964 2.792-19.028 7.864L109.328 227.008c-5.084 5.08-7.868 11.868-7.848 19.084-.02 7.248 2.76 14.028 7.848 19.112l218.944 218.932c5.064 5.072 11.82 7.864 19.032 7.864 7.208 0 13.964-2.792 19.032-7.864l16.124-16.12c10.492-10.492 10.492-27.572 0-38.06L198.608 246.104z" fill="white" opacity="1" data-original="#000000"></path></g></svg></a>
+                <div class="content">
+                    <br><br>
+                    <h1 class="titulo-login">
+                        {% if titulo != 'Finalizar cadastro' %}
+                            <a href="{% url 'sign_in' %}" id="btn-voltar-login"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" x="0" y="0" viewBox="0 0 492 492" xml:space="preserve" class=""><g><path d="M198.608 246.104 382.664 62.04c5.068-5.056 7.856-11.816 7.856-19.024 0-7.212-2.788-13.968-7.856-19.032l-16.128-16.12C361.476 2.792 354.712 0 347.504 0s-13.964 2.792-19.028 7.864L109.328 227.008c-5.084 5.08-7.868 11.868-7.848 19.084-.02 7.248 2.76 14.028 7.848 19.112l218.944 218.932c5.064 5.072 11.82 7.864 19.032 7.864 7.208 0 13.964-2.792 19.032-7.864l16.124-16.12c10.492-10.492 10.492-27.572 0-38.06L198.608 246.104z" fill="white" opacity="1" data-original="#000000"></path></g></svg></a>
+                        {% endif %}
+                        {{titulo}}
+                    </h1>
+                    {% if titulo == 'Finalizar cadastro' %}
+                        <p class="tag">{{email}}</p>
                     {% endif %}
-                    {{titulo}}
-                </h1>
-                {% if titulo == 'Finalizar cadastro' %}
-                    <p class="tag">{{email}}</p>
-                {% endif %}
-                <form method="POST" action="{% url 'cadastrar' %}" id="cadastro-form">
-                    <div {% if request.session.user_data %} class="visually-hidden" {% endif %}>
-                        <label class="cad-label">Nome:</label><br>
-                        <input type="text" value="{{ nome }}" name="nome" class="tinder-pet-input"><br>
-                        <label class="cad-label">Email:</label><br>
-                        <input type="email" value="{{ email }}" name="email" class="tinder-pet-input"><br>
-                        <label class="cad-label">Senha:</label><br>
-                        <input type="password" value="{{ senha }}" name="senha" class="tinder-pet-input"><br>
-                        <label class="cad-label">Repita sua senha:</label><br>
-                        <input type="password" value="{{ senha }}" name="senha2" class="tinder-pet-input"><br>
-                    </div>
-                    <label class="cad-label">Bairro: </label><br>
-                    <input type="text" name="bairro" class="tinder-pet-input"><br>
-                    <label class="cad-label">Cidade:</label><br>
-                    <select name="cidade" id="" class="tinder-pet-input">
-                        <option selected></option>
-                        {% for c in cidades %}
-                        <option value="{{c.id}}">{{c.cidades}}</option>
-                        {% endfor %}
-                    </select><br>
-                    <label class="cad-label" for="telefone">Telefone</label><br>
-                    <input id="tel-numero" type="text" name="telefone" class="tinder-pet-input"><br>
-                    <label class="cad-label" for="telefone">Whatsapp</label><br>
-                    <input id="whatsapp-numero" type="text" name="whatsapp" class="tinder-pet-input"><br>
-                    <input type="checkbox" id="whatsapp-check"><label>Mesmo do telefone</label><br><br>
-                    <button type="button" class="tinder-pet-button" id="cadastro-enviar-btn">Finalizar</button>
-                    {% csrf_token %}
-                </form>
+                    <form method="POST" action="{% url 'cadastrar' %}" id="cadastro-form">
+                        <div {% if request.session.user_data %} class="visually-hidden" {% endif %}>
+                            <label class="cad-label">Nome:</label><br>
+                            <input type="text" value="{{ nome }}" name="nome" class="tinder-pet-input"><br>
+                            <label class="cad-label">Email:</label><br>
+                            <input type="email" value="{{ email }}" name="email" class="tinder-pet-input"><br>
+                            <label class="cad-label">Senha:</label><br>
+                            <input type="password" value="{{ senha }}" name="senha" class="tinder-pet-input"><br>
+                            <label class="cad-label">Repita sua senha:</label><br>
+                            <input type="password" value="{{ senha }}" name="senha2" class="tinder-pet-input"><br>
+                        </div>
+                        <br><input type="checkbox" class="tinder-pet-input-check" id="ong-check" name="is_ong">&nbsp;<label class="cad-label">Sou representante de uma ONG</label><br><br>
+                        <label class="cad-label">Bairro: </label><br>
+                        <input type="text" name="bairro" class="tinder-pet-input"><br>
+                        <label class="cad-label">Cidade:</label>
+                        <label class="input-tip">
+                            <span>?</span>
+                            <span id="tip-text">Por enquanto, o Tinder Pet está restrito somente ao estado do Maranhão. Em breve estará disponível em todo o Brasil.</span>
+                        </label> <br>
+                        <select name="cidade" id="" class="tinder-pet-input">
+                            <option selected></option>
+                            {% for c in cidades %}
+                            <option value="{{c.id}}">{{c.cidades}}</option>
+                            {% endfor %}
+                        </select><br>
+                        <label class="cad-label" for="telefone">Telefone</label><br>
+                        <input id="tel-numero" type="text" name="telefone" class="tinder-pet-input"><br>
+                        <label class="cad-label" for="telefone">Whatsapp</label><br>
+                        <input id="whatsapp-numero" type="text" name="whatsapp" class="tinder-pet-input"><br>
+                        <input type="checkbox" class="tinder-pet-input-check" id="whatsapp-check" style="margin-top: 15px;">&nbsp;<label>Mesmo do telefone</label><br><br>
+                        <button type="button" class="tinder-pet-button" id="cadastro-enviar-btn">Finalizar</button><br><br>
+                        {% csrf_token %}
+                    </form>
+                </div>
             </div>
             <div class="col h-100">
                 <img class="h-100" src="{% static 'images/arte-login.png' %}">

@@ -8,6 +8,7 @@
         <button formmethod="dialog">OK</button>
     </form>
 </dialog>
+{% if usuario.emailConfirmado %}
 <div class="img-bg">
     <h1 class="tinder-pet-titulo">Nova doação</h1>
     <p>Procurando um novo lar para o seu pet?</p>
@@ -112,12 +113,19 @@
         </select>
         <select name="raca_pet_id_gato" class="tinder-pet-input" id="racas-gatos" style="display: none;">
             <option value="" selected></option>
+            <option value="0">SRD - SEM RAÇA DEFINIDA</option>
             {% for r in racas %}
                 {% if r.tipo == 1 %}
                 <option value="{{ r.id }}">{{ r.racas }}</option>
                 {% endif %}
             {% endfor %}
-            <option value="54">SRD - Sem raça definida</option>
+        </select><br><br>
+
+        <label class="cad-label">É castrado?</label><br>
+        <select name="pet_castrado" class="tinder-pet-input">
+            <option value="" selected></option>
+            <option value="0">Não</option>
+            <option value="1">Sim</option>
         </select><br><br>
 
         <label class="cad-label">Conte um pouco sobre o seu pet</label><br>
@@ -280,4 +288,11 @@
         {% csrf_token %}
     </form>
 </div>
+{% else %}
+    <div class="container text-center">
+        <h1 class="tinder-pet-titulo">Ops!</h1>
+        <p>Antes de doar algum animal você precisa confirmar o seu email</p>
+        <a href="{% url 'meuperfil' %}?opcao=0" class="tinder-pet-button">Confirmar email</a>
+    </div>
+{% endif %}
 {% endblock %}

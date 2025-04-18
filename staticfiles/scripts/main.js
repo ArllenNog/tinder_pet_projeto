@@ -1,7 +1,7 @@
 $(document).ready(()=>{
     $("input[name='telefone']").mask('(00) 00000-0000');
     $("input[name='whatsapp']").mask('(00) 00000-0000');
-    $(".viewer").css("height", $(".viewer").width())
+    $(".viewer").css("height", $(".viewer").width());
 });
 
 $("#intro-adotar-btn").click(()=>{
@@ -15,6 +15,10 @@ $("#intro-doar-btn").click(()=>{
     $("#first-form").submit();
 });
 
+$("#intro-apoiar-btn").click(()=>{
+    $("#quer-apoiar-ipt").val(1);
+    $("#first-form").submit();
+});
 
 $("#filtro-cachorros").click( () =>{
     $("#filtro-tipo").val(0);
@@ -62,7 +66,7 @@ $("#btn-voltar-login").click(()=>{
 
 $("#meu-dados-btn").click(()=>{
     ativarMenuBtn("#meu-dados-btn");
-    ativarCards(["#card-informacoes", "#card-contato"]);
+    ativarCards(["#card-minha-pagina", "#card-informacoes", "#card-contato"]);
 });
 
 $("#meus-anuncios-btn").click(()=>{
@@ -171,6 +175,7 @@ function ativarMenuBtn(target){
 }
 
 function ativarCards(targets){
+    $("#card-minha-pagina").hide();
     $("#card-informacoes").hide();
     $("#card-contato").hide();
     $("#card-meus-anuncios").hide();
@@ -200,6 +205,7 @@ function openWhatsApp(numero, nome, tipo) {
     
     // Redireciona para o WhatsApp
     window.open(whatsappUrl, '_blank');
+    //envia o form
 }
 
 $(".photo-item").click((event)=>{
@@ -275,45 +281,57 @@ $("#info-cancel-btn2").click(()=>{
 
 var editing_texto = false;
 $("#anuncio-edit-btn-texto").click(()=>{
-    editing_texto = atualizarCamposAnuncio(editing_texto, "#anuncio-view-texto", "#anuncio-ipt-texto","#anuncio-edit-icon-texto", "#anuncio-save-icon-texto");
+    editing_texto = atualizarCampos(editing_texto, "#anuncio-view-texto", "#anuncio-ipt-texto","#anuncio-edit-icon-texto", "#anuncio-save-icon-texto", "#anuncio-btn-salvar");
 });
 
 var editing_peso = false;
 $("#anuncio-edit-btn-peso").click(()=>{
-    editing_peso = atualizarCamposAnuncio(editing_peso, "#anuncio-view-peso", "#anuncio-ipt-peso","#anuncio-edit-icon-peso", "#anuncio-save-icon-peso");
+    editing_peso = atualizarCampos(editing_peso, "#anuncio-view-peso", "#anuncio-ipt-peso","#anuncio-edit-icon-peso", "#anuncio-save-icon-peso", "#anuncio-btn-salvar");
 });
 
 var editing_idade = false;
 $("#anuncio-edit-btn-idade").click(()=>{
-    editing_idade = atualizarCamposAnuncio(editing_idade, "#anuncio-view-idade", "#anuncio-ipt-idade","#anuncio-edit-icon-idade", "#anuncio-save-icon-idade");
+    editing_idade = atualizarCampos(editing_idade, "#anuncio-view-idade", "#anuncio-ipt-idade","#anuncio-edit-icon-idade", "#anuncio-save-icon-idade", "#anuncio-btn-salvar");
 });
 
 var editing_bairro = false;
 $("#anuncio-edit-btn-bairro").click(()=>{
-    editing_bairro = atualizarCamposAnuncio(editing_bairro, "#anuncio-view-bairro", "#anuncio-ipt-bairro","#anuncio-edit-icon-bairro", "#anuncio-save-icon-bairro");
+    editing_bairro = atualizarCampos(editing_bairro, "#anuncio-view-bairro", "#anuncio-ipt-bairro","#anuncio-edit-icon-bairro", "#anuncio-save-icon-bairro", "#anuncio-btn-salvar");
 });
 
 var editing_cidade = false;
 $("#anuncio-edit-btn-cidade").click(()=>{
-    editing_cidade = atualizarCamposAnuncio(editing_cidade, "#anuncio-view-cidade", "#anuncio-ipt-cidade","#anuncio-edit-icon-cidade", "#anuncio-save-icon-cidade");
+    editing_cidade = atualizarCampos(editing_cidade, "#anuncio-view-cidade", "#anuncio-ipt-cidade","#anuncio-edit-icon-cidade", "#anuncio-save-icon-cidade", "#anuncio-btn-salvar");
+});
+
+/* EDICAO DA PAGINA DA ONG */
+var editing_nome_ong = false;
+$("#ong-edit-btn-nome").click(()=>{
+    editing_nome_ong = atualizarCampos(editing_nome_ong, "#ong-view-nome", "#ong-ipt-nome","#ong-edit-icon-nome", "#ong-save-icon-nome", "#ong-btn-salvar");
 });
 
 
-function atualizarCamposAnuncio(is_editing, view, ipt, editIcon, saveIcon){
+function atualizarCampos(is_editing, view, ipt, editIcon, saveIcon, btnSalvar){
     if(!is_editing)
     {
         $(view).hide();
         $(ipt).prop("hidden", false);
-        $(ipt).val($(view).text());
+        if($(view).text().trim() != "Sem dado")
+            $(ipt).val( $(view).text() );
+        else
+            $(ipt).val('');
         $(ipt).focus()
         $(editIcon).hide();
         $(saveIcon).show();
-        $("#anuncio-btn-salvar").show();
+        $(btnSalvar).show();
         is_editing = true;
     }
     else
     {
-        $(view).text($(ipt).val());
+        if($(ipt).val().length > 0)
+            $(view).text($(ipt).val());
+        else
+            $(view).text("Sem dado");
         $(view).show();
         $(ipt).prop("hidden", true);
         $(editIcon).show();
@@ -352,16 +370,31 @@ $("#anuncio-btn-editar").click(()=>{
 
 $("#anuncio-btn-excluir").click(()=>{
     $("#aviso-exclusao")[0].showModal();
-})
+});
 
-$("#anuncio-btn-finalizar").click(()=>{
-    $("input[name='concluido']").attr("value", "1");
+$("#anuncio-btn-adotar").click(()=>{
+    $("#form-doacao").submit();
+    openWhatsApp($("#anunciante-tel-ipt").val(), $("#pet-nome-ipt").val(), $("#anuncio-tipo-ipt").val());
+});
+
+$(".confirma-adocao-btn").click(function(){
+    $("input[name='id_adotante']").attr("value", $(this).attr("data-id"));
     $("#form-concluir").submit();
 });
 
+$("#anuncio-btn-adotar2").click(()=>{
+    openWhatsApp($("#anunciante-tel-ipt").val(), $("#pet-nome-ipt").val(), $("#anuncio-tipo-ipt").val());
+});
+
+
+$("#anuncio-btn-finalizar").click(()=>{
+    $("input[name='desativar']").attr("value", "1");
+    $("#form-desativar").submit();
+});
+
 $("#anuncio-btn-reativar").click(()=>{
-    $("input[name='concluido']").attr("value", "0");
-    $("#form-concluir").submit();
+    $("input[name='desativar']").attr("value", "0");
+    $("#form-desativar").submit();
 });
 
 $("#cadastro-enviar-btn").click(validarCamposCadastro);

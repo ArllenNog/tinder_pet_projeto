@@ -12,7 +12,7 @@ body{
     font-size: 14pt;
 }
 .tela-primeira-vez{
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -169,11 +169,6 @@ body{
     font-size: 12pt;
 }
 
-.tag2{
-    background-color: #5ab031;
-    color: white;
-}
-
 .masc{
     background-color: blue;
 }
@@ -301,12 +296,17 @@ body{
     color: #003eaf !important;
 }
 
+.tinder-pet-input-check{
+    width: 20px;
+    height: 20px;
+}
+
 .tinder-pet-input-file{
     border-radius: 20px;
     overflow: hidden;
 }
 
-.tinder-pet-list-item{
+.tinder-pet-list-item, .tinder-pet-list-item2{
     border: solid 1px rgba(113, 113, 113, 0.703);
     color: white;
     padding: 15px;
@@ -314,6 +314,7 @@ body{
     text-decoration: none;
     border-radius: 20px;
 }
+
 .tinder-pet-list-item:hover{
     background-color: #39ade4;
 }
@@ -332,6 +333,11 @@ body{
     font-weight: 800;
     text-decoration: none;
     font-size: 16pt;
+    color: white;
+    cursor: pointer;
+}
+.tinder-pet-success{
+    background-color: #5ab031;
     color: white;
 }
 .tinder-pet-danger{
@@ -391,9 +397,17 @@ body{
 
 .cad-label
 {
+    margin-top: 10px;
     font-size: 14pt;
     font-weight: 300;
     color: #5ab031;
+}
+
+.content{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
 }
 
 .preview-foto-cad-pet
@@ -490,9 +504,38 @@ body{
     max-width: 250px;
 }
 
-#meu-dados-btn a, #meus-anuncios-btn a, #notificacoes-btn a, #dropdownUser1 strong{
+#meu-dados-btn a, #meus-anuncios-btn a, #notificacoes-btn a,  #dropdownUser1 strong{
     font-size: 14pt;
 }
+
+.ong-cover-group{
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background-color: gray;
+}
+
+.ong-profile-group{
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+}
+
+.ong-profile-photo{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.ong-profile-photo > img{
+    position: absolute;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+} 
 
 @media only screen and (max-width: 600px) {
     .photo {
