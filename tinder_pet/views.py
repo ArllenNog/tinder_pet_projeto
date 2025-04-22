@@ -590,7 +590,7 @@ def excluirFoto(file_path):
     if os.path.exists(caminho_arquivo):
         os.remove(caminho_arquivo)
 
-#@csrf_exempt
+@csrf_exempt
 def meuperfil(request):
     if not request.session.get('user_data'):
         return redirect('sign_in')
