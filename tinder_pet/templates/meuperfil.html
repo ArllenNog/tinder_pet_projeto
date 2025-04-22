@@ -71,9 +71,9 @@
         </div>
     </div>
     <div class="col" id="card-group">
+    <form method="POST" action="{% url 'meuperfil' %}" id="info-form-3">
+        {% csrf_token %}
         {% if not user_data.emailConfirmado %}
-        <form method="POST" action="{% url 'meuperfil' %}" id="info-form-3">
-            {% csrf_token %}
             <div class="tinder-pet-window window-alert" id="card-confirmar-email">
                 <p><b style="color: red;">Atenção! </b>Seu email precisa ser confirmado antes de adotar ou doar algum pet</p>
                 <button type="submit" class="tinder-pet-button" id="btn-confirmar-email">Enviar link de confirmação</button>
@@ -100,11 +100,8 @@
                 {% endif %}
                 <input type="number" name="confirmar_email" id="ipt-confirmar-email" value="1" hidden>
             </div>
-        </form>
         {% endif %}
 
-        <form method="POST" action="{% url 'meuperfil' %}" id="info-form-1">
-        {% csrf_token %}
         {% if ong %}
         <div class="tinder-pet-window" id="card-minha-pagina" {% if opcao != '0' %} style="display: none;" {% endif %}>
             <h2 class="tinder-pet-titulo2">Página da ONG</h2>
@@ -129,10 +126,7 @@
             <button type="button" class="tinder-pet-button tinder-pet-danger" id="info-cancel-btn" style="display: none;">Cancelar</button>
             <button type="button" class="tinder-pet-button" id="info-edit-btn">Alterar</button>
         </div>
-        </form>
         
-        <form method="POST" action="{% url 'meuperfil' %}" id="info-form-2">
-        {% csrf_token %}
         <div class="tinder-pet-window" id="card-contato" {% if opcao != '0' %} style="display: none;" {% endif %}>
             <h2 class="tinder-pet-titulo2">Contato</h2>
             <hr>
@@ -160,7 +154,7 @@
             <button type="button" class="tinder-pet-button tinder-pet-danger" id="info-cancel-btn2" style="display: none;">Cancelar</button>
             <button type="button" class="tinder-pet-button" id="info-edit-btn2">Alterar</button>
         </div>
-        </form>
+    </form>
 
         <div class="tinder-pet-window" id="card-meus-anuncios" {% if opcao != '1' %} style="display: none;" {% endif %}>
             <h2 class="tinder-pet-titulo2">Minhas doações</h2>
