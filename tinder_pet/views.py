@@ -633,7 +633,7 @@ def meuperfil(request):
                     link_confirmacao = f"https://tinderpetbrasil.com/meuperfil?token={novo_token}"
 
                     try:
-                        send_mail(
+                        _email_enviado = send_mail(
                             subject="Tinder Pet - Confirme seu email",
                             message=f"Clique no link a seguir para confirmar seu e-mail: {link_confirmacao}",  # Texto puro
                             from_email="comunicado@tinderpetbrasil.com",
@@ -646,9 +646,6 @@ def meuperfil(request):
                                 <p>Se você não criou uma conta, ignore este e-mail.</p>
                             """,
                         )
-                        _email_enviado = True
-                        _usuario.emailConfirmado = True
-                        _usuario.save()
                     except Exception as e:
                         _msg_falha = e
                         _falha_envio_email = True
@@ -661,8 +658,8 @@ def meuperfil(request):
                 if request.GET.get('token'):
                     token = request.GET.get('token')
                     if token == _usuario.token:
-                        #_usuario.emailConfirmado = True
-                        #_usuario.save()
+                        _usuario.emailConfirmado = True
+                        _usuario.save()
                         _email_confirmado = True
 
 
