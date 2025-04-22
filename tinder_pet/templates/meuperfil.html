@@ -71,13 +71,14 @@
         </div>
     </div>
     <div class="col" id="card-group">
-    <form method="POST" action="{% url 'meuperfil' %}" id="info-form-3">
-        {% csrf_token %}
         {% if not user_data.emailConfirmado %}
             <div class="tinder-pet-window window-alert" id="card-confirmar-email">
                 <p><b style="color: red;">Atenção! </b>Seu email precisa ser confirmado antes de adotar ou doar algum pet</p>
-                <input type="number" name="confirmar_email" id="ipt-confirmar-email" value="1" hidden>
-                <button type="submit" class="tinder-pet-button" id="btn-confirmar-email">Enviar link de confirmação</button>
+                <form method="POST" action="{% url 'meuperfil' %}" id="info-form-1">
+                    {% csrf_token %}
+                    <input type="number" name="confirmar_email" id="ipt-confirmar-email" value="1" hidden>
+                    <button type="submit" class="tinder-pet-button">Enviar link de confirmação</button>
+                </form>
                 {% if email_enviado %}
                 <br>
                 <label style="color: #39ade4; display: flex; align-items: center; margin-top: 10px;">
@@ -111,48 +112,54 @@
         </div>
         {% endif %}
         <div class="tinder-pet-window" id="card-informacoes" {% if opcao != '0' %} style="display: none;" {% endif %}>
-            <h2 class="tinder-pet-titulo2">Informações básicas</h2>
-            <hr>
-            <p><b>Nome: </b>
-                <span class="info-view" id="info-view-nome">{{ user_data.nome }}</span>
-                <input id="info-nome-ipt" class="tinder-pet-input info-edit-input" type="text" name="nome" required>
-            </p>
-            <p><b>Email: </b>{{ user_data.email }}</p>
-            <p><b>Senha: </b>
-                <span class="info-view" id="info-view-senha">••••••</span>
-                <input id="info-senha-ipt" class="tinder-pet-input info-edit-input" type="password" size="8" name="senha" required>
-            </p>
-            <button type="submit" class="tinder-pet-button tinder-pet-save" id="info-save-btn" style="display: none;">Salvar</button>
-            <button type="button" class="tinder-pet-button tinder-pet-danger" id="info-cancel-btn" style="display: none;">Cancelar</button>
-            <button type="button" class="tinder-pet-button" id="info-edit-btn">Alterar</button>
+            <form method="POST" action="{% url 'meuperfil' %}" id="info-form-2">
+                {% csrf_token %}
+                <h2 class="tinder-pet-titulo2">Informações básicas</h2>
+                <hr>
+                <p><b>Nome: </b>
+                    <span class="info-view" id="info-view-nome">{{ user_data.nome }}</span>
+                    <input id="info-nome-ipt" class="tinder-pet-input info-edit-input" type="text" name="nome" required>
+                </p>
+                <p><b>Email: </b>{{ user_data.email }}</p>
+                <p><b>Senha: </b>
+                    <span class="info-view" id="info-view-senha">••••••</span>
+                    <input id="info-senha-ipt" class="tinder-pet-input info-edit-input" type="password" size="8" name="senha" required>
+                </p>
+                <button type="submit" class="tinder-pet-button tinder-pet-save" id="info-save-btn" style="display: none;">Salvar</button>
+                <button type="button" class="tinder-pet-button tinder-pet-danger" id="info-cancel-btn" style="display: none;">Cancelar</button>
+                <button type="button" class="tinder-pet-button" id="info-edit-btn">Alterar</button>
+            </form>
         </div>
         
         <div class="tinder-pet-window" id="card-contato" {% if opcao != '0' %} style="display: none;" {% endif %}>
-            <h2 class="tinder-pet-titulo2">Contato</h2>
-            <hr>
-            <p><b>Bairro: </b>
-                <span class="info-view2" id="info-view-bairro">{{user_data.bairro}}</span>
-                <input id="info-bairro-ipt" class="tinder-pet-input info-edit-input2" type="text" name="bairro" required>
-            </p>
-            <p><b>Cidade: </b>
-                <span class="info-view2" id="info-view-cidade">{{user_data.cidade.cidades}}</span>
-                <select id="info-cidade-ipt" class="tinder-pet-input info-edit-input2" name="cidade" required>
-                    {% for c in cidades %}
-                    <option>{{c.cidades}}</option>
-                    {% endfor %}
-                </select>
-            </p>
-            <p><b>Telefone: </b>
-                <span class="info-view2" id="info-view-telefone">{{user_data.telefone}}</span>
-                <input id="info-telefone-ipt" class="tinder-pet-input info-edit-input2" type="text" name="telefone" required>
-            </p>
-            <p><b>Whatsapp: </b>
-                <span class="info-view2" id="info-view-whatsapp">{{user_data.whatsapp}}</span>
-                <input id="info-whatsapp-ipt" class="tinder-pet-input info-edit-input2" type="text" name="whatsapp" required>
-            </p>
-            <button type="submit" class="tinder-pet-button tinder-pet-save" id="info-save-btn2" style="display: none;">Salvar</button>
-            <button type="button" class="tinder-pet-button tinder-pet-danger" id="info-cancel-btn2" style="display: none;">Cancelar</button>
-            <button type="button" class="tinder-pet-button" id="info-edit-btn2">Alterar</button>
+            <form method="POST" action="{% url 'meuperfil' %}" id="info-form-3">
+                {% csrf_token %}
+                <h2 class="tinder-pet-titulo2">Contato</h2>
+                <hr>
+                <p><b>Bairro: </b>
+                    <span class="info-view2" id="info-view-bairro">{{user_data.bairro}}</span>
+                    <input id="info-bairro-ipt" class="tinder-pet-input info-edit-input2" type="text" name="bairro" required>
+                </p>
+                <p><b>Cidade: </b>
+                    <span class="info-view2" id="info-view-cidade">{{user_data.cidade.cidades}}</span>
+                    <select id="info-cidade-ipt" class="tinder-pet-input info-edit-input2" name="cidade" required>
+                        {% for c in cidades %}
+                        <option>{{c.cidades}}</option>
+                        {% endfor %}
+                    </select>
+                </p>
+                <p><b>Telefone: </b>
+                    <span class="info-view2" id="info-view-telefone">{{user_data.telefone}}</span>
+                    <input id="info-telefone-ipt" class="tinder-pet-input info-edit-input2" type="text" name="telefone" required>
+                </p>
+                <p><b>Whatsapp: </b>
+                    <span class="info-view2" id="info-view-whatsapp">{{user_data.whatsapp}}</span>
+                    <input id="info-whatsapp-ipt" class="tinder-pet-input info-edit-input2" type="text" name="whatsapp" required>
+                </p>
+                <button type="submit" class="tinder-pet-button tinder-pet-save" id="info-save-btn2" style="display: none;">Salvar</button>
+                <button type="button" class="tinder-pet-button tinder-pet-danger" id="info-cancel-btn2" style="display: none;">Cancelar</button>
+                <button type="button" class="tinder-pet-button" id="info-edit-btn2">Alterar</button>
+            </form>
         </div>
     </form>
 
