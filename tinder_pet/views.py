@@ -625,11 +625,12 @@ def meuperfil(request):
                     _usuario.whatsapp = _whatsapp
                 if(_confirmar_email):
                     #gerar token de usuario e enviar email
-                    _usuario.token = gerar_token()
+                    novo_token = gerar_token()
+                    _usuario.token = novo_token
                     send_mail(
                         "Tinder Pet - Confirme seu email",
-                        "Clique no link abaixo para confirmar o seu email. \n <a href='https://google.com'>Confirmar email</a>",
-                        "comunicado@tinderpetbrasil.com.br",
+                        "Clique no link abaixo para confirmar o seu email. \n <a href='https://tinderpetbrasil.com/meuperfil?token={novo_token}'>Confirmar email</a>",
+                        "comunicado@tinderpetbrasil.com",
                         ['arllen.nog@gmail.com'],#trocar
                         fail_silently=False,
                     )
