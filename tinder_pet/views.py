@@ -596,8 +596,10 @@ def meuperfil(request):
     else:
         user = request.session.get('user_data')
         opcao = '0'
+        token = ''
         _usuario = Anunciante.objects.filter(email = user.get('email')).first()
         _email_enviado = False
+        _email_confirmado = False
 
         if _usuario:
             if request.method == "POST":
@@ -633,9 +635,16 @@ def meuperfil(request):
                     )
                     _email_enviado = True
                 _usuario.save()
-            else:
+            else:#GET
                 if request.GET.get('opcao'):
                     opcao = request.GET.get('opcao')
+                
+                if request.GET.get('token'):
+                    token = request.GET.get('token')
+                    if token == _usuario.token:
+                        _usuario.emailConfirmado = True
+                        _usuario.save()
+                        _email_confirmado = True
 
             user = request.session.get('user_data')
             user_pets = Pet.objects.filter(dono = _usuario)
@@ -653,6 +662,7 @@ def meuperfil(request):
                 'user_notificacoes': user_notificacoes,
                 'opcao': opcao,
                 'email_enviado' : _email_enviado,
+                'email_confirmado' : _email_confirmado,
                 'cidades': Cidade.objects.all().values()
             }
             return render(request, 'meuperfil.html', context)
