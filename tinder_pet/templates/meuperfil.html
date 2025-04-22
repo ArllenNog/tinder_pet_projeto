@@ -71,25 +71,30 @@
         </div>
     </div>
     <div class="col" id="card-group">
-        <form method="POST" action="{% url 'meuperfil' %}" id="info-form-1">
         {% if not user_data.emailConfirmado %}
-        <div class="tinder-pet-window window-alert" id="card-confirmar-email">
-            <p><b style="color: red;">Atenção! </b>Seu email precisa ser confirmado antes de adotar ou doar algum pet</p>
-            <button type="button" class="tinder-pet-button" id="btn-confirmar-email">Enviar link de confirmação</button>
-            {% if email_enviado %}
-            <br>
-            <label style="color: #39ade4; display: flex; align-items: center; margin-top: 10px;">
-                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" x="0" y="0" viewBox="0 0 24 24" xml:space="preserve">
-                    <g fill="#39ade4">
-                        <path fill-rule="evenodd" d="M5 2h14a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3zm5.25 14.63 7.46-7.94a1 1 0 0 0-.04-1.35 1 1 0 0 0-1.42 0L9.52 14.5l-1.76-1.87A1 1 0 1 0 6.31 14l2.48 2.63a1 1 0 0 0 .73.31 1 1 0 0 0 .73-.31z" clip-rule="evenodd" opacity="1" data-original="#000000" class=""></path>
-                    </g>
-                </svg>
-                <span>Email enviado! Verifique sua caixa de entrada ou spam</span>
-            </label>
-            {% endif %}
-            <input type="number" name="confirmar_email" id="ipt-confirmar-email" value="0" hidden>
-        </div>
+        <form method="POST" action="{% url 'meuperfil' %}" id="info-form-3">
+            {% csrf_token %}
+            <div class="tinder-pet-window window-alert" id="card-confirmar-email">
+                <p><b style="color: red;">Atenção! </b>Seu email precisa ser confirmado antes de adotar ou doar algum pet</p>
+                <button type="submit" class="tinder-pet-button" id="btn-confirmar-email">Enviar link de confirmação</button>
+                {% if email_enviado %}
+                <br>
+                <label style="color: #39ade4; display: flex; align-items: center; margin-top: 10px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" x="0" y="0" viewBox="0 0 24 24" xml:space="preserve">
+                        <g fill="#39ade4">
+                            <path fill-rule="evenodd" d="M5 2h14a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3zm5.25 14.63 7.46-7.94a1 1 0 0 0-.04-1.35 1 1 0 0 0-1.42 0L9.52 14.5l-1.76-1.87A1 1 0 1 0 6.31 14l2.48 2.63a1 1 0 0 0 .73.31 1 1 0 0 0 .73-.31z" clip-rule="evenodd" opacity="1" data-original="#000000" class=""></path>
+                        </g>
+                    </svg>
+                    <span>Email enviado! Verifique sua caixa de entrada ou spam</span>
+                </label>
+                {% endif %}
+                <input type="number" name="confirmar_email" id="ipt-confirmar-email" value="1" hidden>
+            </div>
+        </form>
         {% endif %}
+
+        <form method="POST" action="{% url 'meuperfil' %}" id="info-form-1">
+        {% csrf_token %}
         {% if ong %}
         <div class="tinder-pet-window" id="card-minha-pagina" {% if opcao != '0' %} style="display: none;" {% endif %}>
             <h2 class="tinder-pet-titulo2">Página da ONG</h2>
@@ -114,10 +119,10 @@
             <button type="button" class="tinder-pet-button tinder-pet-danger" id="info-cancel-btn" style="display: none;">Cancelar</button>
             <button type="button" class="tinder-pet-button" id="info-edit-btn">Alterar</button>
         </div>
-        {% csrf_token %}
         </form>
         
         <form method="POST" action="{% url 'meuperfil' %}" id="info-form-2">
+        {% csrf_token %}
         <div class="tinder-pet-window" id="card-contato" {% if opcao != '0' %} style="display: none;" {% endif %}>
             <h2 class="tinder-pet-titulo2">Contato</h2>
             <hr>
@@ -145,7 +150,6 @@
             <button type="button" class="tinder-pet-button tinder-pet-danger" id="info-cancel-btn2" style="display: none;">Cancelar</button>
             <button type="button" class="tinder-pet-button" id="info-edit-btn2">Alterar</button>
         </div>
-        {% csrf_token %}
         </form>
 
         <div class="tinder-pet-window" id="card-meus-anuncios" {% if opcao != '1' %} style="display: none;" {% endif %}>
@@ -371,4 +375,13 @@
         <!--<img src="{{ request.session.user_data.picture }}" alt="User picture">-->
     </div>
 </div>
+{% if email_confirmado %}
+<dialog id="aviso" open>
+    <h3>Email confirmado!</h3>
+    <p>Agora você já pode usar o Tinder Pet normalmente.</p>
+    <form>
+        <button formmethod="dialog">OK</button>
+    </form>
+</dialog>
+{% endif %}
 {% endblock %}

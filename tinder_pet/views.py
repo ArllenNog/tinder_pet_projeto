@@ -590,6 +590,7 @@ def excluirFoto(file_path):
     if os.path.exists(caminho_arquivo):
         os.remove(caminho_arquivo)
 
+#@csrf_exempt
 def meuperfil(request):
     if not request.session.get('user_data'):
         return redirect('sign_in')
@@ -627,12 +628,20 @@ def meuperfil(request):
                     #gerar token de usuario e enviar email
                     novo_token = gerar_token()
                     _usuario.token = novo_token
+                    link_confirmacao = f"https://tinderpetbrasil.com/meuperfil?token={novo_token}"
+
                     send_mail(
-                        "Tinder Pet - Confirme seu email",
-                        "Clique no link abaixo para confirmar o seu email. \n <a href='https://tinderpetbrasil.com/meuperfil?token={novo_token}'>Confirmar email</a>",
-                        "comunicado@tinderpetbrasil.com",
-                        ['arllen.nog@gmail.com'],#trocar
+                        subject="Tinder Pet - Confirme seu email",
+                        message=f"Clique no link a seguir para confirmar seu e-mail: {link_confirmacao}",  # Texto puro
+                        from_email="comunicado@tinderpetbrasil.com",
+                        recipient_list=["arllen.nog@gmail.com"],  # Trocar
                         fail_silently=False,
+                        html_message=f"""
+                            <p>Olá! Clique no link abaixo para confirmar o seu e-mail:</p>
+                            <p><a href="{link_confirmacao}" target="_blank">Confirmar e-mail</a></p>
+                            <br>
+                            <p>Se você não criou uma conta, ignore este e-mail.</p>
+                        """,
                     )
                     _email_enviado = True
                 _usuario.save()
@@ -643,9 +652,10 @@ def meuperfil(request):
                 if request.GET.get('token'):
                     token = request.GET.get('token')
                     if token == _usuario.token:
-                        _usuario.emailConfirmado = True
-                        _usuario.save()
+                        #_usuario.emailConfirmado = True
+                        #_usuario.save()
                         _email_confirmado = True
+
 
             user = request.session.get('user_data')
             user_pets = Pet.objects.filter(dono = _usuario)

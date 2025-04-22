@@ -48,7 +48,7 @@ SECRET_KEY = 'django-insecure-7p%6mh-@&*l-w2a$9o^5^lr5y23-b)$c^jdh0jmb8a!!uycc+p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['tinder-pet-projeto.onrender.com', 'tinderpetbrasil.com','18.188.128.109','*']
+ALLOWED_HOSTS = ['tinderpetbrasil.com','18.188.128.109','*']
 
 
 # Application definition
@@ -135,11 +135,11 @@ USE_I18N = True
 
 USE_TZ = True
 
-CSRF_COOKIE_DOMAIN = '.tinderpetbrasil.com'  # Para compartilhar o cookie entre subdomínios
+#CSRF_COOKIE_DOMAIN = '.tinderpetbrasil.com'  # Para compartilhar o cookie entre subdomínios
 CSRF_COOKIE_SECURE = True  # Garantir que o cookie seja enviado via HTTPS em produção
 
 CSRF_TRUSTED_ORIGINS = [
-    'http://18.188.128.109', 'http://tinderpetbrasil.com', 'https://tinderpetbrasil.com'  # Adicione seu domínio
+    'http://18.188.128.109', 'http://tinderpetbrasil.com', 'https://tinderpetbrasil.com', 'http://127.0.0.1', 'http://localhost'  # Adicione seu domínio
 ]
 
 
