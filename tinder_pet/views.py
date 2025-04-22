@@ -600,6 +600,8 @@ def meuperfil(request):
         token = ''
         _usuario = Anunciante.objects.filter(email = user.get('email')).first()
         _email_enviado = False
+        _falha_envio_email = False
+        _msg_falha = ''
         _email_confirmado = False
 
         if _usuario:
@@ -630,20 +632,24 @@ def meuperfil(request):
                     _usuario.token = novo_token
                     link_confirmacao = f"https://tinderpetbrasil.com/meuperfil?token={novo_token}"
 
-                    send_mail(
-                        subject="Tinder Pet - Confirme seu email",
-                        message=f"Clique no link a seguir para confirmar seu e-mail: {link_confirmacao}",  # Texto puro
-                        from_email="comunicado@tinderpetbrasil.com",
-                        recipient_list=["arllen.nog@gmail.com"],  # Trocar
-                        fail_silently=False,
-                        html_message=f"""
-                            <p>Olá! Clique no link abaixo para confirmar o seu e-mail:</p>
-                            <p><a href="{link_confirmacao}" target="_blank">Confirmar e-mail</a></p>
-                            <br>
-                            <p>Se você não criou uma conta, ignore este e-mail.</p>
-                        """,
-                    )
-                    _email_enviado = True
+                    try:
+                        send_mail(
+                            subject="Tinder Pet - Confirme seu email",
+                            message=f"Clique no link a seguir para confirmar seu e-mail: {link_confirmacao}",  # Texto puro
+                            from_email="comunicado@tinderpetbrasil.com",
+                            recipient_list=["arllen.nog@gmail.com"],  # Trocar
+                            fail_silently=False,
+                            html_message=f"""
+                                <p>Olá! Clique no link abaixo para confirmar o seu e-mail:</p>
+                                <p><a href="{link_confirmacao}" target="_blank">Confirmar e-mail</a></p>
+                                <br>
+                                <p>Se você não criou uma conta, ignore este e-mail.</p>
+                            """,
+                        )
+                        _email_enviado = True
+                    except Exception as e:
+                        _msg_falha = e
+                        _falha_envio_email = True
                 _usuario.save()
             else:#GET
                 if request.GET.get('opcao'):
@@ -673,6 +679,8 @@ def meuperfil(request):
                 'user_notificacoes': user_notificacoes,
                 'opcao': opcao,
                 'email_enviado' : _email_enviado,
+                'falha_envio_email': _falha_envio_email,
+                'msg_falha': _msg_falha,
                 'email_confirmado' : _email_confirmado,
                 'cidades': Cidade.objects.all().values()
             }

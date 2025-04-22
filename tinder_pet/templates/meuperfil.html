@@ -88,6 +88,16 @@
                     <span>Email enviado! Verifique sua caixa de entrada ou spam</span>
                 </label>
                 {% endif %}
+                {% if falha_envio_email %}
+                <label style="color: red; display: flex; align-items: center; margin-top: 10px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" x="0" y="0" viewBox="0 0 60 60" xml:space="preserve">
+                        <g fill="red">
+                            <circle cx="30" cy="30" r="29" opacity="1"></circle><path fill="#ffffff" d="m34.218 30 7.373 7.373a1.4 1.4 0 0 1 0 1.976l-2.242 2.242a1.4 1.4 0 0 1-1.976 0L30 34.218l-7.373 7.373a1.4 1.4 0 0 1-1.976 0l-2.242-2.242a1.4 1.4 0 0 1 0-1.976L25.782 30l-7.373-7.373a1.4 1.4 0 0 1 0-1.976l2.242-2.242a1.4 1.4 0 0 1 1.976 0L30 25.782l7.373-7.373a1.4 1.4 0 0 1 1.976 0l2.242 2.242a1.4 1.4 0 0 1 0 1.976z" opacity="1"></path>
+                        </g>
+                    </svg>
+                    <span>Falha ao enviar! {{ msg_falha }}</span>
+                </label>    
+                {% endif %}
                 <input type="number" name="confirmar_email" id="ipt-confirmar-email" value="1" hidden>
             </div>
         </form>
