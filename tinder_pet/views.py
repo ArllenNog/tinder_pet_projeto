@@ -650,6 +650,7 @@ def meuperfil(request):
                     except Exception as e:
                         _msg_falha = e
                         _falha_envio_email = True
+                        
                 _usuario.save()
             else:#GET
                 if request.GET.get('opcao'):

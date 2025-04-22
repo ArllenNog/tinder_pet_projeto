@@ -76,6 +76,7 @@
         {% if not user_data.emailConfirmado %}
             <div class="tinder-pet-window window-alert" id="card-confirmar-email">
                 <p><b style="color: red;">Atenção! </b>Seu email precisa ser confirmado antes de adotar ou doar algum pet</p>
+                <input type="number" name="confirmar_email" id="ipt-confirmar-email" value="1" hidden>
                 <button type="submit" class="tinder-pet-button" id="btn-confirmar-email">Enviar link de confirmação</button>
                 {% if email_enviado %}
                 <br>
@@ -98,7 +99,6 @@
                     <span>Falha ao enviar! {{ msg_falha }}</span>
                 </label>    
                 {% endif %}
-                <input type="number" name="confirmar_email" id="ipt-confirmar-email" value="1" hidden>
             </div>
         {% endif %}
 
