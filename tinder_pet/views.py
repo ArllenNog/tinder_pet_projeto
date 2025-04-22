@@ -637,7 +637,7 @@ def meuperfil(request):
                             subject="Tinder Pet - Confirme seu email",
                             message=f"Clique no link a seguir para confirmar seu e-mail: {link_confirmacao}",  # Texto puro
                             from_email="comunicado@tinderpetbrasil.com",
-                            recipient_list=["arllen.nog@gmail.com"],  # Trocar
+                            recipient_list=[_usuario.email],  # Trocar
                             fail_silently=False,
                             html_message=f"""
                                 <p>Olá! Clique no link abaixo para confirmar o seu e-mail:</p>
@@ -647,10 +647,12 @@ def meuperfil(request):
                             """,
                         )
                         _email_enviado = True
+                        _usuario.emailConfirmado = True
+                        _usuario.save()
                     except Exception as e:
                         _msg_falha = e
                         _falha_envio_email = True
-                        
+
                 _usuario.save()
             else:#GET
                 if request.GET.get('opcao'):
