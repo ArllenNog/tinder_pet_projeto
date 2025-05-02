@@ -21,6 +21,11 @@ $(window).on("resize", ()=>{
     $(".photo-item-non-select").height($(".photo-item-non-select").width());
 });
 
+$("#intro-btn").click(()=>{
+    $("#tela1-a").hide();
+    $("#tela1-b").show();
+})
+
 $("#filtro-cachorros").click( () =>{
     $("#filtro-tipo").val(0);
     $("#ipt-filtro-personalizado").val(0);

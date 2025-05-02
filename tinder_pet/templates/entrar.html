@@ -13,27 +13,36 @@
     <div class="container h-100">
         <div class="row h-100">
             <div class="col d-flex flex-column justify-content-center {% if erro %} visually-hidden {% endif %}" id="tela1">
-                <h1 class="titulo-login">Entrar</h1>
-                <p class="desc-login">Entre com uma conta para poder participar do Tinder Pet</p>
-                
-                <div id="g_id_onload"
-                data-client_id="102764655596-tsna87d960g41f1cictdtdlnn9sbt5i1.apps.googleusercontent.com"
-                data-context="signin"
-                data-ux_mode="popup"
-                data-login_uri="https://tinderpetbrasil.com/auth-receiver"
-                data-auto_prompt="false">
+                <div id="tela1-a">
+                    <h1 class="tinder-pet-titulo">Bem-vindo</h1>
+                    <p class="desc-login" style="color: white;">Doe❤️, adote🏠 e apoie🤝. Graças a iniciativa e idealização do deputado federal <a href="#"><strong>Duarte Jr</strong></a>,
+                        O Tinder Pet surgiu com o objetivo de evitar abandonos, garantindo um novo lar
+                        para os nossos animais. Você também pode ajudar apoiando instituições comprometidas com a qualidade de vidas dos nossos pets. </p>
+                    <button type="button" class="tinder-pet-button" style="width: fit-content;" id="intro-btn">Entrar</button>
                 </div>
+                <div id="tela1-b" style="display: none;">
+                    <h1 class="titulo-login">Entrar</h1>
+                    <p class="desc-login">Entre com uma conta para poder participar do Tinder Pet</p>
 
-                <div class="g_id_signin"
-                data-type="standard"
-                data-shape="pill"
-                data-theme="outline"
-                data-text="continue_with"
-                data-size="large"
-                data-logo_alignment="left"
-                data-width="230">
+                    <div id="g_id_onload"
+                    data-client_id="102764655596-tsna87d960g41f1cictdtdlnn9sbt5i1.apps.googleusercontent.com"
+                    data-context="signin"
+                    data-ux_mode="popup"
+                    data-login_uri="https://tinderpetbrasil.com/auth-receiver"
+                    data-auto_prompt="false">
+                    </div>
+    
+                    <div class="g_id_signin" style="margin-bottom: 10px;"
+                    data-type="standard"
+                    data-shape="pill"
+                    data-theme="outline"
+                    data-text="continue_with"
+                    data-size="large"
+                    data-logo_alignment="left"
+                    data-width="230">
+                    </div>
+                    <a href="#" class="btn-login" id="btn-entrar-email">Continuar com email</a>
                 </div>
-                <a href="#" class="btn-login" id="btn-entrar-email">Continuar com email</a>
             </div>
             <div class="col d-flex flex-column justify-content-center {% if not erro %} visually-hidden {% endif %}" id="tela2">
                 <h1 class="titulo-login">
