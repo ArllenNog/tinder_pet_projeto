@@ -5,7 +5,7 @@
 {% csrf_token %}
 <div class="ong-cover-group">
     {% if dados.fotoCapa %}
-    <img src="{% static dados.fotoCapa %}" id="ong-foto-capa-target">
+    <img src="{{MEDIA_URL}}{{dados.fotoCapa}}" id="ong-foto-capa-target">
     {% else %}
     <img src="{% static 'images/capa.png' %}" id="ong-foto-capa-target">
     {% endif %}
@@ -27,7 +27,7 @@
             <input type="file" name="ong-foto-perfil" id="ong-foto-perfil" hidden>
             {% if dados.fotoPerfil %}
             <div class="ong-profile-photo">
-                <img src="{% static dados.fotoPerfil %}" id="ong-foto-perfil-target">
+                <img src="{{MEDIA_URL}}{{dados.fotoPerfil}}" id="ong-foto-perfil-target">
                 {% if pagina_propria %}
                 <div class="image-controls-btn">
                     <label for="ong-foto-perfil" class="btn" id="btn-change-foto-perfil-ong">
@@ -108,7 +108,7 @@
             <h3>Conheça os pets</h3>
             {% for a in anuncios %}
             <a class="ong-pet-link" href="/anuncio?id={{a.id}}">
-                <img src="{% static a.pet.fotoDestaque %}">
+                <img src="{{MEDIA_URL}}{{a.pet.fotoDestaque}}">
                 <span>{{a.pet.nome}}</span>
             </a>
             {% endfor %}
