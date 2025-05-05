@@ -547,10 +547,11 @@ body{
 .preview-foto-cad-pet
 {
     display: none;
-    /*position: relative;*/
+    position: relative;
     width: 150px;
     height: 150px;
     margin: 2px;
+    overflow: hidden;
 }
 
 .preview-foto-cad-pet img{

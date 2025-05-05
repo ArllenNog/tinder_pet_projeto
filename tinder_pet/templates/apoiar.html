@@ -13,7 +13,7 @@
         <form method="GET" action="{% url 'ong' %}">
           <input type="number" value="{{ o.id }}" name="id" hidden>
           <div class="mural-content">
-            <img src="{% static o.fotoPerfil %}" class="mural-photo">
+            <img src="{{MEDIA_URL}}{{o.fotoPerfil}}" class="mural-photo">
             <button type="submit">
               <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="80" height="80" x="0" y="0" viewBox="0 0 61.589 61.589" xml:space="preserve" class="icon-ver">
                 <g>

@@ -93,11 +93,11 @@
         <div class="photo">
             <div class="viewer">
                 {% if not edit_mode %}
-                <img src="{% static pet.fotoDestaque %}" class="raw-photo">
+                <img src="{{MEDIA_URL}}{{pet.fotoDestaque}}" class="raw-photo">
                 {% else %}
                 <input type="file" name="foto_destaque" id="foto-destaque-pet" hidden>
                     <div id="foto-destaque-pet-preview">
-                        <img src="{% static pet.fotoDestaque %}" class="raw-photo" id="foto-destaque-pet-target">
+                        <img src="{{MEDIA_URL}}{{pet.fotoDestaque}}" class="raw-photo" id="foto-destaque-pet-target">
                         <div class="image-controls-btn">
                             <label for="foto-destaque-pet" class="btn" id="btn-change-foto-destaque-pet">
                                 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" x="0" y="0" viewBox="0 0 512 512" xml:space="preserve" class="">
@@ -122,21 +122,21 @@
                 <div class="photo-list container">
                     {% if not edit_mode and pet.foto1%}
                     <div class="photo-item">
-                        <img src="{% static pet.fotoDestaque %}" class="raw-photo">
+                        <img src="{{MEDIA_URL}}{{pet.fotoDestaque}}" class="raw-photo">
                     </div>
                     {% endif %}
         
                     {% if pet.foto1 != "" or edit_mode %}
                         {% if not edit_mode %}
                             <div class="photo-item">
-                                <img src="{% static pet.foto1 %}" class="raw-photo">
+                                <img src="{{MEDIA_URL}}{{pet.foto1}}" class="raw-photo">
                             </div>
                         {% else %}
                             <div class="d-flex photo-item-non-select">
                                 <input type="file" name="foto_1" id="foto-1-pet" hidden>
                                 <input type="number" name="delete_foto_1" value="0" hidden>
                                 <div class="preview-foto-cad-pet" id="foto-1-pet-preview" {% if pet.foto1 %} style="display: inline;" {% else %} style="display: none;" {% endif %}>
-                                    <img src="{% static pet.foto1 %}" id="foto-1-pet-target">
+                                    <img src="{{MEDIA_URL}}{{pet.foto1}}" id="foto-1-pet-target">
                                     <div class="image-controls-btn">
                                         <label for="foto-1-pet" class="btn" id="btn-change-foto-1-pet">
                                             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" x="0" y="0" viewBox="0 0 512 512" xml:space="preserve" class="">
@@ -168,14 +168,14 @@
                     {% if pet.foto2 != "" or edit_mode %}
                         {% if not edit_mode %}
                             <div class="photo-item">
-                                <img src="{% static pet.foto2 %}" class="raw-photo">
+                                <img src="{{MEDIA_URL}}{{pet.foto2}}" class="raw-photo">
                             </div>
                         {% else %}
                             <div class="d-flex photo-item-non-select">
                                 <input type="file" name="foto_2" id="foto-2-pet" hidden>
                                 <input type="number" name="delete_foto_2" value="0" hidden>
                                 <div class="preview-foto-cad-pet" id="foto-2-pet-preview" {% if pet.foto2 %} style="display: inline;" {% else %} style="display: none;" {% endif %}>
-                                    <img src="{% static pet.foto2 %}" id="foto-2-pet-target">
+                                    <img src="{{MEDIA_URL}}{{pet.foto2}}" id="foto-2-pet-target">
                                     <div class="image-controls-btn">
                                         <label for="foto-2-pet" class="btn" id="btn-change-foto-2-pet">
                                             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" x="0" y="0" viewBox="0 0 512 512" xml:space="preserve" class="">
@@ -207,14 +207,14 @@
                     {% if pet.foto3 != "" or edit_mode %}
                         {% if not edit_mode %}
                         <div class="photo-item">
-                            <img src="{% static pet.foto3 %}" class="raw-photo">
+                            <img src="{{MEDIA_URL}}{{pet.foto3}}" class="raw-photo">
                         </div>
                         {% else %}
                         <div class="d-flex photo-item-non-select">
                             <input type="file" name="foto_3" id="foto-3-pet" hidden>
                             <input type="number" name="delete_foto_3" value="0" hidden>
                             <div class="preview-foto-cad-pet" id="foto-3-pet-preview" {% if pet.foto3 %} style="display: inline;" {% else %} style="display: none;" {% endif %}>
-                                <img src="{% static pet.foto3 %}" id="foto-3-pet-target">
+                                <img src="{{MEDIA_URL}}{{pet.foto3}}" id="foto-3-pet-target">
                                 <div class="image-controls-btn">
                                     <label for="foto-3-pet" class="btn" id="btn-change-foto-3-pet">
                                         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" x="0" y="0" viewBox="0 0 512 512" xml:space="preserve" class="">
@@ -246,14 +246,14 @@
                     {% if pet.foto4 != "" or edit_mode %}
                         {% if not edit_mode %}
                         <div class="photo-item">
-                            <img src="{% static pet.foto4 %}" class="raw-photo">
+                            <img src="{{MEDIA_URL}}{{pet.foto4}}" class="raw-photo">
                         </div>
                         {% else %}
                         <div class="d-flex photo-item-non-select">
                             <input type="file" name="foto_4" id="foto-4-pet" hidden>
                             <input type="number" name="delete_foto_4" value="0" hidden>
                             <div class="preview-foto-cad-pet" id="foto-4-pet-preview" {% if pet.foto4 %} style="display: inline;" {% else %} style="display: none;" {% endif %}>
-                                <img src="{% static pet.foto4 %}" id="foto-4-pet-target">
+                                <img src="{{MEDIA_URL}}{{pet.foto4}}" id="foto-4-pet-target">
                                 <div class="image-controls-btn">
                                     <label for="foto-4-pet" class="btn" id="btn-change-foto-4-pet">
                                         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" x="0" y="0" viewBox="0 0 512 512" xml:space="preserve" class="">
@@ -457,7 +457,7 @@
                             {% if not c.usuario.isONG %}
                                 <img width="30px" src="{{c.usuario.fotoPerfil}}" >
                             {% else %}
-                                <img width="30px" src="{% static c.usuario.fotoPerfil %}" >
+                                <img width="30px" src="{{MEDIA_URL}}{{c.usuario.fotoPerfil}}" >
                             {% endif %}
                         {% else %}
                         <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
@@ -496,7 +496,7 @@
                     <label for="comentario-ipt">Comentar como <img width="30px" src="{{usuario_min.picture}}"> <b style="color: #5ab031;">{{ usuario_min.given_name }}</b></label>
                 {% else %}
                     {% if usuario_full.nomeONG %}
-                        <label for="comentario-ipt">Comentar como <img width="30px" src="{% static usuario_full.fotoPerfil %}"> <b style="color: #5ab031;">{{ usuario_full.nomeONG }}</b></label>
+                        <label for="comentario-ipt">Comentar como <img width="30px" src="{{MEDIA_URL}}{{usuario_full.fotoPerfil}}"> <b style="color: #5ab031;">{{ usuario_full.nomeONG }}</b></label>
                     {% else %}
                         <label for="comentario-ipt">Comentar como <img width="30px" src="{{usuario_min.picture}}"> <b style="color: #5ab031;">{{ usuario_min.given_name }}</b></label>
                     {% endif %}

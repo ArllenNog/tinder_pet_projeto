@@ -567,26 +567,29 @@ def anunciar(request):
 
 def salvarFoto(foto):
     # Caminho para o diretório 'static' dentro do app 'tinder_pet'
-    pasta_static = os.path.join(settings.BASE_DIR, 'tinder_pet', 'static', 'uploads')  # Ajuste para a pasta do seu app
+    pasta_media = os.path.join(settings.MEDIA_ROOT, 'uploads')
     
     # Cria a pasta se não existir
-    os.makedirs(pasta_static, exist_ok=True)
+    os.makedirs(pasta_media, exist_ok=True)
     
     # Gera um nome único para o arquivo
     nome_arquivo = f"{uuid.uuid4().hex}{os.path.splitext(foto.name)[1]}"  # Ex: 'f3d74b9b6f8c4d5c.png'
     
     # Caminho completo para salvar o arquivo
-    caminho_arquivo = os.path.join(pasta_static, nome_arquivo)
+    caminho_arquivo = os.path.join(pasta_media, nome_arquivo)
     
     # Salva o arquivo
     with open(caminho_arquivo, 'wb+') as f:
         for chunk in foto.chunks():
             f.write(chunk)
-    
+
     return nome_arquivo
 
 def excluirFoto(file_path):
-    caminho_arquivo = os.path.join(settings.BASE_DIR, 'tinder_pet', 'static', file_path)
+    # Caminho completo do arquivo dentro da pasta MEDIA_ROOT
+    caminho_arquivo = os.path.join(settings.MEDIA_ROOT, file_path)
+
+    # Verifica se o arquivo existe e remove
     if os.path.exists(caminho_arquivo):
         os.remove(caminho_arquivo)
 
